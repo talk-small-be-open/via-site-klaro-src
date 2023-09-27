@@ -1,0 +1,3 @@
+testing
+isModeAutomatic
+	^ gameMode = #automatic

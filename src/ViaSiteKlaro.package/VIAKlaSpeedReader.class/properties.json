@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "VIATask",
+	"category" : "ViaSiteKlaro-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"texts"
+	],
+	"name" : "VIAKlaSpeedReader",
+	"type" : "normal"
+}

@@ -1,0 +1,3 @@
+testing
+isModeManual
+	^ gameMode = #manual

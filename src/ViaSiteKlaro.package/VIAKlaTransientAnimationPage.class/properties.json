@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAKlaPageComponent",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"nextPageCallback",
+		"animationName",
+		"nextPageName"
+	],
+	"name" : "VIAKlaTransientAnimationPage",
+	"type" : "normal"
+}

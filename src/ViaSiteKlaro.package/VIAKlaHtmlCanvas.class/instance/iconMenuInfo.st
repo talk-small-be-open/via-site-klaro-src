@@ -1,0 +1,3 @@
+icons
+iconMenuInfo
+	self iconInfo

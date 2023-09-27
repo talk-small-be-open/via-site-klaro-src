@@ -1,0 +1,4 @@
+accessing
+animationName
+
+	^ animationName

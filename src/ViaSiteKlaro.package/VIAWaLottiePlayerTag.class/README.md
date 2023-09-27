@@ -1,0 +1,1 @@
+See https://docs.lottiefiles.com/dotlottie-players/components/player-component

@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAError",
+	"category" : "ViaSiteKlaro-Misc",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIAKlaHepUserError",
+	"type" : "normal"
+}

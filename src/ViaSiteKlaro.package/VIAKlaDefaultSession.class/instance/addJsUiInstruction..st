@@ -1,0 +1,3 @@
+adding
+addJsUiInstruction: aBlockTakingJsScript
+	jsUiInstructions add: aBlockTakingJsScript

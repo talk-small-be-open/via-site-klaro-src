@@ -1,0 +1,3 @@
+as yet unclassified
+suggestedGenericAssetName
+	^ speedReaderTaskBrick genericAssetNameForText: text

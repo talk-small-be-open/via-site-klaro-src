@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAAnswerItem",
+	"category" : "ViaSiteKlaro-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"doneManual",
+		"doneAutomatic"
+	],
+	"name" : "VIAKlaSpeedReadTextAnswerItem",
+	"type" : "normal"
+}

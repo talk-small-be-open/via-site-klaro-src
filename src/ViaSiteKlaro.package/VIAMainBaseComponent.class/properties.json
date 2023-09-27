@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAFrontendMainBaseComponent",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"flashMessages",
+		"mainMenu",
+		"menuRenderer",
+		"backtraced"
+	],
+	"name" : "VIAMainBaseComponent",
+	"type" : "normal"
+}

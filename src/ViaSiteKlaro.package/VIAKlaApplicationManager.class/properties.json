@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAApplicationManager",
+	"category" : "ViaSiteKlaro-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIAKlaApplicationManager",
+	"type" : "normal"
+}

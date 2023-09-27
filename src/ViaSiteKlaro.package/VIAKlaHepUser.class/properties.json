@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "AndreasBrodbeck 7/1/2020 09:34",
+	"super" : "VIAExternalAuthUser",
+	"category" : "ViaSiteKlaro-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"groups",
+		"isEmailConfirmed",
+		"apiToken"
+	],
+	"name" : "VIAKlaHepUser",
+	"type" : "normal"
+}

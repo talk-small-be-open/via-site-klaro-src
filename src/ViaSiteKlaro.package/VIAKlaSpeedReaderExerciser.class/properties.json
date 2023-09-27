@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "VIATaskBrickExerciser",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"gameBoardId",
+		"currentTextNumber",
+		"gameMode",
+		"step"
+	],
+	"name" : "VIAKlaSpeedReaderExerciser",
+	"type" : "normal"
+}

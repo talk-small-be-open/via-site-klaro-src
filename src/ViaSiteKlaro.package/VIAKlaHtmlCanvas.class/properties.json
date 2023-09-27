@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAHtmlCanvas",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIAKlaHtmlCanvas",
+	"type" : "normal"
+}

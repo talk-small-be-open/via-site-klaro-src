@@ -1,0 +1,4 @@
+accessing
+audioAsset
+
+	^ audioAsset

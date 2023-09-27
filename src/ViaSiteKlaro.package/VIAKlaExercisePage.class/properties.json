@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAKlaPageComponent",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"moduleExerciser"
+	],
+	"name" : "VIAKlaExercisePage",
+	"type" : "normal"
+}

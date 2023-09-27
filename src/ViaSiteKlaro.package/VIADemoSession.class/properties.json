@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAKlaDefaultSession",
+	"category" : "ViaSiteKlaro-View-Demo",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIADemoSession",
+	"type" : "normal"
+}

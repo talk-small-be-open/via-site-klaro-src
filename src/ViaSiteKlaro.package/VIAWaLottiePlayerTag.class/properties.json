@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "AndreasBrodbeck 9/22/2023 10:39",
+	"super" : "WATagBrush",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIAWaLottiePlayerTag",
+	"type" : "normal"
+}
