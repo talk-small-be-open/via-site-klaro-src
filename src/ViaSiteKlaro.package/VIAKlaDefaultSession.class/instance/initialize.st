@@ -5,4 +5,4 @@ initialize
 	jsUiInstructions := OrderedCollection new.
 "	self clearJsUiInstructions."
 	
-	self addJsUiInstruction: [ :js | js alert: 'Hihihoho!' ]
+"	self addJsUiInstruction: [ :js | js alert: 'Hihihoho Test Test!' ]"
