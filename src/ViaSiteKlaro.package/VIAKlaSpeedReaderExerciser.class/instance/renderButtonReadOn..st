@@ -1,5 +1,5 @@
 rendering
-renderButtonReadOn: html.
+renderButtonReadOn: html
 	html span
 		class: 'mainButton read';
 		class: 'active' if: self isStepRead;
