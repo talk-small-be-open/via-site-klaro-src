@@ -1,4 +1,4 @@
-actions
+obsolete
 gotoModule: aModule task: aTask
 	| myModuleInWork |
 

@@ -8,5 +8,8 @@ findOrCreateViaUserWebsite: aWebsite
 	viaUser
 		firstName: firstName;
 		lastName: lastName.
+
+	"Klaro defaults to autologin, thats very much easier for kids"
+	viaUser presetAutologin: true.
 		
 	^ viaUser

@@ -1,7 +1,7 @@
 as yet unclassified
-module: aModule moduleExercise: aModuleExercise
+fromModuleExercise: aModuleExercise
 	^self basicNew
-		setModel: aModule;
+		setModel: aModuleExercise module;
 		setModuleExercise: aModuleExercise;
 		initialize;
 		start;

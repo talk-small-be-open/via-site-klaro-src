@@ -11,12 +11,11 @@ renderContentOn: html
 "		self renderP2pSynchronizationOn: html."
 "		self renderToolbarOn: html"
 "		self renderTestdriveToolsOn: html."
-		self ifDevelopment: [
-			html div class: 'developerTools'; with: [
-				html anchor callback: [ self restart ]; with: 'RESTART'.
-				html space.
-				html anchor callback: [ self gotoModeAutomatic ]; with: 'AUTO'.
-			]
+		self renderBetatestOn: html with: [
+			html span: 'BETATEST: '.
+			html anchor callback: [ self restart ]; with: 'RESTART'.
+			html space.
+			html anchor callback: [ self gotoModeAutomatic ]; with: 'GOTO-AUTO'.
 		]
 	].
 

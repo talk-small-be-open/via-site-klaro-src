@@ -2,29 +2,37 @@ rendering
 renderPageContentOn: html
 	self renderTopbarOn: html.
 
-	module ifNil: [ ^ self ].
+	moduleExercise ifNil: [ ^ self ].
 	
 	html div class: 'title'; with: [
-		html div: module indexCodeString ].
+		html div: self module indexCodeString ].
 	
-	module tasks do: [ :each | 
+	self tasks do: [ :each |
+		| taskExercise |
+		taskExercise := moduleExercise exerciseForTask: each.
+		
 		html div
 			class: 'exercisePanel';
-			with: [ 
-				self
-					renderGotoPage: 'exercise'
-					animation: 'lottie-test'
-					callback: [ :page | page gotoModule: module task: each ]
-					on: html
-					with: [ 
-						html div
-							class: 'exercisePanel';
-							with: [ 
-								html span: each title
-							]
-	] ] ].
+			with: [
+				(self canGotoTaskExercise: taskExercise) ifTrue: [
+					self
+						renderGotoPage: 'exercise'
+						animation: 'lottie-test'
+						callback: [ :page | page gotoTaskExercise: taskExercise ]
+						on: html
+						with: [ 
+							html div
+								class: 'exerciseLink';
+								with: [ 
+									html span: each title.
+									taskExercise isFinished
+										ifTrue: [ html span: 'o <>' ]
+										ifFalse: [ html span: '. ->' ].
+								].
+						].
+					html div: '[INFO]'
+				] ifFalse: [ 
+					html span: 'GESPERRT' ]
+			]
+	].
 
-	self ifDevelopment: [ 
-		html anchor
-			callback: [ self currentPortfolio clear ];
-			with: 'DEV: Clear portfolio' ]

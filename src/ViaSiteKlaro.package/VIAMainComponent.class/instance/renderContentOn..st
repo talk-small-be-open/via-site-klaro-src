@@ -8,4 +8,8 @@ renderContentOn: html
 "			self isExercising ifFalse: ["
 	self renderFooterOn: html.
 	
-	self renderAdminFrontendToolsOn: html
+	self renderAdminFrontendToolsOn: html.
+	
+	self ifDevelopment: [
+		self renderDevelopmentToolsOn: html
+	]

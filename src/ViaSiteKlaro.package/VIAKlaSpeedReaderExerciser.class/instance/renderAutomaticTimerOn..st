@@ -13,5 +13,5 @@ renderAutomaticTimerOn: html
 "	html script: ((html jsPagerAction: [ self gotoNext ]) setTimeout: 3 second)"
 
 	html span
-		onClick: 'countdown_pause();';
+		onClick: 'countdown_toggle();';
 		with: 'pause/play'

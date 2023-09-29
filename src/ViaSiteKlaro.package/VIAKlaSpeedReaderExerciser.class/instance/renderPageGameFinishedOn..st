@@ -1,6 +1,8 @@
 rendering
 renderPageGameFinishedOn: html
 
-	html div: 'FINISHD'.
-		
-	self renderProgressOn: html.
+	"Should never really stay on this page, since the outer mechanism will switch pages"
+
+	html div: 'Deine Übung ist fertig.'.
+
+"	self renderProgressOn: html."

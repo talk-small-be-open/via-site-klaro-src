@@ -1,3 +1,3 @@
 actions
 gotoModule: aModule
-	module := aModule
+	self gotoModuleExercise: (self currentPortfolio exerciseForModule: aModule).

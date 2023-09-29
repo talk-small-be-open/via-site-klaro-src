@@ -1,15 +1,6 @@
 as yet unclassified
 finish
-
-	"Mehrfach-Robustheit"
-	self isFinished ifTrue: [^self].
+	super finish.
 	
-	exercise beFinished.
-"	self removeDecoration: formDecoration.
-	formDecoration := nil."
-	
-"	self show: ((VIAAurExerciserFinishedComponent exercise: exercise)
-		displayCongratulation;
-		yourself) onAnswer: [self close]."
-
+	"Always close"
 	self close

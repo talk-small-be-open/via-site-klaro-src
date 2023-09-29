@@ -1,5 +1,3 @@
 instance creation
 named: aString
-	^ self new
-		animationName: aString;
-		yourself
+	^ self named: aString css: nil

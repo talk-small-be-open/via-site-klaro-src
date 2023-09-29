@@ -5,7 +5,9 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"rewardComponent"
+	],
 	"name" : "VIAKlaRewardPage",
 	"type" : "normal"
 }

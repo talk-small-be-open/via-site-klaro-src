@@ -6,7 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"currentStationNumber",
 		"jsUiInstructions"
 	],
 	"name" : "VIAKlaDefaultSession",

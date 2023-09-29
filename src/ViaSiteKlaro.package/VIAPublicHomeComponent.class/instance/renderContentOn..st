@@ -12,7 +12,6 @@ renderContentOn: html
 					target: '_self';
 					with: [
 						html span: [
-							html iconLogin; space.
 							html sT: 'publicHome:login' ] ]
 			] ifFalse: [
 				html div pT: 'publicHome:loginDisabled'

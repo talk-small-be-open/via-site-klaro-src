@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"animationName"
+		"animationName",
+		"cssClass"
 	],
 	"name" : "VIAKlaLottieAnimation",
 	"type" : "normal"

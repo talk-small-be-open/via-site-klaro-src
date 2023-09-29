@@ -1,6 +1,8 @@
 as yet unclassified
 uiGotoPage: aPage
 	self currentPage: aPage.
+
+"	self session addJsUiInstruction: [ :js | js alert: 'will change page ...' ]."
 	
 	self session addJsUiInstruction: [ :js |
 		js << (((js jQuery id: aPage htmlId) load)

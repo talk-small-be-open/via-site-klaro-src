@@ -1,4 +1,6 @@
 rendering
 renderPageContentOn: html
 
-	html div: 'REWARD'
+	self renderTopbarOn: html.
+
+	html render: rewardComponent

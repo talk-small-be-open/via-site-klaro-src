@@ -2,4 +2,4 @@ initialization
 initialize
 	super initialize.
 	
-	self refresh.
+	rewardComponent := VIAKlaRewardComponent new.

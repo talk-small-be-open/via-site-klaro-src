@@ -22,16 +22,22 @@ renderKlaSpeedReadText: aSpeedReadText on: html
 					beOptional;
 					on: #audioAsset of: aSpeedReadText ].
 
-			html skColumnWidth: 'four' with: [
+			html skColumnWidth: 'two' with: [
 				aSpeedReadText audioAsset
 					ifNil: [
 						html badgeWarning: 'no audio found'.
 						html span: aSpeedReadText suggestedGenericAssetName.
 					]
 					ifNotNil: [ :asset |
-						html audio
+						asset renderPreviewOn: html.
+"						html audio
 							controls: true;
-							url: asset audioUrl ].
-			]
+							url: asset audioUrl" ].
+			].
+			html skColumnWidth: 'two' with: [
+				html anchor
+					callback: [ aSpeedReadText deleteMe ];
+					with: [ html iconDelete; space; text: 'Delete' ].
+			].
 		]
 	]

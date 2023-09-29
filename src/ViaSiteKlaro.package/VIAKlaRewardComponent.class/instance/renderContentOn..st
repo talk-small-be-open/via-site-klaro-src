@@ -1,3 +1,3 @@
 rendering
 renderContentOn: html
-	html div: 'HERE iS YOUR RewarD'
+	html div: 'HERE iS YOUR Reward !!! $$$$$$$'

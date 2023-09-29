@@ -17,12 +17,12 @@ jsGotoPage: aNameString callback: anActionBlock on: html
 	
 	^ html jQuery ajax
 		script: [ :js |
-"			self currentPage: page."
-
-			self uiGotoPage: page.
 
 			anActionBlock ifNotNil: [
 				anActionBlock cull: page ].
+
+			self uiGotoPage: page.
+			
 			self session jsUiInstructionsOn: js.
 "			js << ((self jsReloadPage: aNameString on: js)
 				onComplete: ((JSStream on: 'window') call: 'pager_gotoPage' with: ('#', htmlId) with: ('#', page htmlId)))"

@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"module"
+		"moduleExercise",
+		"nextTask"
 	],
 	"name" : "VIAKlaStationPage",
 	"type" : "normal"
