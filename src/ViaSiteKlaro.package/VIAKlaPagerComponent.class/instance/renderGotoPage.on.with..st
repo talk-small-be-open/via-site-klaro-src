@@ -1,5 +1,5 @@
 rendering
-renderGotoPage: aNameString with: aRenderBlock on: html
+renderGotoPage: aNameString on: html with: aRenderBlock
 
 	self
 		renderGotoPage: aNameString

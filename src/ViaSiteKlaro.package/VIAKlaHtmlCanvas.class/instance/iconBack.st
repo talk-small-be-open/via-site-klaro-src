@@ -1,3 +1,3 @@
 icons
 iconBack
-	^self ukIcon: 'chevron-double-left'
+	self svgImage: 'menu_zurueck'

@@ -1,6 +1,9 @@
 rendering
 renderAutomaticStepSpeakOn: html
-	self renderSpeedTextAreaOn: html with: nil.
+	self renderSpeedTextAreaOn: html with: [
+		html div
+			class: 'speedText';
+			with: '...' ].
 
 	self renderNavigationAreaOn: html with: [
 		self renderButtonReadOn: html.

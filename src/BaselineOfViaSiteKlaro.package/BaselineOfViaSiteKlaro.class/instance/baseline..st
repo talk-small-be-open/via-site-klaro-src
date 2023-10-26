@@ -9,7 +9,7 @@ baseline: spec
 		spec baseline: 'Via' with: [
 			spec
 				repository: viaRepo;
-				loads: #('default')
+				loads: #('default' 'hep')
 		].
 	
 		spec baseline: 'ViaWithTests' with: [

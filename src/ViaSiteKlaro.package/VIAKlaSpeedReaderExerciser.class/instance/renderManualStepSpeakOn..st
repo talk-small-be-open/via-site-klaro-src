@@ -1,7 +1,11 @@
 rendering
 renderManualStepSpeakOn: html
 
-	self renderSpeedTextAreaOn: html with: nil.
+	self renderSpeedTextAreaOn: html with: [
+		html div
+			class: 'speedText';
+			with: '...' ].
+	
 	self renderNavigationAreaOn: html with: [
 		html pagerAction: [ self gotoStepRead ] with: [ self renderButtonReadOn: html ].
 		self renderButtonSpeakOn: html.

@@ -21,13 +21,13 @@ renderProgressOn: html
 				oldPercentage := (VIAHelper percentage: counter-1 of: self maxTextNumber).
 				bar
 					style: ('width:', oldPercentage greaseString, '%');
-					script: (html animeJs easeInOutQuad; optionAt: 'width' put: percentage).
+					script: (html animeJs easeInOutQuad; duration: 300; optionAt: 'width' put: percentage).
 			] ifFalse: [
 				bar style: ('min-width:1em;width:', percentage greaseString, '%').
 			].
 		
 			"Show 100% on the last step. Otherwise we would never show that"
 			(self isLastText and: [ self isLastStep ]) ifTrue: [ 
-				bar script: (html animeJs easeInOutQuad; optionAt: 'width' put: 100).
+				bar script: (html animeJs easeInOutQuad; duration: 300; optionAt: 'width' put: 100).
 			]
 		]

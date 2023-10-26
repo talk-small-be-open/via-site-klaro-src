@@ -1,8 +1,9 @@
 rendering
 renderTitlePanelOn: html
-	html div class: 'titlePanel'; with: [ 
-		html span: self module indexCodeString.
-		html space; space.
-		self renderScoreOn: html.
-		currentExerciser renderTitlePanelContentOn: html.
+	html div class: 'titlePanel'; with: [
+		html div: [
+			html iconStation: self module indexCodeString.
+			self renderScoreOn: html ].
+		html div: [
+			currentExerciser renderTitlePanelContentOn: html ].
 	]
