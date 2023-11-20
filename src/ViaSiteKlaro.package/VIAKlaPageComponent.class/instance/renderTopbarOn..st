@@ -9,7 +9,7 @@ renderTopbarOn: html
 				with: [ "		self renderLogoOn: html." 
 					self renderGotoPage: 'navigator' on: html with: [
 						html iconBack.
-						html text: 'Zurück'
+						html text: 'zurück'
 					] ].
 			html div
 				class: 'topbarCenter';

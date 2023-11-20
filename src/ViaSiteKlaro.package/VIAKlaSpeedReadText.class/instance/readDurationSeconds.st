@@ -1,3 +1,3 @@
 as yet unclassified
 readDurationSeconds
-	^ ((text size) // 2) max: 3
+	^ ((self characterCount) // 4) max: 2

@@ -1,14 +1,14 @@
 {
 	"commentStamp" : "",
-	"super" : "JSObject",
+	"super" : "VIAKlaJsAnimeBase",
 	"category" : "ViaSiteKlaro-View-Javascript",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"targets",
-		"id",
-		"options"
+		"options",
+		"paths",
+		"optionsCollection"
 	],
 	"name" : "VIAKlaJsAnime",
 	"type" : "normal"

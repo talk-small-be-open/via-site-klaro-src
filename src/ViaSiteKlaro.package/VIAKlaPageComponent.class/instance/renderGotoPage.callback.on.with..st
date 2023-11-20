@@ -1,4 +1,4 @@
-rendering
+paging
 renderGotoPage: aNameString callback: anActionBlock on: html with: aRenderBlock
 
 	pager

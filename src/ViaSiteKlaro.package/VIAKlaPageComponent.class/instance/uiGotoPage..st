@@ -1,3 +1,3 @@
-as yet unclassified
+paging
 uiGotoPage: aPage
 	pager uiGotoPage: aPage

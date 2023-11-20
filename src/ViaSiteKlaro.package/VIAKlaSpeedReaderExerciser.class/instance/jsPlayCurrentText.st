@@ -1,3 +1,9 @@
 as yet unclassified
 jsPlayCurrentText
-	^ JSStream on: ('PIXI.sound.play("', (self currentAudioAsset uuidString), '");')
+	| js |
+	js := JSStream new.
+	
+	self currentAudioAsset ifNotNil: [ :audio |
+		js nextPutAll: ('PIXI.sound.play("', (audio uuidString), '");') ].
+
+	^ js

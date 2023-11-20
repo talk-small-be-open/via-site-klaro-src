@@ -2,9 +2,8 @@ rendering
 renderManualStepSpeakOn: html
 
 	self renderSpeedTextAreaOn: html with: [
-		html div
-			class: 'speedText';
-			with: '...' ].
+		html imgSignEllipsis
+	].
 	
 	self renderNavigationAreaOn: html with: [
 		html pagerAction: [ self gotoStepRead ] with: [ self renderButtonReadOn: html ].

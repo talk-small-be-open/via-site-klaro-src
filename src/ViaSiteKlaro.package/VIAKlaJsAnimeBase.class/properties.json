@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "JSObject",
+	"category" : "ViaSiteKlaro-View-Javascript",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIAKlaJsAnimeBase",
+	"type" : "normal"
+}

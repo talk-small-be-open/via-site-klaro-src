@@ -6,10 +6,10 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"text",
 		"audioAsset",
 		"speedReaderTaskBrick",
-		"styleName"
+		"styleName",
+		"textPillar"
 	],
 	"name" : "VIAKlaSpeedReadText",
 	"type" : "normal"

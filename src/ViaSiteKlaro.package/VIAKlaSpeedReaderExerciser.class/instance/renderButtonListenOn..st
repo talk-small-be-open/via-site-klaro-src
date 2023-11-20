@@ -3,7 +3,7 @@ renderButtonListenOn: html
 
 	html span
 		class: 'mainButton listen';
-		class: 'active' if: self isStepListen;
-		onClick: self jsPlayCurrentText;
+"		class: 'active' if: self isStepListen;"
+"		onClick: self jsPlayCurrentText;"
 		with: [ 
-			html imgSignListen ]
+			html imgSignListen: self isStepListen ]

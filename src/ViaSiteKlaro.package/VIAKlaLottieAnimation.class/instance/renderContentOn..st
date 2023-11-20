@@ -1,10 +1,16 @@
 rendering
 renderContentOn: html
-
-	html lottiePlayer
-		src: ('/site/animations/', animationName, '.lottie');
-		class: 'lottieAnimation';
+	| jsClose |
+	
+	jsClose := (html jsPagerAction: [ self close ]).
+	
+	html div class: 'lottieAnimation';
+"		class: 'lottieAnimation';"
 		class: animationName;
 		class: cssClass;
-		autoplay: true;
-		onComplete: (html jsPagerAction: [ self close ])
+		onClick: jsClose;
+		with: [
+			html lottiePlayer
+				src: ('/site/animations/', animationName, '.lottie');
+				autoplay: true;
+				onComplete: jsClose ].

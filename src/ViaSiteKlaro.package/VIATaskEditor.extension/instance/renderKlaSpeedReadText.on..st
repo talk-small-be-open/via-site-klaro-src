@@ -7,8 +7,9 @@ renderKlaSpeedReadText: aSpeedReadText on: html
 
 		html skRow: [
 			html skColumnWidth: 'four' with: [
-				html textInput
-					on: #text of: aSpeedReadText.
+				self renderPillarObjectInput: aSpeedReadText textPillar on: html.
+"				html textInput
+					on: #text of: aSpeedReadText."
 				html select
 					list: aSpeedReadText possibleStyleNames;
 					beOptional;

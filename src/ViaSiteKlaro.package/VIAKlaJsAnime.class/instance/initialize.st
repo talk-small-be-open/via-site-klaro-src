@@ -2,4 +2,7 @@ as yet unclassified
 initialize
 	super initialize.
 
-	options := Dictionary new.
+	optionsCollection := OrderedCollection new.
+	paths := OrderedCollection new.
+	
+	self timelineNext.

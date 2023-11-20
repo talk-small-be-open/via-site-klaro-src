@@ -1,3 +1,3 @@
 testing
 canGotoModuleExercise: aModuleExercise
-	^ aModuleExercise isUntouched not or: [ nextExercise = aModuleExercise ]
+	^ aModuleExercise isUntouched not or: [ currentExercise = aModuleExercise ]

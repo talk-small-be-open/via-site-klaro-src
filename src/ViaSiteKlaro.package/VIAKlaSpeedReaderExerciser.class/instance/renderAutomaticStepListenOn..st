@@ -1,6 +1,16 @@
 rendering
 renderAutomaticStepListenOn: html
-	self renderCurrentTextOn: html.
+	self renderSpeedTextAreaOn: html with: [
+		html imgSignSound
+	].
+
+	self preloadTimerAnimeOn: html with: [ :animeJs |
+		animeJs
+			targets: 'div.speedTextArea svg.sign.sound';
+			easing: 'linear';
+			color: '#BB1264'
+	].
+
 
 	self renderNavigationAreaOn: html with: [
 		self renderButtonReadOn: html.

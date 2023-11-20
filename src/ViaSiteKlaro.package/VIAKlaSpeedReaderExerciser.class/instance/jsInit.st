@@ -4,17 +4,19 @@ jsInit
 	js := JSStream new.
 	
 	self allTexts do: [ :each |
-		| id |
-		id := each audioAsset uuidString.
-		
-		js nextPutAll: 'if (!PIXI.sound.exists("'.
-		js nextPutAll: id.
-		js nextPutAll: '")) {'.
-		js nextPutAll: 'PIXI.sound.add("'.
-		js nextPutAll: id.
-		js nextPutAll: '", "'.
-		js nextPutAll: each audioAsset audioUrl.
-		js nextPutAll: '")}'
+		each audioAsset ifNotNil: [ :audio |
+			| id |
+			id := audio uuidString.
+			
+			js nextPutAll: 'if (!PIXI.sound.exists("'.
+			js nextPutAll: id.
+			js nextPutAll: '")) {'.
+			js nextPutAll: 'PIXI.sound.add("'.
+			js nextPutAll: id.
+			js nextPutAll: '", "'.
+			js nextPutAll: audio audioUrl.
+			js nextPutAll: '")}'
+		]
 	].
 
 	^ js

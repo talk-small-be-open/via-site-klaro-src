@@ -5,7 +5,9 @@ uiGotoPage: aPage
 "	self session addJsUiInstruction: [ :js | js alert: 'will change page ...' ]."
 	
 	self session addJsUiInstruction: [ :js |
-		js << (((js jQuery id: aPage htmlId) load)
-			html: [ :h | self renderPage: aPage contentOn: h ];
+		"Get the page-specific JS-piece to refresh-update its content. Default is to complete re-render.
+		After that, change the page in the UI
+		"
+		js << (aPage jsUpdatePageOn: js)
 			onComplete: ((JSStream on: 'window') call: 'pager_gotoPage' with: ('#', htmlId) with: ('#', aPage htmlId));
-			yourself) ].
+			yourself ].

@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"moduleExercises",
-		"nextExercise"
+		"currentExercise",
+		"lastInWorkExercise"
 	],
 	"name" : "VIAKlaNavigatorPage",
 	"type" : "normal"

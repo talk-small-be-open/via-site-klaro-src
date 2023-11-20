@@ -1,0 +1,3 @@
+initialization
+set
+	^ VIAKlaJsAnimeSet new

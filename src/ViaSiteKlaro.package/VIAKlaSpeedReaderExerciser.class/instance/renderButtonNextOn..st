@@ -1,4 +1,4 @@
 rendering
 renderButtonNextOn: html
 	html span class: 'nextButton'; with: [ 
-		html imgSignPlay ]
+		html imgSignNext1 ]

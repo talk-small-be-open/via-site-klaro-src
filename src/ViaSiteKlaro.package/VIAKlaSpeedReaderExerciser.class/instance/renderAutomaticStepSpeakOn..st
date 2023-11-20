@@ -1,9 +1,16 @@
 rendering
 renderAutomaticStepSpeakOn: html
 	self renderSpeedTextAreaOn: html with: [
-		html div
-			class: 'speedText';
-			with: '...' ].
+		html imgSignEllipsis
+	].
+
+	self preloadTimerAnimeOn: html with: [ :animeJs |
+		animeJs
+			targets: 'div.speedTextArea svg.sign.ellipsis';
+			easing: 'linear';
+			color: '#BB1264'
+	].
+
 
 	self renderNavigationAreaOn: html with: [
 		self renderButtonReadOn: html.
