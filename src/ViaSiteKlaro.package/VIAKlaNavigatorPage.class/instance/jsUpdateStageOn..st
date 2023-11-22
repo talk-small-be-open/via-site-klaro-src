@@ -13,6 +13,14 @@ jsUpdateStageOn: html
 			translateY: (JSStream on: 'svgPath.pointAt(svgPath.length()).y')
 		).
 		updateScript << (((html jQuery id: 'Hexe_Klara') get: 0) call: 'scrollIntoView' with: {#block->'center'} aD ).
+	] ifNil: [
+		"Place the witch to start"
+		updateScript addLiteral: ('svgPath = SVG("#Pfad_zu_01");').
+		updateScript << ((html animeJs set: '#Hexe_Klara')
+			translateX: (JSStream on: 'svgPath.pointAt(0).x');
+			translateY: (JSStream on: 'svgPath.pointAt(0).y')
+		).
+	
 	].
 
 	"Test add circle"

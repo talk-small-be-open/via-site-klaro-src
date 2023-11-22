@@ -13,7 +13,7 @@ renderPageContentOn: html
 	"Lazy load inline SVG, see library see https://github.com/shubhamjain/svg-loader"
 	stage := html svg
 		class: 'navigatorStage';
-		attributeAt: 'preserveAspectRatio' put: 'xMidYMin slice';
+		attributeAt: 'preserveAspectRatio' put: 'xMidYMin slice'; "cut off the invisible stuff in x-Axis"
 		attributeAt: 'data-js' put: 'enabled'; "have no JS anway, but disable removing, better performance maybe"
 		attributeAt: 'data-cache' put: 'disabled'; "or 21600 for 6h"
 		attributeAt: 'data-unique-ids' put: 'disabled';

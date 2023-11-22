@@ -24,22 +24,30 @@ renderPageContentOn: html
 						html div
 							class: 'exercisePanel';
 							with: [
-								html div
-									class: 'exerciseTitle';
-									with: each title.
-									
-								taskExercise isFinished ifTrue: [
-									html span class: 'progress'; with: [ html iconProgressFromPercent: 100 ].
-									html span class: 'actionSymbol'; with: [ html iconRepeat ].
-								] ifFalse: [
-									html span class: 'progress'; with: [ html iconProgressFromPercent: 0 ].
+								html div: [
+									html div
+										class: 'exerciseTitle';
+										with: each title.
 									html span
-										class: 'actionSymbol';
-										class: 'nextTask' if: isNextTask;
-										with: [ html iconRight ].
-								].
-						html div: '[INFO]'
-					].
+										class: 'infoButton';
+										onClick: (('event.stopPropagation()' asJsStream), (html javascript alert: 'TODO'));
+			"							callback: [ self showInfoTask: each ];"
+										with: 'Info'. ].
+								html div: [
+									taskExercise isFinished ifTrue: [
+	"									html span class: 'progress'; with: [ html iconProgressFromPercent: 100 ]."
+										html span class: 'actionSymbol'; with: [
+											html imgSignRepeatManual.
+											html imgSignRepeatAutomatic.
+										].
+									] ifFalse: [
+	"									html span class: 'progress'; with: [ html iconProgressFromPercent: 0 ]."
+										html span
+											class: 'actionSymbol';
+											class: 'nextTask' if: isNextTask;
+											with: [ html imgSignRight ].
+							]]
+					]
 				]
 			] ifFalse: [
 				html div

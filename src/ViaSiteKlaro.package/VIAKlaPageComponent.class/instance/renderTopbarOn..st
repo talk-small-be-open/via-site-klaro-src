@@ -6,11 +6,8 @@ renderTopbarOn: html
 		with: [ "	self renderOffcanvasOn: html."
 			html div
 				class: 'topbarLeft';
-				with: [ "		self renderLogoOn: html." 
-					self renderGotoPage: 'navigator' on: html with: [
-						html iconBack.
-						html text: 'zurück'
-					] ].
+				with: [
+					self renderBackbuttonOn: html ].
 			html div
 				class: 'topbarCenter';
 				with: [ "html unorderedList with: [

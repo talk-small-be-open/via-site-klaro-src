@@ -11,4 +11,8 @@ renderContentOn: html
 		id: htmlId;
 		with: [
 			isCurrent ifTrue: [
-				self renderPageContentOn: html ] ]
+				self renderPageContentOn: html
+			] ifFalse: [ 
+				self renderHiddenPageContentOn: html.
+			]
+		]

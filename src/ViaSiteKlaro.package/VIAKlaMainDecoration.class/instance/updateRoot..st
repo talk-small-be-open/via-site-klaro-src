@@ -16,7 +16,9 @@ updateRoot: anHtmlRoot
 	"Anime.js"
 "	anHtmlRoot javascript defer; url: '/site/js/anime/anime.min.js'."
 	"with modifications:"
-	anHtmlRoot javascript defer; url: '/site/js/anime/anime.js'.
+	anHtmlRoot javascript
+		defer;
+		url: '/site/js/anime/anime.js'.
 
 	"SVG helper to load files as inline SVG"
 	"see https://github.com/shubhamjain/svg-loader"
