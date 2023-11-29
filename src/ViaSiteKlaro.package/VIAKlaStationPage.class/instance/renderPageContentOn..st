@@ -1,5 +1,6 @@
 rendering
 renderPageContentOn: html
+
 	self renderTopbarOn: html.
 
 	moduleExercise ifNil: [ ^ self ].
@@ -10,14 +11,16 @@ renderPageContentOn: html
 	
 	html div class: 'exercisePanels'; with: [
 		self tasks do: [ :each |
-			| taskExercise isNextTask |
+			| taskExercise isNextTask animation |
 			taskExercise := moduleExercise exerciseForTask: each.
 			isNextTask := (each = nextTask).
+	
+			animation := taskExercise isFinished ifTrue: [ nil ] ifFalse: [ 'lottie-test' ].
 			
 			(self canGotoTaskExercise: taskExercise) ifTrue: [
 				self
 					renderGotoPage: 'exercise'
-					animation: 'lottie-test'
+					animation: animation
 					callback: [ :page | page gotoTaskExercise: taskExercise ]
 					on: html
 					with: [ 

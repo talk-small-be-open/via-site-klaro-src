@@ -1,6 +1,7 @@
 icons-klaro
 svgImage: aString
-	self image
+	^ self image
 		class: 'svgImage';
 		class: aString;
-		url: ('/site/images/k_app_', aString, '.svg')
+		url: ('/site/images/k_app_', aString, '.svg');
+		yourself

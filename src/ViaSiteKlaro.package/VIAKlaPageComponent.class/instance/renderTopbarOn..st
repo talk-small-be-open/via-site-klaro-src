@@ -1,32 +1,30 @@
 rendering
 renderTopbarOn: html
 
+	"Render menu container in advance"
+	| menuId |
+	self hasMenu ifTrue: [
+		menuId := self renderOffcanvasMenuOn: html ].
+
 	html div
 		class: 'topbar';
 		with: [ "	self renderOffcanvasOn: html."
 			html div
 				class: 'topbarLeft';
 				with: [
-					self renderBackbuttonOn: html ].
+					self renderTopbarLeftOn: html ].
 			html div
 				class: 'topbarCenter';
-				with: [ "html unorderedList with: [
-				html listItem
-					with: [
-						html anchor
-							callback: [ self gotoKlaroStart ];
-							with: [
-								html iconHome.
-								html span class: 'menuLabel'; with: [
-									html sT: 'main:fastAccess:start']]
-				].
-			]."
-					 ].
+				with: [ ].
 			html div
 				class: 'topbarRight';
-				with: [ 
-					html anchor
-						class: 'mainMenuToggler';
-						with: [ 
-"							html text: 'MENU'"
-							html iconMenu ] ] ]
+				with: [
+					self hasMenu ifTrue: [
+						html anchor
+							class: 'pageMenuToggler';
+							onClick: ((html jQuery id: menuId) addClass: 'slideIn');
+							with: [
+	"							html text: 'MENU'"
+								html iconMenu ] ] ].
+
+		] 

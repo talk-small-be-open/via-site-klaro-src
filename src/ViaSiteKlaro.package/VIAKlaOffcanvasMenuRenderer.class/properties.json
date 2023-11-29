@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAMenuRenderer",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIAKlaOffcanvasMenuRenderer",
+	"type" : "normal"
+}

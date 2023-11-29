@@ -1,5 +1,5 @@
 rendering
-renderBackbuttonOn: html
+renderTopbarLeftOn: html
 	self renderGotoPage: 'navigator' on: html with: [
 		html iconBack.
-		html text: 'zurück' ]
+		html text: 'zurück zum Start' ]

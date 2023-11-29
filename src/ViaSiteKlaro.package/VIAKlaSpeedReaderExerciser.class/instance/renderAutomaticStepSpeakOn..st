@@ -7,7 +7,7 @@ renderAutomaticStepSpeakOn: html
 	self preloadTimerAnimeOn: html with: [ :animeJs |
 		animeJs
 			targets: 'div.speedTextArea svg.sign.ellipsis';
-			easing: 'linear';
+			easing: 'easeInExpo';
 			color: '#BB1264'
 	].
 

@@ -9,7 +9,8 @@
 		"gameBoardId",
 		"currentTextNumber",
 		"gameMode",
-		"step"
+		"step",
+		"speed"
 	],
 	"name" : "VIAKlaSpeedReaderExerciser",
 	"type" : "normal"

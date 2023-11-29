@@ -4,7 +4,7 @@ renderContentOn: html
 		class: 'mainContainer';
 		with: [
  
-			self renderHeaderOn: html.
+"			self renderHeaderOn: html."
 			html div class: 'coreContainer'; with: [
 		"		html paragraph: 'Direktes Login in der Alpha-Phase:'.
 				html ukAnchorButton

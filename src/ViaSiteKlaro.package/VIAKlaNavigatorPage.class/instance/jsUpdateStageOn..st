@@ -44,15 +44,19 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 	
 
 	moduleExercises do: [ :each |
-		| num id pathId |
+		| num id pathId houseClass |
 		num := each module indexCode firstNumber asTwoCharacterString.
 		id := 'Station_', num.
 		pathId := 'Pfad_zu_', num.
 		(self canGotoModuleExercise: each) ifTrue: [
 			| jsGotoStation jsOnClick |
+			
+			"Build JS to get to station, either with animated witch or directly"
+			
 			jsGotoStation := (self jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: html).
 			
 			(each = currentExercise and: [ lastInWorkExercise ~= currentExercise ]) ifTrue: [
+				"The witch animation"
 				jsOnClick := (html animeJs
 					targets: '#Hexe_Klara';
 					motionPath: ('svg.navigatorStage #', pathId);
@@ -64,6 +68,7 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 					complete: jsGotoStation
 				)
 			] ifFalse: [ 
+				"Without witch animation"
 				jsOnClick := jsGotoStation
 			].
 			
@@ -75,7 +80,6 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 			
 			"Status of tasks, add css classes"
 			each taskExercises withIndexDo: [ :eachTaskEx :index |
-				| taskId |
 "				taskId := 'Uebung_', num, '_', index asString."
 
 				updateScript addLiteral: ('station = SVG("#Kreis_gross_', num, '");').
@@ -88,7 +92,11 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 			
 		] ifFalse: [ 
 			"do nothing with the station. not clickable"
-		]
+		].
+	
+		"Hide/show the house partials"
+		houseClass := each isFinished ifTrue: [ 'moduleFinished' ]. "ifFalse: [ 'moduleNotFinished' ]"
+		updateScript << ((html jQuery id: ('Haus_', num)) addClass: houseClass).
 	
 	].
 

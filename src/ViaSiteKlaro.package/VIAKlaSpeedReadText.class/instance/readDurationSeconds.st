@@ -1,3 +1,3 @@
 as yet unclassified
 readDurationSeconds
-	^ ((self characterCount) // 4) max: 2
+	^ (self characterCount) " // 2)"

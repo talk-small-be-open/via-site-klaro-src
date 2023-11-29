@@ -9,7 +9,7 @@ initialize
 	flashMessages := OrderedCollection new.
 	backtraced := Array new: 1.
 	
-	self initializeMenus.
+"	self initializeMenus."
 	
 "	self addDecoration: VIAMainDecoration new."
 	self gotoFirstScreen

@@ -1,3 +1,3 @@
 actions
 gotoMyProfile
-	self coreComponentWithBackButton: VIAAurMyProfileComponent new
+	self coreComponentWithBackButton: VIAKlaMyProfileComponent new

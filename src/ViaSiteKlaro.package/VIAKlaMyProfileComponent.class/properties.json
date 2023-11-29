@@ -6,12 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"pager",
-		"htmlId",
-		"name",
-		"pageMenu",
-		"menuRenderer"
+		"user"
 	],
-	"name" : "VIAKlaPageComponent",
+	"name" : "VIAKlaMyProfileComponent",
 	"type" : "normal"
 }

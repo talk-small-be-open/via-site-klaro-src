@@ -7,7 +7,7 @@ renderAutomaticStepListenOn: html
 	self preloadTimerAnimeOn: html with: [ :animeJs |
 		animeJs
 			targets: 'div.speedTextArea svg.sign.sound';
-			easing: 'linear';
+			easing: 'easeInExpo';
 			color: '#BB1264'
 	].
 

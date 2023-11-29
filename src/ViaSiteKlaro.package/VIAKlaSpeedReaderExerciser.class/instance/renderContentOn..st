@@ -3,9 +3,8 @@ renderContentOn: html
 	
 "	self addJavascript: '/js/outofthebox/tandem_sequence.js' on: html."
 
-	html div class: 'speedReader'; class: step; class: taskBrick uiStyle; with: [
-		html div id: gameBoardId; with: [
-			self renderPageLogicOn: html ].
+	html div id: gameBoardId; class: 'speedReader'; class: step; class: taskBrick uiStyle; with: [
+		self renderPageLogicOn: html.
 
 		"Outside of AJAX reload area. P2P needs to be active all the time"
 "		self renderP2pSynchronizationOn: html."

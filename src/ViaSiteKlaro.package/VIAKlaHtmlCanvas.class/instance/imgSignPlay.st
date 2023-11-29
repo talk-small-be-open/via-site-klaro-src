@@ -1,3 +1,3 @@
 icons
 imgSignPlay
-	self svgImage: 'play_1'
+	^ self svgImage: 'play_1'

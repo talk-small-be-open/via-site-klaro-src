@@ -3,6 +3,8 @@ renderPageContentOn: html
 	| updateScript stage |
 	
 "	html heading: 'NAVIGATOR/PFAD'."
+	
+	self renderTopbarOn: html.
 
 	updateScript := self jsUpdateStageOn: html.	
 
