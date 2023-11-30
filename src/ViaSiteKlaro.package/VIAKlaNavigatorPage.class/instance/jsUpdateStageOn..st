@@ -43,21 +43,23 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 	)."
 	
 
+	"Draw every station"
 	moduleExercises do: [ :each |
 		| num id pathId houseClass |
 		num := each module indexCode firstNumber asTwoCharacterString.
 		id := 'Station_', num.
 		pathId := 'Pfad_zu_', num.
 		(self canGotoModuleExercise: each) ifTrue: [
-			| jsGotoStation jsOnClick |
+			| jsGotoStation jsOnClick jsUnlockSoundApi |
 			
 			"Build JS to get to station, either with animated witch or directly"
 			
+			jsUnlockSoundApi := 'PIXI.sound.play("button-click");' asJsStream.
 			jsGotoStation := (self jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: html).
 			
 			(each = currentExercise and: [ lastInWorkExercise ~= currentExercise ]) ifTrue: [
 				"The witch animation"
-				jsOnClick := (html animeJs
+				jsOnClick := jsUnlockSoundApi, (html animeJs
 					targets: '#Hexe_Klara';
 					motionPath: ('svg.navigatorStage #', pathId);
 					duration: ( JSStream on: ('SVG("#', pathId, '").length()*3' ) );
@@ -69,7 +71,7 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 				)
 			] ifFalse: [ 
 				"Without witch animation"
-				jsOnClick := jsGotoStation
+				jsOnClick := jsUnlockSoundApi, jsGotoStation
 			].
 			
 			updateScript << ((html jQuery id: id)

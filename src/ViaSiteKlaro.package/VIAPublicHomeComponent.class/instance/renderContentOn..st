@@ -3,10 +3,10 @@ renderContentOn: html
 	html div class: 'klaroBanner'; with: [
 		html image class: 'bannerImage'; url: '/site/images/public_banner.png'].
 
-	html ukContainer: [
+	html div: [
 		html div class: 'loginSection'; with: [
 			VIAKlaHepUser isOauthEnabled ifTrue: [
-				html bigAnchorButton
+				html anchorButton
 	"				callback: [ self app openLoginDialog ];"
 					url: self oauthAuthorizeUrl;
 					target: '_self';
@@ -21,11 +21,8 @@ renderContentOn: html
 					html anchor
 						callback: [ self app openLoginDialog ];
 						with: 'DEVELOPMENT Login ...' ]].
-		
-				
 		].
 
 		html div pT: 'publicHome:info'.
 
-"		self renderInfoOn: html"
 	]

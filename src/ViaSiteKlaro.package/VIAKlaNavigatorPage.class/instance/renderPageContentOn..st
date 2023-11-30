@@ -23,7 +23,7 @@ renderPageContentOn: html
 "		attributeAt: 'data-src' put: '/site/images/hexenweg_optimized.svg';"
 		attributeAt: 'data-src' put: '/site/images/hexenweg.svg';
 		attributeAt: 'oniconload' put: 'updateNavigatorStage();';
-		attributeAt: 'width' put: 'auto';
+		attributeAt: 'width' put: 'auto'; "auto is not allowed says Firefox, but without it will not scroll vertically?!"
 		attributeAt: 'height' put: 'auto';
 		yourself.
 
@@ -35,6 +35,8 @@ renderPageContentOn: html
 		stage attributeAt: 'viewBox' put: '0 0 1367.41 2823.44'.
 	].
 
+
+	html scriptDefer: 'PIXI.sound.add("button-click", "/site/sounds/button-click.wav");' asJsStream.
 
 "	html break; break; break."
 "	self renderLottieTestOn: html."

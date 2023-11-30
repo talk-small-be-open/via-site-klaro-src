@@ -1,14 +1,15 @@
 {
 	"commentStamp" : "",
-	"super" : "VIAFrontendMainBaseComponent",
+	"super" : "VIALoginBaseComponent",
 	"category" : "ViaSiteKlaro-View",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"flashMessages",
-		"backtraced"
+		"rememberMe",
+		"hepErrorMessage",
+		"localEnabled"
 	],
-	"name" : "VIAMainBaseComponent",
+	"name" : "VIAKlaLoginComponent",
 	"type" : "normal"
 }

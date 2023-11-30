@@ -1,6 +1,6 @@
 as yet unclassified
 showInfoPanel: aString title: aTitle
-	self show: (VIAInfoPanelComponent new
+	self show: (VIAKlaInfoPanelComponent new
 		title: aTitle;
 		body: aString;
 		yourself)

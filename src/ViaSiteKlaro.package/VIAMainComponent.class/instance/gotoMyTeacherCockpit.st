@@ -1,3 +1,0 @@
-actions
-gotoMyTeacherCockpit
-	self coreComponent: VIAAurTeacherMyCockpit new
