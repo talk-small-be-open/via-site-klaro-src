@@ -1,3 +1,3 @@
 rendering
 renderTopbarLeftOn: html
-	html span: 'KLARO'
+	html logoKlaro

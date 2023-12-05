@@ -21,7 +21,6 @@ renderAutomaticStepListenOn: html
 	self renderSubNavigationAreaOn: html with: [
 "		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
 
-"Oder evt. hier ein STOP und nur weiter auf Knopdruck?"
 		self renderAutomaticTimerOn: html.
 	].
 

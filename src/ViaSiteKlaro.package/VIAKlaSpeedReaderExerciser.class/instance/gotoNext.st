@@ -8,7 +8,9 @@ gotoNext
 		answerOfText := (self exercise answerOf: self currentText) value.
 		self isModeManual ifTrue: [ answerOfText beDoneManual ].
 		self isModeAutomatic ifTrue: [ answerOfText beDoneAutomatic ].
-		self check.
+
+		"At the end of the word, we simulate a check-button click implicitly"
+		self implicitCheckTask.
 		
 		self isLastText ifTrue: [
 			self isModeManual ifTrue: [ self gotoAnimationThenModeAutomatic. ^ self ].

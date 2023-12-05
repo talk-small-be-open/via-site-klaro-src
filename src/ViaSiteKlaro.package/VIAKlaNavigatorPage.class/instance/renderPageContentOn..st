@@ -6,9 +6,12 @@ renderPageContentOn: html
 	
 	self renderTopbarOn: html.
 
-	updateScript := self jsUpdateStageOn: html.	
+	updateScript := JSScript new
+		add: ((self jsPrepareStageOn: html) asInvokedFunction);
+		add: ((self jsUpdateStageOn: html) asInvokedFunction);
+		yourself.
 
-	html script: (updateScript asFunction assignLocalTo: 'updateNavigatorStage').
+	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce').
 
 "	html image url: '/site/images/hexenweg.svg'."
 
@@ -22,7 +25,7 @@ renderPageContentOn: html
 		attributeAt: 'data-css-scoping' put: 'disabled';
 "		attributeAt: 'data-src' put: '/site/images/hexenweg_optimized.svg';"
 		attributeAt: 'data-src' put: '/site/images/hexenweg.svg';
-		attributeAt: 'oniconload' put: 'updateNavigatorStage();';
+		attributeAt: 'oniconload' put: 'prepareNavigatorStageOnce();';
 		attributeAt: 'width' put: 'auto'; "auto is not allowed says Firefox, but without it will not scroll vertically?!"
 		attributeAt: 'height' put: 'auto';
 		yourself.

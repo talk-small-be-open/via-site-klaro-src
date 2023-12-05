@@ -8,7 +8,7 @@ initialize
 	
 	self addContainerDiv.
 	
-	self addForm
-		removeButtons.
+"	self addForm
+		removeButtons."
 
 	self build

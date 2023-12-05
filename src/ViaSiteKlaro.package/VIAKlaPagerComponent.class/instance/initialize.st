@@ -6,6 +6,7 @@ initialize
 	
 	self addContainerDiv.
 	
+"	self add: VIAKlaIntroductionPage new named: 'introduction'."
 	self add: VIAKlaNavigatorPage new named: 'navigator'.
 	self add: VIAKlaTransientAnimationPage new named: 'animation'.
 	self add: VIAKlaStationPage new named: 'station'.

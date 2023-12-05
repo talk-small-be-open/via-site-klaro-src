@@ -1,5 +1,9 @@
 rendering
 renderManualStepListenOn: html
+	| jsSoundFinished |
+	
+	jsSoundFinished := (html jQuery id: gameBoardId) addClass: 'hasPlayedSpeech'.
+	
 	self renderSpeedTextAreaOn: html with: [
 		html imgSignSound 
 	].
@@ -7,7 +11,9 @@ renderManualStepListenOn: html
 	self renderNavigationAreaOn: html with: [
 		html pagerAction: [ self gotoStepRead ] with: [ self renderButtonReadOn: html ].
 		self renderButtonSpeakOn: html.
-		self renderButtonListenReplayOn: html.
+		html div class: 'listenButtons'; with: [
+			self renderButtonListenOn: html.
+			self renderButtonListenReplayOn: html ].
 "		html pagerAction: [ self gotoStepRead ] with: [ html span: 'back' ].
 		html pagerAction: [ self gotoNext ] with: [ html span: 'next' ]."
 	].
@@ -22,4 +28,4 @@ renderManualStepListenOn: html
 		].
 	].
 
-	html script: (self jsPlayCurrentText setTimeout: 0.2 second)
+	html script: ((self jsPlayCurrentTextThen: jsSoundFinished) setTimeout: 0.2 second)

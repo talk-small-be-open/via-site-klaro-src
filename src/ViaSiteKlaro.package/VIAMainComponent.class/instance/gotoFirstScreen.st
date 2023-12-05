@@ -10,6 +10,7 @@ gotoFirstScreen
 "		(self currentUser studentGroupsInWebsite: self website) ifBlank: [
 			self showRequestForInvitationCode ].
 		^ self"
+		^ self gotoKlaroIntroduction
 	].
 
 	"Modul von URL anpeilen?"

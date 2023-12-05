@@ -3,6 +3,11 @@ jsUpdateStageOn: html
 	| updateScript number |
 	
 	updateScript := JSScript new.
+
+	"Test add circle"
+	updateScript addLiteral: '
+var station, kreis, svgPath;
+'.
 	
 	"Place the witch to station number"
 	lastInWorkExercise ifNotNil: [
@@ -23,26 +28,6 @@ jsUpdateStageOn: html
 	
 	].
 
-	"Test add circle"
-	updateScript addLiteral: '
-var station, kreis, kreisX;
-const kreisTemplate = SVG("#Kreis_klein_01");
-'.
-
-
-
-	"Animate witch floating"
-	"High CPU!"
-"	updateScript << (html animeJs
-		targets: '#Hexe_Klara';
-		duration: 1000;
-		translateY: '+=20';
-		loop: true;
-		easing: 'easeInOutSine';
-		direction: 'alternate'
-	)."
-	
-
 	"Draw every station"
 	moduleExercises do: [ :each |
 		| num id pathId houseClass |
@@ -50,15 +35,17 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 		id := 'Station_', num.
 		pathId := 'Pfad_zu_', num.
 		(self canGotoModuleExercise: each) ifTrue: [
-			| jsGotoStation jsOnClick jsUnlockSoundApi |
+			| jsGotoStation jsOnClick jsUnlockSoundApi isNewExercise jsStationUpdater |
+
+			isNewExercise := (each = currentExercise and: [ lastInWorkExercise ~= currentExercise ]).
 			
 			"Build JS to get to station, either with animated witch or directly"
 			
 			jsUnlockSoundApi := 'PIXI.sound.play("button-click");' asJsStream.
 			jsGotoStation := (self jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: html).
 			
-			(each = currentExercise and: [ lastInWorkExercise ~= currentExercise ]) ifTrue: [
-				"The witch animation"
+			isNewExercise ifTrue: [
+				"The witch flying animation"
 				jsOnClick := jsUnlockSoundApi, (html animeJs
 					targets: '#Hexe_Klara';
 					motionPath: ('svg.navigatorStage #', pathId);
@@ -74,20 +61,23 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 				jsOnClick := jsUnlockSoundApi, jsGotoStation
 			].
 			
-			updateScript << ((html jQuery id: id)
+			jsStationUpdater := (html jQuery id: id)
 				addClass: 'enabled';
+				removeClass: 'isNewExercise';
 				off: 'click';
-				onClick: jsOnClick
-			).
+				onClick: jsOnClick.
+			
+			isNewExercise ifTrue: [ jsStationUpdater addClass: 'isNewExercise' ].
+			
+			updateScript << jsStationUpdater.
 			
 			"Status of tasks, add css classes"
 			each taskExercises withIndexDo: [ :eachTaskEx :index |
-"				taskId := 'Uebung_', num, '_', index asString."
-
-				updateScript addLiteral: ('station = SVG("#Kreis_gross_', num, '");').
-				updateScript addLiteral: ('kreisX = station.x() + station.width() + 4 + (', (index-1) asString,' * (kreisTemplate.width()+4));').
-				updateScript addLiteral: ('kreis = station.parent().put(kreisTemplate.clone()).x(kreisX).cy(station.cy());').
+				| kreisId |
+				
 				eachTaskEx isFinished ifTrue: [
+					kreisId := 'Kreis_klein_', num, '_', index asTwoCharacterString.
+					updateScript addLiteral: ('kreis = SVG("#', kreisId, '");').
 					updateScript addLiteral: 'kreis.addClass("done");' ].
 			]
 			
@@ -98,7 +88,8 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 	
 		"Hide/show the house partials"
 		houseClass := each isFinished ifTrue: [ 'moduleFinished' ]. "ifFalse: [ 'moduleNotFinished' ]"
-		updateScript << ((html jQuery id: ('Haus_', num)) addClass: houseClass).
+		houseClass ifNotBlank: [
+			updateScript << ((html jQuery id: ('Haus_', num)) addClass: houseClass) ].
 	
 	].
 
