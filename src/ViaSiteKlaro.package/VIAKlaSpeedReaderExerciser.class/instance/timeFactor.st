@@ -1,6 +1,14 @@
 as yet unclassified
 timeFactor
-	self isSpeedNormal ifTrue: [ ^ 1 ].
+	| f |
+	f := 1.
+	
+	self isSpeedNormal ifTrue: [ f := 0.8 ].
 
-	self isSpeedSlow ifTrue: [ ^ 2 ].
-	self isSpeedFast ifTrue: [ ^ 0.5 ].
+	self isSpeedSlow ifTrue: [ f := 1.5 ].
+	self isSpeedFast ifTrue: [ f := 0.3 ].
+
+	"Faster on page speak"
+	self isStepSpeak ifTrue: [ f := f * (2/3) ].
+	
+	^ f

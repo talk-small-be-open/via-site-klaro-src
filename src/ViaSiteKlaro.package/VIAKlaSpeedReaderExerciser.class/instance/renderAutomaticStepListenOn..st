@@ -21,8 +21,12 @@ renderAutomaticStepListenOn: html
 	self renderSubNavigationAreaOn: html with: [
 "		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
 
-		self renderAutomaticTimerOn: html.
+"no timer, but after audio		self renderAutomaticTimerOn: html."
 	].
 
 
-	html script: (self jsPlayCurrentText setTimeout: 0.1 second)
+	html script: (
+		(self jsPlayCurrentTextThen: (
+			( html jsPagerAction: [ self gotoNext ] ) setTimeout: 1 second )
+		) setTimeout: 0.2 second
+	)
