@@ -2,7 +2,7 @@ as yet unclassified
 gotoNext
 	| answerOfText |
 
-	self isStepListen ifTrue: [
+	self isLastStep ifTrue: [
 		
 		"Mark current text as *done*, and check-calculate points"
 		answerOfText := (self exercise answerOf: self currentText) value.

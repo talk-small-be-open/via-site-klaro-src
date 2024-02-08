@@ -1,7 +1,7 @@
 initialization
 finish
 	gameMode := #finished.
-	
+
 	"TODO: Check if reward is new, suppress otherwise"
 	"self showReward."
 	
