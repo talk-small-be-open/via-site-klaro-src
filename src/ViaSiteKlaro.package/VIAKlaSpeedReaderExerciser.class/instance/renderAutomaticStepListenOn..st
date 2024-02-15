@@ -4,12 +4,12 @@ renderAutomaticStepListenOn: html
 		html imgSignSound
 	].
 
-	self preloadTimerAnimeOn: html with: [ :animeJs |
+"	self preloadTimerAnimeOn: html with: [ :animeJs |
 		animeJs
 			targets: 'div.speedTextArea svg.sign.sound';
 			easing: 'easeInExpo';
 			color: '#BB1264'
-	].
+	]."
 
 
 	self renderNavigationAreaOn: html with: [
