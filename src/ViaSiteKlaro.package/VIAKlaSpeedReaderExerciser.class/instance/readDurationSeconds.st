@@ -17,7 +17,7 @@ readDurationSeconds
 		
 		"66% as long as reading, but not slower than normal speed"
 		self isSpeedSlow ifTrue: [ factor := 0.2. limit := 3 ].
-		self isSpeedNormal ifTrue: [ factor := 0.2. limit := 1 ].
+		self isSpeedNormal ifTrue: [ factor := 0.2. limit := 2 ].
 		self isSpeedFast ifTrue: [ factor := 0.1. limit := 1 ].
 	].
 	

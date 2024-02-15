@@ -22,7 +22,9 @@ updateRoot: anHtmlRoot
 
 	"SVG helper to load files as inline SVG"
 	"see https://github.com/shubhamjain/svg-loader"
-	anHtmlRoot javascript defer; url: '/site/js/svg-loader/svg-loader.min.js'.
+"	anHtmlRoot javascript defer; url: '/site/js/svg-loader/svg-loader.min.js'."
+	"We use our own, much much simpler"
+	anHtmlRoot javascript defer; url: '/site/js/svg-loader/svg-loader.js'.
 
 	"SVG manipulation library, see https://svgjs.dev"
 	anHtmlRoot javascript defer; url: '/site/js/svgjs/svg.min.js'.

@@ -18,17 +18,15 @@ renderPageContentOn: html
 	"Lazy load inline SVG, see library see https://github.com/shubhamjain/svg-loader"
 	stage := html svg
 		class: 'navigatorStage';
+		id: 'navigatorStage';
 		attributeAt: 'preserveAspectRatio' put: 'xMidYMin slice'; "cut off the invisible stuff in x-Axis"
-		attributeAt: 'data-js' put: 'enabled'; "have no JS anway, but disable removing, better performance maybe"
-		attributeAt: 'data-cache' put: 'disabled'; "or 21600 for 6h"
-		attributeAt: 'data-unique-ids' put: 'disabled';
-		attributeAt: 'data-css-scoping' put: 'disabled';
-"		attributeAt: 'data-src' put: '/site/images/hexenweg_optimized.svg';"
-		attributeAt: 'data-src' put: '/site/images/hexenweg.svg';
-		attributeAt: 'oniconload' put: 'prepareNavigatorStageOnce();';
+		attributeAt: 'data-svgloader-src' put: '/site/images/hexenweg.svg';
 		attributeAt: 'width' put: 'auto'; "auto is not allowed says Firefox, but without it will not scroll vertically?!"
 		attributeAt: 'height' put: 'auto';
 		yourself.
+
+	stage script: 'svgLoadInline("navigatorStage", prepareNavigatorStageOnce)' asJsStream.
+
 
 	"768 breit = Zeichnungsgrund, ab x=300 "
 	"Pseudo-Responsive. Crop the image to the middle column"
