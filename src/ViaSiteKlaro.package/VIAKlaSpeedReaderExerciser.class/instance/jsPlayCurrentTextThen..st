@@ -1,15 +1,22 @@
 as yet unclassified
-jsPlayCurrentTextThen: aJsCallback
+jsPlayCurrentTextThen: aJsCallbackScript
 	| js |
-	js := JSStream new.
 	
-	self currentAudioAsset ifNotNil: [ :audio |
+	self currentAudioAsset ifNil: [ 
+
+		"Having no audio is like having a zero-length audio. Its like immediately played"
+		js := aJsCallbackScript
+
+	] ifNotNil: [ :audio |
+
 		| options |
+
+		js := JSStream new.
 		
 		"See https://pixijs.io/sound/docs/PlayOptions.html"
 		options := { #loop->false. #singleInstance->true } aD.
 		
-		aJsCallback ifNotBlank: [ options at: #complete put: aJsCallback asFunction ].
+		aJsCallbackScript ifNotBlank: [ options at: #complete put: aJsCallbackScript asFunction ].
 		
 		js nextPutAll: 'PIXI.sound.play('.
 		js javascript: audio uuidString.

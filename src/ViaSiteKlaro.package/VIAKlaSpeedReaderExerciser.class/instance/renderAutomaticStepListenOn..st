@@ -1,5 +1,7 @@
 rendering
 renderAutomaticStepListenOn: html
+	| jsAction |
+
 	self renderSpeedTextAreaOn: html with: [
 		html imgSignSound
 	].
@@ -25,8 +27,17 @@ renderAutomaticStepListenOn: html
 	].
 
 
+	"JS goto next action, but with run-once wrapper, since we call it from different timers"
+"	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce').
+	jsAction := (html jsPagerAction: [ self gotoNext ]) asOnceFunction."
+
+	jsAction := (html jsPagerAction: [ self gotoNext ]).
+
+	"Start audio after some delay, then wait a little, then next page"
 	html script: (
-		(self jsPlayCurrentTextThen: (
-			( html jsPagerAction: [ self gotoNext ] ) setTimeout: 1 second )
-		) setTimeout: 0.2 second
-	)
+		(self jsPlayCurrentTextThen: (jsAction setTimeout: 1 second )) setTimeout: 0.1 second
+	).
+
+	"Fallback: In case of audio not working, we go to the next step after 8 seconds or so"
+	"PROBLEM: This timer will run in page-background, too ..."
+"	html script: (jsAction setTimeout: 8 second )"

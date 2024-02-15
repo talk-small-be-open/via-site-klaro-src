@@ -47,16 +47,13 @@ renderPageContentOn: html
 	self renderBetatestOn: html with: [
 		"TODO, wegnehmen, nur DEV"
 		moduleExercises do: [ :each |
-			(self canGotoModuleExercise: each) ifTrue: [
-				self
-					renderGotoPage: 'station'
-					callback: [ :page | page gotoModuleExercise: each ]
-					on: html
-					with: 'Zu Station ', each module indexCodeString, ' ...'.
-			] ifFalse: [
-				html span: 'Station '.
-				html span: each module indexCodeString.
-				html span: ' gesperrt'.
+			self
+				renderGotoPage: 'station'
+				callback: [ :page | page gotoModuleExercise: each ]
+				on: html
+				with: 'Zu Station ', each module indexCodeString, ' ...'.
+			(self canGotoModuleExercise: each) ifFalse: [
+				html span: ' (eigentlich gesperrt)'.
 			].
 				
 			html break.
