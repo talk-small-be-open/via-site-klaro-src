@@ -1,0 +1,3 @@
+actions
+continueAutomaticTimer
+	isRunning := true

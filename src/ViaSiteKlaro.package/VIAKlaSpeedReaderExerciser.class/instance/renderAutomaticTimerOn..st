@@ -6,12 +6,24 @@ renderAutomaticTimerOn: html
 	js nextPutAll: 'speedReaderTimer.init('.
 	js javascript: gameBoardId.
 	js nextPutAll: ', '.
-	js nextPutAll: self readDurationSeconds asString.
+	js nextPutAll: self stepTimerMilliseconds asString.
 	js nextPutAll: ', '.
 	js javascript: (html jsPagerAction: [ self gotoNext ]) asFunction.
+	js nextPutAll: ', '.
+	js javascript: ((
+			html jQuery ajax callback: [:d | self syncFromJsClient: d ] json: ('data' asJsStream)
+		) asFunction: #(data)).
 	js nextPutAll: ');'.
 	
-	(self isFirstText and: [ self isFirstStep ]) ifFalse: [ js nextPutAll: 'speedReaderTimer.start();' ].
+	"Auto start timer, but not first page, and not step listen"
+	((self isFirstText and: [ self isFirstStep ]) or: [ self isStepListen ]) ifTrue: [
+		"DO NOT start timer here, will be triggered elsewhere"
+	] ifFalse: [
+		"Start timer automatically, if not in pause state"
+		self isRunning ifTrue: [
+			js nextPutAll: 'speedReaderTimer.autostart();'
+		]
+	].
 	
 	html scriptDefer: js.
 	
@@ -19,28 +31,13 @@ renderAutomaticTimerOn: html
 
 	html span
 		class: 'playPauseButton';
-		onClick: 'speedReaderTimer.toggle();';
+		class: 'gameDefaultButton';
+		onFastPointer: ('speedReaderTimer.toggle();' asJsStream);
+"		onClick: 'speedReaderTimer.toggle();';"
 		with: [ 
 			html imgSignPause class: 'pause'.
 			html imgSignPlay class: 'play'.
-			html div class: 'speedChooser play'; with: [
-				html div
-					class: 'speed';
-					onClick: (html jQuery ajax callback: [ self beSpeedSlow ]);
-					with: [
-						self isSpeedSlow ifTrue: [ html iconChecked ] ifFalse: [ html iconEmpty ].
-						html span: 'langsam'].
-				html div
-					class: 'speed';
-					onClick: (html jQuery ajax callback: [ self beSpeedNormal ]);
-					with: [
-						self isSpeedNormal ifTrue: [ html iconChecked ] ifFalse: [ html iconEmpty ].
-						html span: 'normal'].
-				html div
-					class: 'speed';
-					onClick: (html jQuery ajax callback: [ self beSpeedFast ]);
-					with: [
-						self isSpeedFast ifTrue: [ html iconChecked ] ifFalse: [ html iconEmpty ].
-						html span: 'schnell'].
-			]
-		]
+		].
+	
+	self renderAutomaticSpeedChooserOn: html.
+		

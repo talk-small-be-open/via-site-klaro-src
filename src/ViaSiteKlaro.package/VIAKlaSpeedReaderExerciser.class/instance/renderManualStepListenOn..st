@@ -5,7 +5,7 @@ renderManualStepListenOn: html
 	jsSoundFinished := (html jQuery id: gameBoardId) addClass: 'hasPlayedSpeech'.
 	
 	self renderSpeedTextAreaOn: html with: [
-		html imgSignSound 
+		html imgSignSound
 	].
 		
 	self renderNavigationAreaOn: html with: [
@@ -18,14 +18,17 @@ renderManualStepListenOn: html
 		html pagerAction: [ self gotoNext ] with: [ html span: 'next' ]."
 	].
 	self renderSubNavigationAreaOn: html with: [
-		html pagerAction: [ self gotoStepRead ] with: [
-			html span class: 'redoButton'; with: [ 
-				html svgImage: 'bewertung_links_1' ] ].
-		html pagerAction: [ self gotoNext ] with: [
-			html span class: 'doneButton'; with: [ 
-				html svgImage: 'bewertung_rechts_1' ]
+		html div class: 'redoDoneButtons'; with: [
+			html pagerAction: [ self gotoStepRead ] with: [
+				html span class: 'redoButton'; with: [ 
+					html svgImage: 'bewertung_links_1' ] ].
+			html pagerAction: [ self gotoNext ] with: [
+				html span class: 'doneButton'; with: [ 
+					html svgImage: 'bewertung_rechts_1' ]
+			]
 "			self renderButtonNextOn: html"
 		].
 	].
 
-	html script: ((self jsPlayCurrentTextThen: jsSoundFinished) setTimeout: 0.2 second)
+"Delay war störend	html script: ((self jsPlayCurrentTextThen: jsSoundFinished) setTimeout: 0.2 second)."
+	html script: (self jsPlayCurrentTextThen: jsSoundFinished)

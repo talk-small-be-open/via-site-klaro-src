@@ -2,6 +2,8 @@ as yet unclassified
 gotoNext
 	| answerOfText |
 
+	"Steps sequencer logic"
+
 	self isLastStep ifTrue: [
 		
 		"Mark current text as *done*, and check-calculate points"

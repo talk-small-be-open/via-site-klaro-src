@@ -14,7 +14,8 @@ renderTaskPanel: aTask class: aClassString on: html
 					class: 'exerciseTitle';
 					with: aTask title.
 				html div: [
-					taskExercise isFinished ifTrue: [
+					"Am Arbeiten oder fertig gearbeitet"
+					taskExercise isDone ifTrue: [
 "									html span class: 'progress'; with: [ html iconProgressFromPercent: 100 ]."
 						html span class: 'actionSymbol'; with: [
 							html imgSignRepeatManual.

@@ -23,7 +23,7 @@ renderAutomaticStepListenOn: html
 	self renderSubNavigationAreaOn: html with: [
 "		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
 
-"no timer, but after audio		self renderAutomaticTimerOn: html."
+		self renderAutomaticTimerOn: html.
 	].
 
 
@@ -31,11 +31,13 @@ renderAutomaticStepListenOn: html
 "	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce').
 	jsAction := (html jsPagerAction: [ self gotoNext ]) asOnceFunction."
 
-	jsAction := (html jsPagerAction: [ self gotoNext ]).
+"	jsAction := (html jsPagerAction: [ self gotoNext ])."
 
-	"Start audio after some delay, then wait a little, then next page"
-	html script: (
-		(self jsPlayCurrentTextThen: (jsAction setTimeout: 1 second )) setTimeout: 0.1 second
+	"Start audio, timer, next page"
+	html scriptDefer: (
+"		(self jsPlayCurrentTextThen: (jsAction setTimeout: 1 second ))" " setTimeout: 0.1 second"
+		self jsPlayCurrentTextThen: (JSStream on: 'speedReaderTimer.autostart();')
+
 	).
 
 	"Fallback: In case of audio not working, we go to the next step after 8 seconds or so"

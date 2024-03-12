@@ -3,6 +3,11 @@ updateRoot: anHtmlRoot
 	super updateRoot: anHtmlRoot.
 
 	self updateRootEssentials: anHtmlRoot.
+
+"	self updateRootStandardJsUiLibs: anHtmlRoot."
+	anHtmlRoot javascript defer; url: 'https://cdn.jsdelivr.net/npm/interactjs@1.10.26/dist/interact.min.js'.
+
+
 "	self updateRootCookieConsent: anHtmlRoot.
 	self updateRootFontawesome: anHtmlRoot."
 "	self updateRootDefaultUi: anHtmlRoot."

@@ -1,0 +1,3 @@
+testing
+isSequenceBlitz
+	^ gameSequence = #blitz

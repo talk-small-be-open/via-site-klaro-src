@@ -1,0 +1,3 @@
+actions
+startAutomaticTimer
+	self continueAutomaticTimer

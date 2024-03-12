@@ -1,3 +1,5 @@
 as yet unclassified
 plainText
-	^ textPillar pillarDocument text
+	plainText ifNil: [ self updateCaches ].
+
+	^ plainText

@@ -18,6 +18,9 @@ jsPlayCurrentTextThen: aJsCallbackScript
 		
 		aJsCallbackScript ifNotBlank: [ options at: #complete put: aJsCallbackScript asFunction ].
 		
+		js nextPutAll: 'if (PIXI.sound.exists('.
+		js javascript: audio uuidString.
+		js nextPutAll: ')) '.
 		js nextPutAll: 'PIXI.sound.play('.
 		js javascript: audio uuidString.
 		js nextPutAll: ','.

@@ -9,7 +9,8 @@
 		"audioAsset",
 		"speedReaderTaskBrick",
 		"styleName",
-		"textPillar"
+		"textPillar",
+		"plainText"
 	],
 	"name" : "VIAKlaSpeedReadText",
 	"type" : "normal"

@@ -10,7 +10,9 @@
 		"currentTextNumber",
 		"gameMode",
 		"step",
-		"speed"
+		"speed",
+		"isRunning",
+		"gameSequence"
 	],
 	"name" : "VIAKlaSpeedReaderExerciser",
 	"type" : "normal"

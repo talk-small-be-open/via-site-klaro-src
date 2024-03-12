@@ -5,7 +5,7 @@ addTextsString: aString website: aWebsite
 	aString lines copyWithoutBlanks do: [ :each |
 		| text |
 		text := VIAKlaSpeedReadText new.
-		text textPillar pillarString: each.
+		text pillarString: each.
 		self addText: text.
 		
 		text findAudioAssetInWebsite: aWebsite.
