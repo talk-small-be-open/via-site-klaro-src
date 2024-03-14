@@ -1,3 +1,3 @@
 actions
 restart
-	self start
+	self gotoModeManual

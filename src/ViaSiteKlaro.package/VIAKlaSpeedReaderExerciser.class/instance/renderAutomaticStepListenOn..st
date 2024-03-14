@@ -1,31 +1,33 @@
 rendering
 renderAutomaticStepListenOn: html
-	| jsAction |
 
-	self renderSpeedTextAreaOn: html with: [
-		html imgSignSound
+	self renderMainPlayAreaOn: html with: [
+
+		self renderSpeedTextAreaOn: html with: [
+			html imgSignSound
+		].
+
+	"	self preloadTimerAnimeOn: html with: [ :animeJs |
+			animeJs
+				targets: 'div.speedTextArea svg.sign.sound';
+				easing: 'easeInExpo';
+				color: '#BB1264'
+		]."
+
+
+		self renderNavigationAreaOn: html with: [
+			self renderButtonReadOn: html.
+			self renderButtonSpeakOn: html.
+			self renderButtonListenOn: html.
+		].
+
+		self renderSubNavigationAreaOn: html with: [
+	"		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
+
+			self renderAutomaticTimerOn: html.
+		].
+		self renderProgressOn: html.
 	].
-
-"	self preloadTimerAnimeOn: html with: [ :animeJs |
-		animeJs
-			targets: 'div.speedTextArea svg.sign.sound';
-			easing: 'easeInExpo';
-			color: '#BB1264'
-	]."
-
-
-	self renderNavigationAreaOn: html with: [
-		self renderButtonReadOn: html.
-		self renderButtonSpeakOn: html.
-		self renderButtonListenOn: html.
-	].
-
-	self renderSubNavigationAreaOn: html with: [
-"		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
-
-		self renderAutomaticTimerOn: html.
-	].
-
 
 	"JS goto next action, but with run-once wrapper, since we call it from different timers"
 "	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce').

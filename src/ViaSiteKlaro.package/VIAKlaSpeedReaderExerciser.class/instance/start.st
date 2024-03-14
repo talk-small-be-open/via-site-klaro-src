@@ -1,5 +1,5 @@
 initialization
 start
-	gameMode := #manual.
-	currentTextNumber := 1.
-	self gotoFirstStep.
+	self gotoModeManual.
+	
+	self show: (VIAKlaLottieAnimation named: 'lottie-test' css: 'manualToAutomatic')

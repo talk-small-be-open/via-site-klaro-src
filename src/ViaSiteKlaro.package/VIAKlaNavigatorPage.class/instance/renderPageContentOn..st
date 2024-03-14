@@ -9,6 +9,7 @@ renderPageContentOn: html
 	updateScript := JSScript new
 		add: ((self jsPrepareStageOn: html) asInvokedFunction);
 		add: ((self jsUpdateStageOn: html) asInvokedFunction);
+		add: (self jsPageIsReadyOn: html);
 		yourself.
 
 	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce').
@@ -25,7 +26,11 @@ renderPageContentOn: html
 		attributeAt: 'height' put: 'auto';
 		yourself.
 
-	stage script: 'svgLoadInline("navigatorStage", prepareNavigatorStageOnce)' asJsStream.
+"	stageLoaderScript := JSScript new.
+	stageLoaderScript
+		addLiteral: 'svgLoadInline(""navigatorStage"", prepareNavigatorStageOnce);'.
+
+	stage script: stageLoaderScript."
 
 
 	"768 breit = Zeichnungsgrund, ab x=300 "

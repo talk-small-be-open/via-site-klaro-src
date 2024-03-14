@@ -58,3 +58,7 @@ initializePageMenu
 	(pageMenu addEntry: 'menu:logout' action: [ self app logout ])
 "		icon: 'logout';"
 		css: 'logout'.
+
+	self ifBetatest: [
+		(pageMenu addEntry: 'menu:toggleBetatest' action: [ self app toggleBetatest ])
+	]

@@ -9,7 +9,7 @@ jsPrepareStageOn: html
 	"Test add circle"
 	updateScript addLiteral: '
 var station, kreis, kreisX;
-const kreisTemplate = SVG("#Kreis_klein_01");
+const kreisTemplate=SVG("#Kreis_klein_01");
 '.
 	
 
@@ -22,9 +22,9 @@ const kreisTemplate = SVG("#Kreis_klein_01");
 			| kreisId |
 			kreisId := 'Kreis_klein_', num, '_', index asTwoCharacterString.
 
-			updateScript addLiteral: ('station = SVG("#Kreis_gross_', num, '");').
-			updateScript addLiteral: ('kreisX = station.x() + station.width() + 4 + (', (index-1) asString,' * (kreisTemplate.width()+4));').
-			updateScript addLiteral: ('kreis = station.parent().put(kreisTemplate.clone()).x(kreisX).cy(station.cy());').
+			updateScript addLiteral: ('station=SVG("#Kreis_gross_', num, '");').
+			updateScript addLiteral: ('kreisX=station.x() + station.width() + 4 + (', (index-1) asString,' * (kreisTemplate.width()+4));').
+			updateScript addLiteral: ('kreis=station.parent().put(kreisTemplate.clone()).x(kreisX).cy(station.cy());').
 			updateScript addLiteral: ('kreis.attr("id", "', kreisId, '")').
 		].
 	].	

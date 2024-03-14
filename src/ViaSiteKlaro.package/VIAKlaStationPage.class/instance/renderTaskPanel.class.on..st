@@ -36,9 +36,16 @@ renderTaskPanel: aTask class: aClassString on: html
 			].
 
 			html div class: 'rowTwo'; with: [
-				(html clickSpan: (html javascript alert: 'TODO'))
+				aTask subtitle ifNotBlank: [ :info |
+					self renderInfoPanel: 'Info' on: html with: [
+						html heading level1; with: aTask title.
+						html div: info
+					].
+				].
+"				html anchor
 					class: 'infoButton';
-"							callback: [ self showInfoTask: aTask ];"
-					with: 'Info' ].
+					callback: [ self showInfoTask: aTask ];
+					with: 'Info'"
+			].
 	
 	].

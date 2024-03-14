@@ -1,6 +1,6 @@
 rendering
 jsUpdateStageOn: html
-	| updateScript number |
+	| updateScript number id |
 	
 	updateScript := JSScript new.
 
@@ -17,7 +17,8 @@ var station, kreis, svgPath;
 			translateX: (JSStream on: 'svgPath.pointAt(svgPath.length()).x');
 			translateY: (JSStream on: 'svgPath.pointAt(svgPath.length()).y')
 		).
-		updateScript << (((html jQuery id: 'Hexe_Klara') get: 0) call: 'scrollIntoView' with: {#block->'center'} aD ).
+"		updateScript << (((html jQuery id: 'Hexe_Klara') get: 0) call: 'scrollIntoView' with: {#block->'center'} aD )."
+"		updateScript << ((html jQuery id: htmlId) scrollTop: (((html jQuery id: 'Hexe_Klara') position access: 'top') + 20))."
 	] ifNil: [
 		"Place the witch to start"
 		updateScript addLiteral: ('svgPath = SVG("#Pfad_zu_01");').
@@ -30,7 +31,7 @@ var station, kreis, svgPath;
 
 	"Draw every station"
 	moduleExercises do: [ :each |
-		| num id pathId houseClass |
+		| num pathId houseClass |
 		num := each module indexCode firstNumber asTwoCharacterString.
 		id := 'Station_', num.
 		pathId := 'Pfad_zu_', num.
@@ -77,7 +78,7 @@ var station, kreis, svgPath;
 				
 				eachTaskEx isFinished ifTrue: [
 					kreisId := 'Kreis_klein_', num, '_', index asTwoCharacterString.
-					updateScript addLiteral: ('kreis = SVG("#', kreisId, '");').
+					updateScript addLiteral: ('kreis=SVG("#', kreisId, '");').
 					updateScript addLiteral: 'kreis.addClass("done");' ].
 			]
 			
@@ -91,6 +92,14 @@ var station, kreis, svgPath;
 		houseClass ifNotBlank: [
 			updateScript << ((html jQuery id: ('Haus_', num)) addClass: houseClass) ].
 	
+	].
+
+	"Scroll landscape smart, to the third last station.
+	OPTIMIZE: Does not really work stable. Maybe good enough?"
+	number := self currentExerciseNumber - 2.
+	number > 0 ifTrue: [
+		id := 'Station_', number asTwoCharacterString.
+		updateScript << (((html jQuery id: id) get: 0) call: 'scrollIntoView' with: {#block->'center'} aD).
 	].
 
 	^ updateScript

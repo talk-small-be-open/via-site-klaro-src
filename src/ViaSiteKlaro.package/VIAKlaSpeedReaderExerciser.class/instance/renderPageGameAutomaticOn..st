@@ -5,4 +5,4 @@ renderPageGameAutomaticOn: html
 	self isStepSpeak ifTrue: [ self renderAutomaticStepSpeakOn: html ].
 	self isStepListen ifTrue: [ self renderAutomaticStepListenOn: html ].
 	
-	self renderProgressOn: html.
+"	self renderProgressOn: html."

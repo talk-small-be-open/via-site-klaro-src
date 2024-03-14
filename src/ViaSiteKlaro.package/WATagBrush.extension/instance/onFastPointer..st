@@ -7,7 +7,7 @@ onFastPointer: aJavascript
 	) asFunction: #(event).
 	
 	self document scriptGenerator
-		event: 'pointerdown'
+		event: VIAKlaHelper fastPointerEvent
 		do: script
 		on: self
 		

@@ -2,8 +2,6 @@ rendering
 renderAutomaticStepReadOn: html
 	self renderAutomaticStarterOverlayOn: html.
 
-	self renderCurrentTextOn: html.
-	
 	self preloadTimerAnimeOn: html with: [ :animeJs |
 		animeJs
 			targets: 'div.speedText';
@@ -11,12 +9,17 @@ renderAutomaticStepReadOn: html
 			color: '#BB1264'
 	].
 
-	self renderNavigationAreaOn: html with: [
-		self renderButtonReadOn: html.
-		self renderButtonSpeakOn: html.
-		self renderButtonListenOn: html.
-	].
-	self renderSubNavigationAreaOn: html with: [
-"		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
-		self renderAutomaticTimerOn: html.
+	self renderMainPlayAreaOn: html with: [
+		self renderCurrentTextOn: html.
+
+		self renderNavigationAreaOn: html with: [
+			self renderButtonReadOn: html.
+			self renderButtonSpeakOn: html.
+			self renderButtonListenOn: html.
+		].
+		self renderSubNavigationAreaOn: html with: [
+	"		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
+			self renderAutomaticTimerOn: html.
+		].
+		self renderProgressOn: html.
 	]

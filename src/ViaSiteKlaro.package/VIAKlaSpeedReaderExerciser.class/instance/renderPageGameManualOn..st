@@ -8,5 +8,5 @@ renderPageGameManualOn: html
 	self isStepSpeak ifTrue: [ self renderManualStepSpeakOn: html ].
 	self isStepListen ifTrue: [ self renderManualStepListenOn: html ].
 	
-	self renderProgressOn: html.
+"	self renderProgressOn: html."
 "	gameOnceJs ifNotNil: [ html scriptDefer: gameOnceJs. gameOnceJs := nil ]."
