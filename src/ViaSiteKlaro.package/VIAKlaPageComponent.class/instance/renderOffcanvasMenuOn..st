@@ -8,9 +8,8 @@ renderOffcanvasMenuOn: html
 		id: (id := html nextId);
 		with: [
 			html div with: [
-				html div
+				(html clickSpan: ((html jQuery id: id) removeClass: 'slideIn'))
 					class: 'offcanvasClose';
-					onClick: ((html jQuery id: id) removeClass: 'slideIn');
 					with: [ html iconClose ].
 
 				html div class: 'pageMenuContainer'; with: [

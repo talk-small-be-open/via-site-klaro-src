@@ -94,12 +94,4 @@ var station, kreis, svgPath;
 	
 	].
 
-	"Scroll landscape smart, to the third last station.
-	OPTIMIZE: Does not really work stable. Maybe good enough?"
-	number := self currentExerciseNumber - 2.
-	number > 0 ifTrue: [
-		id := 'Station_', number asTwoCharacterString.
-		updateScript << (((html jQuery id: id) get: 0) call: 'scrollIntoView' with: {#block->'center'} aD).
-	].
-
 	^ updateScript

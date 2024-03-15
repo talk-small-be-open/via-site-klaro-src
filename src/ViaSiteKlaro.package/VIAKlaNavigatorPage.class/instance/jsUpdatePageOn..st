@@ -5,6 +5,7 @@ jsUpdatePageOn: js
 	
 	asInvokedFunction encapsulates the JS into its own space
 	"
-	^ js jQuery ajax
+"	^ js jQuery ajax
 		script: [ :j | j << ((self jsUpdateStageOn: j) asInvokedFunction) ];
-		yourself
+		yourself"
+	^ self jsUpdateStageOn: js

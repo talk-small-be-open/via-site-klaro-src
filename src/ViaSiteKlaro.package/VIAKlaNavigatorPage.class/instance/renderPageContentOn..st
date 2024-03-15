@@ -23,7 +23,7 @@ renderPageContentOn: html
 		attributeAt: 'preserveAspectRatio' put: 'xMidYMin slice'; "cut off the invisible stuff in x-Axis"
 		attributeAt: 'data-svgloader-src' put: '/site/images/hexenweg.svg';
 		attributeAt: 'width' put: 'auto'; "auto is not allowed says Firefox, but without it will not scroll vertically?!"
-		attributeAt: 'height' put: 'auto';
+		attributeAt: 'height' put: '2823px';  "auto"
 		yourself.
 
 "	stageLoaderScript := JSScript new.

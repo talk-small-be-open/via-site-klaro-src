@@ -35,6 +35,7 @@ updateRoot: anHtmlRoot
 	anHtmlRoot javascript defer; url: '/site/js/svgjs/svg.min.js'.
 
 	"Lottie Player"
+	"TODO: Stick to a fix version, not latest"
 	anHtmlRoot javascript
 		defer;
 		url: 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs';

@@ -1,3 +1,3 @@
 as yet unclassified
 themeColorForeground
-	^ '#ffffff'
+	^ '#40627A' "dunkelblau"
