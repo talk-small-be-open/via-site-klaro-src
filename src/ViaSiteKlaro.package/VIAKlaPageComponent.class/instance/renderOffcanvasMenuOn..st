@@ -21,7 +21,14 @@ renderOffcanvasMenuOn: html
 
 				"uk-position-bottom"
 				html div class: 'pageMenuFooter'; with: [
-					html logoHepClaimInv
+					html logoHepClaimInv.
+					
+					self ifBetatest: [ 
+						html div class: 'topBuffer'; with: [
+							html span: 'Betatest Infos:'; break.
+							html span: self session browserType
+						]
+					].
 				].
 
 			].

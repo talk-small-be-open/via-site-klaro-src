@@ -1,8 +1,11 @@
 as yet unclassified
 uiGotoPage: aPage
-	| oldPage |
+	| oldPage isUiBackwards |
 	
 	oldPage := self currentPage.
+
+	"Poor man solution to find out, if it is UI rather backwards"
+	isUiBackwards := self isBackwardsFrom: oldPage to: aPage.
 	
 	self gotoPage: aPage.
 
@@ -14,7 +17,7 @@ uiGotoPage: aPage
 		"
 		js << (oldPage jsOnHidePageOn: js).
 		js << (aPage jsOnShowPageOn: js).
-		js << ((JSStream on: 'window') call: 'pager_gotoPage' with: ('#', htmlId) with: ('#', aPage htmlId)).
+		js << ((JSStream on: 'window') call: 'pager_gotoPage' with: ('#', htmlId) with: ('#', aPage htmlId) with: isUiBackwards).
 
 
 "			onComplete: ((JSStream on: 'window') call: 'pager_gotoPage' with: ('#', htmlId) with: ('#', aPage htmlId));"
