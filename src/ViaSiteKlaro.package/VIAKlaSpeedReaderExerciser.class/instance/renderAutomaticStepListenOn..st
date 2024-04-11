@@ -16,16 +16,14 @@ renderAutomaticStepListenOn: html
 
 
 		self renderNavigationAreaOn: html with: [
-			self renderButtonReadOn: html.
-			self renderButtonSpeakOn: html.
-			self renderButtonListenOn: html.
+			self renderAutomaticNavButtonsOn: html
 		].
 
 		self renderSubNavigationAreaOn: html with: [
 	"		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
-
-			self renderAutomaticTimerOn: html.
+			self renderAutomaticPlayPauseButtonOn: html.
 		].
+		self renderAutomaticTimerOn: html.
 		self renderProgressOn: html.
 	].
 

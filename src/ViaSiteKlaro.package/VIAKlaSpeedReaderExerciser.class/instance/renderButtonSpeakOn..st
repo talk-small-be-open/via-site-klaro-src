@@ -2,6 +2,9 @@ rendering
 renderButtonSpeakOn: html
 	html span
 		class: 'mainButton speak';
-"		class: 'active' if: self isStepSpeak;"
-		with: [ 
-			html imgSignSpeak: self isStepSpeak ]
+		with: [
+			| isActive |
+			
+			isActive := self isStepSpeak or: [ self isSequenceBlitz ].
+			
+			html imgSignSpeak: isActive ]
