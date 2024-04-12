@@ -1,6 +1,5 @@
 rendering
 renderAutomaticStepReadOn: html
-	self renderAutomaticStarterOverlayOn: html.
 
 	self preloadTimerAnimeOn: html with: [ :animeJs |
 		animeJs
@@ -10,6 +9,8 @@ renderAutomaticStepReadOn: html
 	].
 
 	self renderMainPlayAreaOn: html with: [
+		self renderAutomaticStarterOverlayOn: html.
+
 		self renderCurrentTextOn: html.
 
 		self renderNavigationAreaOn: html with: [
@@ -21,4 +22,6 @@ renderAutomaticStepReadOn: html
 		].
 		self renderAutomaticTimerOn: html.
 		self renderProgressOn: html.
-	]
+	].
+
+	self renderPlayNewWordSoundOn: html

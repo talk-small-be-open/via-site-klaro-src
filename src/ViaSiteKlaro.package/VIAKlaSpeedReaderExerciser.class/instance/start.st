@@ -1,5 +1,22 @@
 initialization
 start
+	| introAudio audioName module task mNum tNum |
+	
 	self gotoModeManual.
 	
-	self show: (VIAKlaLottieAnimation named: 'lottie-test' css: 'manualToAutomatic')
+	module := self module. 
+	task := self task.
+	mNum := module indexCode firstNumber asTwoCharacterString.
+	tNum := (module indexOfTask: task) asTwoCharacterString.
+	
+	audioName := 'audio-intro-station', mNum, '-task', tNum.
+	
+	introAudio := (self wd findAssetsByTitle: audioName) firstOrNil.
+	
+	introAudio
+		ifNil: [ 	self show: (VIAKlaLottieAnimation named: 'lottie-test' css: 'startManual') ]
+		ifNotNil: [
+			self show: ((VIAKlaLottieAnimation named: 'lottie-test' css: 'startManual')
+				backgroundAudioAsset: introAudio;
+				yourself)		
+		]

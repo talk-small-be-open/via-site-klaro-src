@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAKlaJsPixiSoundBase",
+	"category" : "ViaSiteKlaro-View-Javascript",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"id",
+		"loop",
+		"onComplete"
+	],
+	"name" : "VIAKlaJsPixiSoundPlay",
+	"type" : "normal"
+}

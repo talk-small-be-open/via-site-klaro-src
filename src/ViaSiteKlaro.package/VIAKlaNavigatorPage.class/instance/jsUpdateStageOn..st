@@ -1,5 +1,5 @@
 rendering
-jsUpdateStageOn: html
+jsUpdateStageOn: js
 	| updateScript number id |
 	
 	updateScript := JSScript new.
@@ -13,7 +13,7 @@ var station, kreis, svgPath;
 	lastInWorkExercise ifNotNil: [
 		number := lastInWorkExercise module indexCode firstNumber asTwoCharacterString.
 		updateScript addLiteral: ('svgPath = SVG("#Pfad_zu_', number, '");').
-		updateScript << ((html animeJs set: '#Hexe_Klara')
+		updateScript << ((js animeJs set: '#Hexe_Klara')
 			translateX: (JSStream on: 'svgPath.pointAt(svgPath.length()).x');
 			translateY: (JSStream on: 'svgPath.pointAt(svgPath.length()).y')
 		).
@@ -22,7 +22,7 @@ var station, kreis, svgPath;
 	] ifNil: [
 		"Place the witch to start"
 		updateScript addLiteral: ('svgPath = SVG("#Pfad_zu_01");').
-		updateScript << ((html animeJs set: '#Hexe_Klara')
+		updateScript << ((js animeJs set: '#Hexe_Klara')
 			translateX: (JSStream on: 'svgPath.pointAt(0).x');
 			translateY: (JSStream on: 'svgPath.pointAt(0).y')
 		).
@@ -43,11 +43,11 @@ var station, kreis, svgPath;
 			"Build JS to get to station, either with animated witch or directly"
 			
 			jsUnlockSoundApi := 'PIXI.sound.play("button-click");' asJsStream.
-			jsGotoStation := (self jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: html).
+			jsGotoStation := (self jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: js).
 			
 			isNewExercise ifTrue: [
 				"The witch flying animation"
-				jsOnClick := jsUnlockSoundApi, (html animeJs
+				jsOnClick := jsUnlockSoundApi, (js animeJs
 					targets: '#Hexe_Klara';
 					motionPath: ('svg.navigatorStage #', pathId);
 					duration: ( JSStream on: ('SVG("#', pathId, '").length()*3' ) );
@@ -62,7 +62,7 @@ var station, kreis, svgPath;
 				jsOnClick := jsUnlockSoundApi, jsGotoStation
 			].
 			
-			jsStationUpdater := (html jQuery id: id)
+			jsStationUpdater := (js jQuery id: id)
 				addClass: 'enabled';
 				removeClass: 'isNewExercise';
 				off: 'click';
@@ -90,7 +90,7 @@ var station, kreis, svgPath;
 		"Hide/show the house partials"
 		houseClass := each isFinished ifTrue: [ 'moduleFinished' ]. "ifFalse: [ 'moduleNotFinished' ]"
 		houseClass ifNotBlank: [
-			updateScript << ((html jQuery id: ('Haus_', num)) addClass: houseClass) ].
+			updateScript << ((js jQuery id: ('Haus_', num)) addClass: houseClass) ].
 	
 	].
 

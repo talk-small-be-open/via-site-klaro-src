@@ -1,5 +1,5 @@
 rendering
-jsPrepareStageOn: html
+jsPrepareStageOn: js
 	| updateScript |
 
 	"Does some initial preparations of the base stage"

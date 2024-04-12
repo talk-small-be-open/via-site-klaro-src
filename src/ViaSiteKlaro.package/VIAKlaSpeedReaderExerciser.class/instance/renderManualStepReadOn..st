@@ -13,4 +13,6 @@ renderManualStepReadOn: html
 			html pagerAction: [ self gotoNext ] with: [ self renderButtonNextOn: html ].
 		].
 		self renderProgressOn: html.
-	]
+	].
+
+	self renderPlayNewWordSoundOn: html

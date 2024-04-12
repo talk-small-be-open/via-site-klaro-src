@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "AndreasBrodbeck 4/12/2024 20:19",
 	"super" : "VIAComponent",
 	"category" : "ViaSiteKlaro-View",
 	"classinstvars" : [ ],
@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"animationName",
-		"cssClass"
+		"cssClass",
+		"backgroundAudioAsset"
 	],
 	"name" : "VIAKlaLottieAnimation",
 	"type" : "normal"

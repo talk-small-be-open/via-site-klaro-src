@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAKlaJsPixiSoundBase",
+	"category" : "ViaSiteKlaro-View-Javascript",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"id",
+		"url"
+	],
+	"name" : "VIAKlaJsPixiSoundAdd",
+	"type" : "normal"
+}

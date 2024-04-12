@@ -5,7 +5,11 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"code1",
+		"code2",
+		"code3"
+	],
 	"name" : "VIAPublicHomeComponent",
 	"type" : "normal"
 }

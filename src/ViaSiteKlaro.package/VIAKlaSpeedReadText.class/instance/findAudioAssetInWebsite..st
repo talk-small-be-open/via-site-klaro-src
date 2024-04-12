@@ -4,6 +4,6 @@ findAudioAssetInWebsite: aWebsite
 
 	genericName := self suggestedGenericAssetName.
 
-	asset := aWebsite data assets detect: [ :each | each title = genericName ] ifNone: [ nil ].
+	asset := (aWebsite data findAssetsByTitle: genericName) firstOrNil.
 
 	self audioAsset: asset

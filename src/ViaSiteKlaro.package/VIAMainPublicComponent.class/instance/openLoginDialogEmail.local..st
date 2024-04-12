@@ -1,7 +1,7 @@
 actions
 openLoginDialogEmail: aString local: aBoolean
 	| login |
-	login := VIAKlaLoginComponent new.
+	login := self am loginComponentClass new.
 
 	login email: aString.
 

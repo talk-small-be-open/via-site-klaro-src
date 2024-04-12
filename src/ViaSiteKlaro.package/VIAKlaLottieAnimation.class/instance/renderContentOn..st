@@ -4,6 +4,15 @@ renderContentOn: html
 	
 	jsClose := (html jsPagerAction: [ self close ]).
 	
+	self hasBackgroundAudio ifTrue: [
+		| script |
+		script := JSScript new.
+		script << (html pixiSoundAdd audioAsset: backgroundAudioAsset).
+		script << (html pixiSoundPlay audioAsset: backgroundAudioAsset).
+		
+		html script: script
+	].
+
 	html div class: 'lottieAnimation';
 "		class: 'lottieAnimation';"
 		class: animationName;

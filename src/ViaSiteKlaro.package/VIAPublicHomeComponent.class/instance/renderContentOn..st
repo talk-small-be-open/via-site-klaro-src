@@ -9,11 +9,29 @@ renderContentOn: html
 	html div class: 'info'; pT: 'publicHome:info'.
 
 	html div class: 'loginSection'; with: [
-		VIAKlaHepUser isOauthEnabled ifTrue: [
+		VIAKlaHepUser isCouponLoginEnabled ifTrue: [
 			html form class: 'codeInput'; with: [
-				html textInput placeholder: 'XXX-XXXX-XXX'.
-				html submitButton sT: 'publicHome:loginWithCode' ].
-			
+				html textInput
+					on: #code1 of: self;
+					pattern: '[a-zA-Z]+';
+					placeholder: 'XXXXX'.
+				html html: '&mdash;'.
+				html textInput
+					on: #code2 of: self;
+					pattern: '[0-9]{2}';
+					placeholder: '00'.
+				html html: '&mdash;'.
+				html textInput
+					on: #code3 of: self;
+					pattern: '[a-zA-Z]+';
+					placeholder: 'XXXXX'.
+				
+				html submitButton
+					callback: [ self loginWithCode ];
+					sT: 'publicHome:loginWithCode' ].
+		].
+		
+		VIAKlaHepUser isOauthEnabled ifTrue: [
 			html anchorButton
 "				callback: [ self app openLoginDialog ];"
 				url: self oauthAuthorizeUrl;
@@ -21,8 +39,6 @@ renderContentOn: html
 				with: [
 					html span: [
 						html sT: 'publicHome:login' ] ]
-		] ifFalse: [
-			html div pT: 'publicHome:loginDisabled'
 		].
 
 		self ifDevelopment: [
