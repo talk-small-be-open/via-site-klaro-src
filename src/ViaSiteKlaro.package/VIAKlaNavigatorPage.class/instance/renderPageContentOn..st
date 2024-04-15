@@ -42,7 +42,8 @@ renderPageContentOn: html
 	].
 
 
-	html scriptDefer: 'PIXI.sound.add("button-click", "/site/sounds/button-click.wav");' asJsStream.
+	html scriptDefer: (html pixiSoundAdd id: 'button-click'; url: '/site/sounds/button-click.wav').
+"	html scriptDefer: 'PIXI.sound.add(""button-click"", ""/site/sounds/button-click.wav"");' asJsStream."
 
 "	html break; break; break."
 "	self renderLottieTestOn: html."

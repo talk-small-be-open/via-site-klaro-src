@@ -1,3 +1,3 @@
 rendering
 renderPlayNewWordSoundOn: html
-	html script: 'PIXI.sound.play("new-word");' asJsStream.
+	html script: (html pixiSoundPlay id: 'new-word')

@@ -1,22 +1,13 @@
 as yet unclassified
 jsInit
 	| js jsPreloader |
-	js := JSStream new.
+	js := JSScript new.
 
 	jsPreloader := [ :id :url |
-		| urls options |
-		urls := { url }. "TODO: All alternatives ogg, mp3 for browser support"
-			
-		options := { #url->urls. #preload->true. #singleInstance->true } aD.
-
-		js nextPutAll: 'if (!PIXI.sound.exists("'.
-		js nextPutAll: id.
-		js nextPutAll: '")) {'.
-		js nextPutAll: 'PIXI.sound.add("'.
-		js nextPutAll: id.
-		js nextPutAll: '", '.
-		js javascript: options.
-		js nextPutAll: ')}'
+		js << (js pixiSoundAdd
+			id: id;
+			url: url;
+			yourself).
 	].
 	
 	"Preload some funky sounds"

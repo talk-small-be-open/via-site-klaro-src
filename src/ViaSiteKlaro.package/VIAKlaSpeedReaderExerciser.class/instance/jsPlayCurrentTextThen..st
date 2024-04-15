@@ -9,23 +9,15 @@ jsPlayCurrentTextThen: aJsCallbackScript
 
 	] ifNotNil: [ :audio |
 
-		| options |
+		| playIt |
 
-		js := JSStream new.
+		js := JSScript new.
 		
-		"See https://pixijs.io/sound/docs/PlayOptions.html"
-		options := { #loop->false. #singleInstance->true } aD.
+		playIt := (js pixiSoundPlay audioAsset: audio).
+
+		aJsCallbackScript ifNotBlank: [ playIt onComplete: aJsCallbackScript ].
 		
-		aJsCallbackScript ifNotBlank: [ options at: #complete put: aJsCallbackScript asFunction ].
-		
-		js nextPutAll: 'if (PIXI.sound.exists('.
-		js javascript: audio uuidString.
-		js nextPutAll: ')) '.
-		js nextPutAll: 'PIXI.sound.play('.
-		js javascript: audio uuidString.
-		js nextPutAll: ','.
-		js javascript: options.
-		js nextPutAll: ');'.
+		js << playIt
 		
 	].
 
