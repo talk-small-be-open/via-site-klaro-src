@@ -1,6 +1,14 @@
 rendering
 renderAutomaticStepListenOn: html
 
+	self preloadTimerAnimeOn: html with: [ :animeJs |
+		animeJs
+			targets: 'svg.sign.sound path.light';
+			easing: 'easeInExpo';
+			fill: '#BB1264'.
+	].
+
+
 	self renderMainPlayAreaOn: html with: [
 
 		self renderSpeedTextAreaOn: html with: [

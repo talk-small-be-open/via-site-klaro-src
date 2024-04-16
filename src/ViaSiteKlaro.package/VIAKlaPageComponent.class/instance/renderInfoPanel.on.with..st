@@ -1,10 +1,10 @@
 as yet unclassified
-renderInfoPanel: aButtonString on: html with: aRenderable
+renderInfoPanel: aButtonRenderable on: html with: aRenderable
 	| id |
 	
 	id := html nextId.
 	
-	html clickSpan: ((html jQuery id: id) show) with: aButtonString.
+	html clickSpan: ((html jQuery id: id) show) with: aButtonRenderable.
 
 	html div
 		id: id;

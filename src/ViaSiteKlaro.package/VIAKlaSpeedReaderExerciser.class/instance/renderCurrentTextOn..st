@@ -8,6 +8,6 @@ renderCurrentTextOn: html
 				html pillar: self currentText textPillar pillarDocument ].
 			
 		self currentText styleName ifNotBlank: [ :style |
-			style = 'magic-spell' ifTrue: [ "TODO add Animation magic wand" ]
+			style = 'magic-spell' ifTrue: [ "TODO? add Animation magic wand" ]
 		]
 	]

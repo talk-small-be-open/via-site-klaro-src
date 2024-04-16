@@ -22,10 +22,20 @@ renderTaskPanel: aTask class: aClassString on: html
 
 							html
 								clickSpan: (self jsGotoPage: 'exercise' callback: [ :page | page gotoTaskExercise: taskExercise auto: true ] on: html)
-								with: [ html imgSignRepeatAutomatic ].
+								with: [
+									isNextTask ifTrue: [
+										html span
+											class: 'actionSymbol';
+											class: 'nextTask' if: isNextTask;
+											with: [ html imgSignRightShort ]
+									] ifFalse: [
+										html imgSignRepeatAutomatic
+									].
+							].
 						].
 					] ifFalse: [
 "									html span class: 'progress'; with: [ html iconProgressFromPercent: 0 ]."
+						"Completely untouched exercise"
 						isNextTask ifTrue: [
 							html span
 								class: 'actionSymbol';
@@ -36,16 +46,16 @@ renderTaskPanel: aTask class: aClassString on: html
 			].
 
 			html div class: 'rowTwo'; with: [
-				aTask subtitle ifNotBlank: [ :info |
-					self renderInfoPanel: 'Info' on: html with: [
+				aTask hasTeacherNotes ifTrue: [
+					self renderInfoPanel: [ html span class: 'infoButton'; with: 'Info' ] on: html with: [
 						html heading level1; with: aTask title.
-						html div: info
-					].
-				].
+						html div class: 'teacherNotes'; with: [ 
+						html pillar: aTask teacherNotesPillar ] ] ]
+			].
+
+
 "				html anchor
 					class: 'infoButton';
 					callback: [ self showInfoTask: aTask ];
 					with: 'Info'"
-			].
-	
 	].
