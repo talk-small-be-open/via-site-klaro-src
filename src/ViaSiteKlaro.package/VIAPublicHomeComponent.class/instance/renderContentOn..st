@@ -9,21 +9,22 @@ renderContentOn: html
 	html div class: 'info'; pT: 'publicHome:info'.
 
 	html div class: 'loginSection'; with: [
+		loginErrorMessage ifNotBlank: [ html div class: 'error'; with: loginErrorMessage ].
 		VIAKlaHepUser isCouponLoginEnabled ifTrue: [
 			html form class: 'codeInput'; with: [
 				html textInput
 					on: #code1 of: self;
-					pattern: '[a-zA-Z]+';
+"					pattern: '[a-zA-Z]+';"
 					placeholder: 'XXXXX'.
 				html html: '&mdash;'.
 				html textInput
 					on: #code2 of: self;
-					pattern: '[0-9]{2}';
+"					pattern: '[0-9]{2}';"
 					placeholder: '00'.
 				html html: '&mdash;'.
 				html textInput
 					on: #code3 of: self;
-					pattern: '[a-zA-Z]+';
+"					pattern: '[a-zA-Z]+';"
 					placeholder: 'XXXXX'.
 				
 				html submitButton

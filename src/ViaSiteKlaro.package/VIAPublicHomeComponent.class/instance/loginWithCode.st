@@ -19,4 +19,4 @@ loginWithCode
 
 		"The parent component will then do the steps for reload the app and login, if this component answers"
 		self answer
-	]
+	] ifFalse: [ loginErrorMessage := 'Coupon Lizenzcode ungültig!' ]

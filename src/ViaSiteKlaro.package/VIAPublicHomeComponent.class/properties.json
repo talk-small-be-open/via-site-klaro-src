@@ -8,7 +8,8 @@
 	"instvars" : [
 		"code1",
 		"code2",
-		"code3"
+		"code3",
+		"loginErrorMessage"
 	],
 	"name" : "VIAPublicHomeComponent",
 	"type" : "normal"

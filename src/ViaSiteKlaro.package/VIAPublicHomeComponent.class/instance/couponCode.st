@@ -1,3 +1,11 @@
 as yet unclassified
 couponCode
-	^ code1, '-', code2, '-', code3
+	^ String streamContents: [ :s |
+		s << code1.
+		code2 ifNotBlank: [
+			s << '-'.
+			s << code2 ].
+		code3 ifNotBlank: [
+			s << '-'.
+			s << code3 ].
+	]
