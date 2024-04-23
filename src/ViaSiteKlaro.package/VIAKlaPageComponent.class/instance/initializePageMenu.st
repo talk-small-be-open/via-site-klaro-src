@@ -1,6 +1,6 @@
 initialization
 initializePageMenu
-	| userLabel subMenu entry |
+	| subMenu entry |
 
 	pageMenu := VIAMenu new.
 	
@@ -49,8 +49,8 @@ initializePageMenu
 
 "	pageMenu addDivider."
 
-	userLabel := self currentUser accountName.
-	(pageMenu addEntry: userLabel action: [ self app gotoMyProfile ]).
+"	userLabel := self currentUser accountName."
+	(pageMenu addEntry: 'menu:myProfile' action: [ self app gotoMyProfile ]).
 "		icon: 'user'."
 
 "	pageMenu addDivider."

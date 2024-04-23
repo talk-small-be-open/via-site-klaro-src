@@ -1,3 +1,4 @@
 as yet unclassified
 jsOnHidePageOn: js
-	^ 'speedReaderTimer.stop();' asJsStream
+	^ (self jsStopAllAnimationsOn: js),
+	('speedReaderTimer.stop();' asJsStream)

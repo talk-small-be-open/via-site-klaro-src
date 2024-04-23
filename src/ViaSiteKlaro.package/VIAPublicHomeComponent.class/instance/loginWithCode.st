@@ -10,8 +10,9 @@ loginWithCode
 		"Implicit accept terms"
 		user beTermsAccepted.
 		
-		"Some initializations after registration"
-		user presetAutologinFromSession: self session.
+"		user presetAutologinFromSession: self session."
+		"Always use autologin"
+		user useAutologin: true.
 		
 		self session
 			loginUser: user remember: true;
