@@ -2,6 +2,9 @@ actions
 gotoTaskExercise: aTaskExercise auto: aBoolean
 
 	moduleExercise := aTaskExercise moduleExercise.
+	
+	"Remember initial state"
+	moduleWasFinished := moduleExercise isFinished.
 
 "	(aModule canView: self currentUser) ifFalse: [ self inform: 'main:accessDenied'. ^ self ]."
 

@@ -1,11 +1,11 @@
 {
-	"commentStamp" : "AndreasBrodbeck 5/2/2024 10:31",
+	"commentStamp" : "AndreasBrodbeck 5/2/2024 14:41",
 	"super" : "WATagBrush",
 	"category" : "ViaSiteKlaro-View",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "VIAWaLottiePlayerTag",
+	"name" : "VIAWaDotLottieWebComponentTag",
 	"type" : "normal"
 }

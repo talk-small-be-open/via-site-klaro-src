@@ -1,6 +1,6 @@
 initialization
 initializePageMenu
-	| subMenu entry |
+	| entry |
 
 	pageMenu := VIAMenu new.
 	
@@ -12,6 +12,7 @@ initializePageMenu
 	(pageMenu addEntry: 'menu:klaroIntroduction' action: [ self app gotoKlaroIntroduction ]).
 "		icon: 'menuIntroduction'."
 
+	pageMenu addDivider.
 
 "	self ifTeacher: [
 		(pageMenu addEntry: 'menu:myTeacherCockpit' send: #gotoMyTeacherCockpit to: self)
@@ -31,8 +32,14 @@ initializePageMenu
 		subMenu addEntry: entry.
 	]."
 
-	entry := VIAUrlMenuEntry label: 'menu:info' url: 'https://www.klaro-app.online/'.
-"	entry icon: 'menuInfo'."
+	"Externe URLs"
+	entry := VIAUrlMenuEntry label: 'menu:info:videos' url: 'https://www.hep-verlag.ch/klaro#storyvideo'.
+	pageMenu addEntry: entry.
+	entry := VIAUrlMenuEntry label: 'menu:info:contents' url: 'https://www.hep-verlag.ch/klaro/inhalt'.
+	pageMenu addEntry: entry.
+	entry := VIAUrlMenuEntry label: 'menu:info:parents' url: 'https://www.hep-verlag.ch/klaro/eltern'.
+	pageMenu addEntry: entry.
+	entry := VIAUrlMenuEntry label: 'menu:info:experts' url: 'https://www.hep-verlag.ch/klaro/fachpersonen'.
 	pageMenu addEntry: entry.
 
 
@@ -44,20 +51,38 @@ initializePageMenu
 
 "	pageMenu addDivider."
 
-	(pageMenu addEntry: 'menu:messageToSupport' action: [ self app sendMessageToSupport ]).
+"	(pageMenu addEntry: 'menu:messageToSupport' action: [ self app sendMessageToSupport ])."
 "		icon: 'menuSupport'."
 
-"	pageMenu addDivider."
+	pageMenu addDivider.
 
 "	userLabel := self currentUser accountName."
 	(pageMenu addEntry: 'menu:myProfile' action: [ self app gotoMyProfile ]).
 "		icon: 'user'."
 
-"	pageMenu addDivider."
 		
 	(pageMenu addEntry: 'menu:logout' action: [ self app logout ])
 "		icon: 'logout';"
 		css: 'logout'.
+
+	pageMenu addDivider.
+
+	"Externe URLs"
+	entry := VIAUrlMenuEntry label: 'menu:info:contact' url: 'https://www.hep-verlag.ch/support-und-kontakt'.
+	entry css: 'small'.
+	pageMenu addEntry: entry.
+	entry := VIAUrlMenuEntry label: 'menu:info:imprint' url: 'https://www.hep-verlag.ch/impressum'.
+	entry css: 'small'.
+	pageMenu addEntry: entry.
+	entry := VIAUrlMenuEntry label: 'menu:info:privacy' url: 'https://www.hep-verlag.ch/datenschutz'.
+	entry css: 'small'.
+	pageMenu addEntry: entry.
+	entry := VIAUrlMenuEntry label: 'menu:info:terms' url: 'https://www.hep-verlag.ch/agb'.
+	entry css: 'small'.
+	pageMenu addEntry: entry.
+	
+	
+
 
 	self ifBetatest: [
 		(pageMenu addEntry: 'menu:toggleBetatest' action: [ self app toggleBetatest ])

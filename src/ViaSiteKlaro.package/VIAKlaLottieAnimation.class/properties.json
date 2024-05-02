@@ -8,7 +8,8 @@
 	"instvars" : [
 		"animationName",
 		"cssClass",
-		"backgroundAudioAsset"
+		"backgroundAudioAsset",
+		"autoClose"
 	],
 	"name" : "VIAKlaLottieAnimation",
 	"type" : "normal"

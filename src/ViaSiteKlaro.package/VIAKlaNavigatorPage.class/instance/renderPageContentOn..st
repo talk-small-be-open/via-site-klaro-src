@@ -24,6 +24,7 @@ renderPageContentOn: html
 		attributeAt: 'data-svgloader-src' put: '/site/images/hexenweg.svg';
 		attributeAt: 'width' put: 'auto'; "auto is not allowed says Firefox, but without it will not scroll vertically?!"
 		attributeAt: 'height' put: '2823px';  "auto"
+		attributeAt: 'viewBox' put: '0 0 1367.41 2823.44';
 		yourself.
 
 "	stageLoaderScript := JSScript new.
@@ -35,11 +36,10 @@ renderPageContentOn: html
 
 	"768 breit = Zeichnungsgrund, ab x=300 "
 	"Pseudo-Responsive. Crop the image to the middle column"
-	self ifViewportSmall: [
-		stage attributeAt: 'viewBox' put: '500 0 367.41 2823.44'.
-	] else: [
-		stage attributeAt: 'viewBox' put: '0 0 1367.41 2823.44'.
-	].
+	self session isViewportSmall ifTrue: [
+		stage attributeAt: 'viewBox' put: '500 0 367.41 2823.44' ].
+	self session isViewportMedium ifTrue: [
+		stage attributeAt: 'viewBox' put: '300 0 767.41 2823.44' ].
 
 
 	html scriptDefer: (html pixiSoundAdd id: 'button-click'; url: '/site/sounds/button-click.wav').

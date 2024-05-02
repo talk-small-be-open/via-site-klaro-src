@@ -19,7 +19,13 @@ renderContentOn: html
 		class: cssClass;
 		onClick: jsClose;
 		with: [
-			html lottiePlayer
+			| player |
+			
+			player := html lottiePlayer
 				src: ('/site/animations/', animationName, '.lottie');
-				autoplay: true;
-				onComplete: jsClose ].
+				autoplay: true.
+				
+			autoClose ifTrue: [
+				player onComplete: jsClose
+			].	
+		].

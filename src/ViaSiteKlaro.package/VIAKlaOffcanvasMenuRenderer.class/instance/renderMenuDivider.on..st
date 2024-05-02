@@ -1,3 +1,3 @@
 rendering
 renderMenuDivider: aMenuItem on: html
-	html listItem class: 'menuDivider'
+	html span class: 'menuDivider'

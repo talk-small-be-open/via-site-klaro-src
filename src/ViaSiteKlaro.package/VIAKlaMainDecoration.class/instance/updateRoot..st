@@ -5,7 +5,7 @@ updateRoot: anHtmlRoot
 	self updateRootEssentials: anHtmlRoot.
 
 "	self updateRootStandardJsUiLibs: anHtmlRoot."
-	anHtmlRoot javascript defer; url: 'https://cdn.jsdelivr.net/npm/interactjs@1.10.26/dist/interact.min.js'.
+	anHtmlRoot javascript defer; url: '/js/interact.min.js'.
 
 
 "	self updateRootCookieConsent: anHtmlRoot.
@@ -37,9 +37,16 @@ updateRoot: anHtmlRoot
 	"Lottie Player"
 	"TODO: Stick to a fix version, not latest"
 	anHtmlRoot javascript
-		defer;
-		url: 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs';
+"		defer;"
+"geht so nicht, weil in chunks aufgeteilt, konnte es nirgends downloaden		url: '/site/js/lottie/dotlottie-player.mjs';"
+		url: 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs'; "unklar, ob beste player variante"
+"		url: 'https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js';" "Vermutlich neuste Entwicklung 2024, aber nicht stabil"
 		type: 'module'.
+"		url: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'."
+"		url: '/site/js/lottie/lottie-player.js'."
+
+	"EXPERIMENTAL. Second lightweight lottie player. Offiziell archiviert, aber von einem fork genommen:"
+"	anHtmlRoot javascript url: '/site/js/lottie/jlottie.min.js'."
 
 	"PixiJS sound"
 	anHtmlRoot javascript defer; url: 'https://unpkg.com/pixi.js@7.2.4/dist/pixi.min.js'.

@@ -1,3 +1,4 @@
 as yet unclassified
 lottiePlayer
-	^ self brush: VIAWaLottiePlayerTag new 
+	"Options see https://docs.lottiefiles.com/dotlottie-players"
+	^ self brush: VIAWaLottiePlayerTag new.

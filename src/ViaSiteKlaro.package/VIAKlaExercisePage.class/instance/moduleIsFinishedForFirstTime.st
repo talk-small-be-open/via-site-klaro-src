@@ -1,3 +1,3 @@
 as yet unclassified
-moduleIsFinished
+moduleIsFinishedForFirstTime
 	self uiGotoPageNamed: 'reward'.

@@ -1,9 +1,10 @@
 as yet unclassified
 taskIsFinished
 
-	"If it was the last task, we have finished the whole module!"
-	moduleExercise isFinished ifTrue: [
-		self moduleIsFinished.
-		^ self ].
+	"Check if we have just finished the whole module"
+	((moduleWasFinished = false) and: [moduleExercise isFinished]) ifTrue: [
+		self moduleIsFinishedForFirstTime.
+		^ self
+	].
 
 	self uiGotoPageNamed: 'station'.
