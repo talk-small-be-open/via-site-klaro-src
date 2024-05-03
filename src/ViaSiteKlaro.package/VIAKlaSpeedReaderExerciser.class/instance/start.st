@@ -14,9 +14,12 @@ start
 	introAudio := (self wd findAssetsByTitle: audioName) firstOrNil.
 	
 	introAudio
-		ifNil: [ 	self show: (VIAKlaLottieAnimation named: '01-HW-Uebergang' css: 'startManual') ]
+		ifNil: [
+			self show: ((VIAKlaLottieAnimation named: '01-HW-Uebergang' css: 'startManual')
+				autoClose: true; yourself) ]
 		ifNotNil: [
 			self show: ((VIAKlaLottieAnimation named: '01-HW-Uebergang' css: 'startManual')
+				autoClose: true;
 				backgroundAudioAsset: introAudio;
 				yourself)		
 		]

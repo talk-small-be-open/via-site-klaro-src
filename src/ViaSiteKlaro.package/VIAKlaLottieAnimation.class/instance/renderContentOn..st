@@ -5,10 +5,16 @@ renderContentOn: html
 	jsClose := (html jsPagerAction: [ self close ]).
 	
 	self hasBackgroundAudio ifTrue: [
-		| script |
+		| script play |
 		script := JSScript new.
 		script << (html pixiSoundAdd audioAsset: backgroundAudioAsset).
-		script << (html pixiSoundPlay audioAsset: backgroundAudioAsset).
+
+		play := html pixiSoundPlay audioAsset: backgroundAudioAsset.
+		
+		autoClose ifTrue: [
+			play onComplete: jsClose ].
+
+		script << play.
 		
 		html script: script
 	].
@@ -26,6 +32,7 @@ renderContentOn: html
 				autoplay: true.
 				
 			autoClose ifTrue: [
-				player onComplete: jsClose
+				self hasBackgroundAudio ifFalse: [
+					player onComplete: jsClose ]
 			].	
 		].

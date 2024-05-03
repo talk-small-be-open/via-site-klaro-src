@@ -10,9 +10,17 @@ renderTaskPanel: aTask class: aClassString on: html
 		class: aClassString;
 		with: [
 			html div class: 'rowOne'; with: [
-				html div
-					class: 'exerciseTitle';
-					with: aTask title.
+				html div: [ 
+					html div
+						class: 'exerciseTitle';
+						with: aTask title.
+					aTask hasTeacherNotes ifTrue: [
+						html div: [
+							self renderInfoPanel: [ html span class: 'infoButton'; with: 'Info' ] on: html with: [
+								html heading level1; with: aTask title.
+								html div class: 'teacherNotes'; with: [ 
+								html pillar: aTask teacherNotesPillar ] ] ] ]
+				].
 				html div: [
 					"Am Arbeiten oder fertig gearbeitet"
 					taskExercise isDone ifTrue: [
@@ -45,13 +53,13 @@ renderTaskPanel: aTask class: aClassString on: html
 				]
 			].
 
-			html div class: 'rowTwo'; with: [
+"			html div class: 'rowTwo'; with: [
 				aTask hasTeacherNotes ifTrue: [
 					self renderInfoPanel: [ html span class: 'infoButton'; with: 'Info' ] on: html with: [
 						html heading level1; with: aTask title.
 						html div class: 'teacherNotes'; with: [ 
 						html pillar: aTask teacherNotesPillar ] ] ]
-			].
+			]."
 
 
 "				html anchor

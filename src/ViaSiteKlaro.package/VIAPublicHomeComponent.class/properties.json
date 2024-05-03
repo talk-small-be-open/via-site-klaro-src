@@ -9,7 +9,8 @@
 		"code1",
 		"code2",
 		"code3",
-		"loginErrorMessage"
+		"loginErrorMessage",
+		"antibot"
 	],
 	"name" : "VIAPublicHomeComponent",
 	"type" : "normal"

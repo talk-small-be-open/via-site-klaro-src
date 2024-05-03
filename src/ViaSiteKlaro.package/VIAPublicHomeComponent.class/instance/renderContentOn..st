@@ -12,6 +12,7 @@ renderContentOn: html
 		loginErrorMessage ifNotBlank: [ html div class: 'error'; with: loginErrorMessage ].
 		VIAKlaHepUser isCouponLoginEnabled ifTrue: [
 			html form class: 'codeInput'; with: [
+				html render: antibot.
 				html textInput
 					on: #code1 of: self;
 "					pattern: '[a-zA-Z]+';"

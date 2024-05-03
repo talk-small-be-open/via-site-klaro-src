@@ -71,9 +71,10 @@ initializePageMenu
 	entry := VIAUrlMenuEntry label: 'menu:info:contact' url: 'https://www.hep-verlag.ch/support-und-kontakt'.
 	entry css: 'small'.
 	pageMenu addEntry: entry.
-	entry := VIAUrlMenuEntry label: 'menu:info:imprint' url: 'https://www.hep-verlag.ch/impressum'.
+	
+	entry := pageMenu addEntry: 'menu:info:imprint' action: [ self app showTextWithBack: 'aurea:imprint:text' ]. "'https://www.hep-verlag.ch/impressum'."
 	entry css: 'small'.
-	pageMenu addEntry: entry.
+	
 	entry := VIAUrlMenuEntry label: 'menu:info:privacy' url: 'https://www.hep-verlag.ch/datenschutz'.
 	entry css: 'small'.
 	pageMenu addEntry: entry.

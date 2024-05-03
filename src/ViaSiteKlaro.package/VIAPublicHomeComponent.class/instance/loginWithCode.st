@@ -1,7 +1,14 @@
 as yet unclassified
 loginWithCode
 	| success user |
-	success := VIAKlaHepUser checkCouponValid: self couponCode.
+
+	success := true.
+	
+	antibot isOk ifFalse: [ success := false ].
+
+	success := success and: [ self isCouponCodeSyntaxValid ].
+	
+	success := success and: [VIAKlaHepUser checkCouponValid: self couponCode].
 	
 	success ifTrue: [
 		"Search user which is associated with that coupon code"
@@ -20,4 +27,4 @@ loginWithCode
 
 		"The parent component will then do the steps for reload the app and login, if this component answers"
 		self answer
-	] ifFalse: [ loginErrorMessage := 'Coupon Lizenzcode ungültig!' ]
+	] ifFalse: [ loginErrorMessage := 'publicHome:codeInvalid't ]
