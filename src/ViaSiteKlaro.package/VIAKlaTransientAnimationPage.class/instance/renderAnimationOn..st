@@ -10,9 +10,12 @@ renderAnimationOn: html
 	
 	html div
 		onClick: js;
+		class: 'lottieAnimation';
+		class: ('animationName-', animationName);
 		with: [
 			html lottiePlayer
-				src: ('/site/animations/', animationName, '.lottie');
+				src: ('/site/animations/', animationName, '.', lottieFileType);
 				class: 'transientAnimation';
+				loop: false;
 				autoplay: true;
 				onComplete: js ]

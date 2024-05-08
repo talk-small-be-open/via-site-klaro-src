@@ -8,7 +8,8 @@
 	"instvars" : [
 		"nextPageCallback",
 		"animationName",
-		"nextPageName"
+		"nextPageName",
+		"lottieFileType"
 	],
 	"name" : "VIAKlaTransientAnimationPage",
 	"type" : "normal"

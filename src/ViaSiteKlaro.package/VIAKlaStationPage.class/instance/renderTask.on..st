@@ -5,7 +5,7 @@ renderTask: aTask on: html
 	taskExercise := moduleExercise exerciseForTask: aTask.
 	isNextTask := (aTask = nextTask).
 
-	animation := taskExercise isFinished ifTrue: [ nil ] ifFalse: [ 'lottie-test' ].
+	animation := taskExercise isFinished ifTrue: [ nil ] ifFalse: [ '01-HW-Uebergang-APP-Schildkroete' ].
 	
 	(self canGotoTaskExercise: taskExercise) ifTrue: [
 		self

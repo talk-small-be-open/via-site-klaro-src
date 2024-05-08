@@ -10,6 +10,10 @@ renderContentOn: html
 		with: 'Lottie Test'.
 	html break.
 	html anchor
+		callback: [ self showLottieTestUrl ];
+		with: 'Lottie Test from URL ...'.
+	html break.
+	html anchor
 		callback: [ self showLottieLightweightTest ];
 		with: 'Lottie Test Lightweight Player'.
 	html break.

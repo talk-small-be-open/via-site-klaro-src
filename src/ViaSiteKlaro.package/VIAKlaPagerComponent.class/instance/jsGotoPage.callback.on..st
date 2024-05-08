@@ -26,4 +26,5 @@ jsGotoPage: aNameString callback: anActionBlock on: html
 			self session jsUiInstructionsOn: js.
 "			js << ((self jsReloadPage: aNameString on: js)
 				onComplete: ((JSStream on: 'window') call: 'pager_gotoPage' with: ('#', htmlId) with: ('#', page htmlId)))"
-		]
+		];
+		onError: 'javascriptErrorStandardBehaviour();'

@@ -1,3 +1,3 @@
 as yet unclassified
 gotoAnimationThenModeAutomatic
-	self show: (VIAKlaLottieAnimation named: 'lottie-test' css: 'manualToAutomatic') onAnswer: [ self gotoModeAutomatic ]
+	self show: (VIAKlaLottieAnimation named: '01-HW-Uebergang-APP-Schildkroete' css: 'manualToAutomatic') onAnswer: [ self gotoModeAutomatic ]

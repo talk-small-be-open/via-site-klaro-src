@@ -29,6 +29,7 @@ renderContentOn: html
 			
 			player := html lottiePlayer
 				src: ('/site/animations/', animationName, '.lottie');
+				loop: self hasBackgroundAudio not;
 				autoplay: true.
 				
 			autoClose ifTrue: [

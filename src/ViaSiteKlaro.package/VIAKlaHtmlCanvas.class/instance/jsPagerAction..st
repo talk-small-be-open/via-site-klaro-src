@@ -12,4 +12,5 @@ jsPagerAction: aCallbackBlock
 			aCallbackBlock value.
 			js << (JSStream on: 'pager_reloadCurrentPage()').
 			self session jsUiInstructionsOn: js.
-		]
+		];
+		onError: 'javascriptErrorStandardBehaviour();'

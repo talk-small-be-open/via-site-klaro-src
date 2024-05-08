@@ -15,10 +15,10 @@ start
 	
 	introAudio
 		ifNil: [
-			self show: ((VIAKlaLottieAnimation named: '01-HW-Uebergang' css: 'startManual')
-				autoClose: true; yourself) ]
+"			self show: ((VIAKlaLottieAnimation named: 'lottie-test' css: 'startManual')
+				autoClose: true; yourself)" ]
 		ifNotNil: [
-			self show: ((VIAKlaLottieAnimation named: '01-HW-Uebergang' css: 'startManual')
+			self show: ((VIAKlaLottieAnimation named: 'lottie-test' css: 'startManual')
 				autoClose: true;
 				backgroundAudioAsset: introAudio;
 				yourself)		

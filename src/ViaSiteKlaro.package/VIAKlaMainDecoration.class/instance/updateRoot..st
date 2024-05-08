@@ -48,7 +48,7 @@ updateRoot: anHtmlRoot
 	"EXPERIMENTAL. Second lightweight lottie player. Offiziell archiviert, aber von einem fork genommen:"
 "	anHtmlRoot javascript url: '/site/js/lottie/jlottie.min.js'."
 
-	"PixiJS sound"
-	anHtmlRoot javascript defer; url: 'https://unpkg.com/pixi.js@7.2.4/dist/pixi.min.js'.
-	anHtmlRoot javascript defer; url: 'https://unpkg.com/@pixi/sound@5.2.1/dist/pixi-sound.js'.
+	"PixiJS sound. Nicht defer. Sound kommen manchmal direkt beim reload"
+	anHtmlRoot javascript url: 'https://unpkg.com/pixi.js@7.2.4/dist/pixi.min.js'.
+	anHtmlRoot javascript url: 'https://unpkg.com/@pixi/sound@5.2.1/dist/pixi-sound.js'.
 

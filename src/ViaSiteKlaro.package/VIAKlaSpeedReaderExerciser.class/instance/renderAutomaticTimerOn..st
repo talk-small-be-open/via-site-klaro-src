@@ -11,7 +11,9 @@ renderAutomaticTimerOn: html
 	js javascript: (html jsPagerAction: [ self gotoNext ]) asFunction.
 	js nextPutAll: ', '.
 	js javascript: ((
-			html jQuery ajax callback: [:d | self syncFromJsClient: d ] json: ('data' asJsStream)
+			html jQuery ajax
+				callback: [:d | self syncFromJsClient: d ] json: ('data' asJsStream);
+				onError: 'javascriptErrorStandardBehaviour();'
 		) asFunction: #(data)).
 	js nextPutAll: ');'.
 	
