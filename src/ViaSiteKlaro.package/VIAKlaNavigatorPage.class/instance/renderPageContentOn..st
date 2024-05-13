@@ -51,7 +51,7 @@ renderPageContentOn: html
 	self renderBetatestOn: html with: [
 		"TODO, wegnehmen, nur DEV"
 		moduleExercises do: [ :each |
-			self
+			self pager
 				renderGotoPage: 'station'
 				callback: [ :page | page gotoModuleExercise: each ]
 				on: html

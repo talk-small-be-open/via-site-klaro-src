@@ -18,8 +18,14 @@ start
 "			self show: ((VIAKlaLottieAnimation named: 'lottie-test' css: 'startManual')
 				autoClose: true; yourself)" ]
 		ifNotNil: [
-			self show: ((VIAKlaLottieAnimation named: 'lottie-test' css: 'startManual')
-				autoClose: true;
-				backgroundAudioAsset: introAudio;
-				yourself)		
+			| animationComponent |
+			animationComponent := VIAKlaLottieAnimationViewer new
+				animation: (VIAKlaAnimation new
+					animationName: 'klara';
+					cssClass: 'startManual';
+					backgroundAudioAsset: introAudio;
+					yourself);
+				yourself.
+			
+			self show: animationComponent
 		]

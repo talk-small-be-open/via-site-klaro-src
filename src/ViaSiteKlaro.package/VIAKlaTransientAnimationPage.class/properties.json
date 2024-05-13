@@ -7,9 +7,9 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"nextPageCallback",
-		"animationName",
+		"animation",
 		"nextPageName",
-		"lottieFileType"
+		"nextPageTransition"
 	],
 	"name" : "VIAKlaTransientAnimationPage",
 	"type" : "normal"

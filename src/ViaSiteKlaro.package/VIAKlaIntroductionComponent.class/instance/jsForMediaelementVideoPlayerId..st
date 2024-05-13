@@ -16,7 +16,7 @@ jsForMediaelementVideoPlayerId: aVideoId
 		nextPutAll: 'const player = $("#';
 		nextPutAll: aVideoId;
 		nextPutAll: '").mediaelementplayer';
-		arguments: { options };
-		nextPutAll: ';player.addEventListener("pause", function() {alert("jhj")});'.
+		arguments: { options }.
+"		nextPutAll: ';player.addEventListener(""pause"", function() {alert(""jhj"")});'."
 
 	^ js

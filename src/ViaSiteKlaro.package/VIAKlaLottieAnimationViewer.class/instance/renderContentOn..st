@@ -4,12 +4,12 @@ renderContentOn: html
 	
 	jsClose := (html jsPagerAction: [ self close ]).
 	
-	self hasBackgroundAudio ifTrue: [
+	animation hasBackgroundAudio ifTrue: [
 		| script play |
 		script := JSScript new.
-		script << (html pixiSoundAdd audioAsset: backgroundAudioAsset).
+		script << (html pixiSoundAdd audioAsset: animation backgroundAudioAsset).
 
-		play := html pixiSoundPlay audioAsset: backgroundAudioAsset.
+		play := html pixiSoundPlay audioAsset: animation backgroundAudioAsset.
 		
 		autoClose ifTrue: [
 			play onComplete: jsClose ].
@@ -21,19 +21,18 @@ renderContentOn: html
 
 	html div class: 'lottieAnimation';
 "		class: 'lottieAnimation';"
-		class: animationName;
-		class: cssClass;
+		class: animation animationName;
+		class: animation cssClass;
 		onClick: jsClose;
 		with: [
 			| player |
 			
-			player := html lottiePlayer
-				src: ('/site/animations/', animationName, '.lottie');
-				loop: self hasBackgroundAudio not;
-				autoplay: true.
+			player := animation createLottiePlayerOn: html.
+
+			animation hasBackgroundAudio ifTrue: [ player loop: true ].
 				
 			autoClose ifTrue: [
-				self hasBackgroundAudio ifFalse: [
+				animation hasBackgroundAudio ifFalse: [
 					player onComplete: jsClose ]
 			].	
 		].

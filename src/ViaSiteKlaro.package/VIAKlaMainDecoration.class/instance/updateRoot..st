@@ -38,8 +38,8 @@ updateRoot: anHtmlRoot
 	"TODO: Stick to a fix version, not latest"
 	anHtmlRoot javascript
 "		defer;"
-"geht so nicht, weil in chunks aufgeteilt, konnte es nirgends downloaden		url: '/site/js/lottie/dotlottie-player.mjs';"
-		url: 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs'; "unklar, ob beste player variante"
+		url: '/site/js/lottie/dotlottie-player.mjs';
+"		url: 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs';" "unklar, ob beste player variante"
 "		url: 'https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js';" "Vermutlich neuste Entwicklung 2024, aber nicht stabil"
 		type: 'module'.
 "		url: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'."
@@ -49,6 +49,8 @@ updateRoot: anHtmlRoot
 "	anHtmlRoot javascript url: '/site/js/lottie/jlottie.min.js'."
 
 	"PixiJS sound. Nicht defer. Sound kommen manchmal direkt beim reload"
-	anHtmlRoot javascript url: 'https://unpkg.com/pixi.js@7.2.4/dist/pixi.min.js'.
-	anHtmlRoot javascript url: 'https://unpkg.com/@pixi/sound@5.2.1/dist/pixi-sound.js'.
+"	anHtmlRoot javascript url: 'https://unpkg.com/pixi.js@7.2.4/dist/pixi.min.js'.
+	anHtmlRoot javascript url: 'https://unpkg.com/@pixi/sound@5.2.1/dist/pixi-sound.js'."
+	anHtmlRoot javascript url: '/site/js/pixi/pixi.min.js'.
+	anHtmlRoot javascript url: '/site/js/pixi/pixi-sound.js'.
 

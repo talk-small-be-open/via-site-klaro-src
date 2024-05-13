@@ -83,8 +83,7 @@ initializePageMenu
 	pageMenu addEntry: entry.
 	
 	
-
-
 	self ifBetatest: [
-		(pageMenu addEntry: 'menu:toggleBetatest' action: [ self app toggleBetatest ])
+		entry := pageMenu addEntry: 'menu:toggleBetatest' action: [ self app toggleBetatest ].
+		entry css: 'small'.
 	]

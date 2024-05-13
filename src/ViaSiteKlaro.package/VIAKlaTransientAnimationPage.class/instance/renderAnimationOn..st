@@ -2,20 +2,23 @@ rendering
 renderAnimationOn: html
 	| js |
 
-	animationName ifBlank: [ ^ self ].
+	animation ifNil: [ ^ self ].
 
-	js := (pager jsGotoPage: nextPageName callback: nextPageCallback on: html).
+	js := (pager jsGotoPage: nextPageName callback: nextPageCallback transition: nextPageTransition on: html).
 	
 	"TODO: Stopp lottie player, if interrupted before end"
 	
 	html div
 		onClick: js;
 		class: 'lottieAnimation';
-		class: ('animationName-', animationName);
+		class: ('animationName-', animation animationName);
 		with: [
-			html lottiePlayer
-				src: ('/site/animations/', animationName, '.', lottieFileType);
+			| player |
+			player := animation createLottiePlayerOn: html.
+			
+			player
 				class: 'transientAnimation';
-				loop: false;
+"				loop: false;"
 				autoplay: true;
-				onComplete: js ]
+				onComplete: js
+		]

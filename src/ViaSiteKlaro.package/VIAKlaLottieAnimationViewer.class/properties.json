@@ -6,11 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"animationName",
-		"cssClass",
-		"backgroundAudioAsset",
+		"animation",
 		"autoClose"
 	],
-	"name" : "VIAKlaLottieAnimation",
+	"name" : "VIAKlaLottieAnimationViewer",
 	"type" : "normal"
 }

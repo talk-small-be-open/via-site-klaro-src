@@ -5,4 +5,4 @@ renderPageContentOn: html
 
 	"Failsafe button, if lottie hangs"
 	nextPageName ifNotBlank: [
-		self renderGotoPage: nextPageName callback: nextPageCallback on: html with: 'Weiter ...' ]
+		self pager renderGotoPage: nextPageName callback: nextPageCallback on: html with: 'Weiter ...' ]

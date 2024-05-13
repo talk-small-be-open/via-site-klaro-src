@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAObject",
+	"category" : "ViaSiteKlaro-Misc",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"animationName",
+		"cssClass",
+		"backgroundAudioAsset",
+		"loop",
+		"autoPlay"
+	],
+	"name" : "VIAKlaAnimation",
+	"type" : "normal"
+}

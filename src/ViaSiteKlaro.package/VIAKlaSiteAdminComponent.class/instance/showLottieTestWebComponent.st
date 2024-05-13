@@ -6,7 +6,7 @@ showLottieTestWebComponent
 		content: [:html :me |
 "			html div: 'Lottie-Animation Test:'."
 			html lottiePlayerWc
-				src: '/site/animations/backend-lottie-test.lottie';
+				src: '/site/animations/backend-lottie-test.json';
 "				src: 'https://assets10.lottiefiles.com/packages/lf20_fwykef3x.json';"
 				style: 'width: 50%';
 				loop: true;
