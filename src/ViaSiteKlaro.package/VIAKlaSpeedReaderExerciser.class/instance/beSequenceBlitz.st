@@ -1,3 +1,5 @@
 as yet unclassified
 beSequenceBlitz
-	gameSequence := #blitz
+	gameSequence := #blitz.
+	"Force on step 1, makes no sense otherwise"
+	self gotoStepRead.

@@ -1,7 +1,7 @@
 initialization
 gotoModeManual
-	gameMode := #manual.
-	currentTextNumber := 1.
+	self beModeManual.
+	self gotoFirstText.
 	self beSpeedNormal.
 	self beSequenceNormal.
 	self gotoFirstStep.

@@ -1,7 +1,7 @@
 as yet unclassified
 gotoModeAutomatic
-	gameMode := #automatic.
-	currentTextNumber := 1.
+	self beModeAutomatic.
+	self gotoFirstText.
 	self beSpeedNormal.
 	self beSequenceNormal.
 	self gotoFirstStep
