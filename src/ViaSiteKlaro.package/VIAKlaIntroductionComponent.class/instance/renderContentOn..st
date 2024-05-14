@@ -22,18 +22,28 @@ renderContentOn: html
 				with: [ 
 "				html clickAnchor: ((((html jQuery id: videoId) get: 0) property: 'currentTime') assign: 0) with: 'Video wiederholen'.
 				html clickAnchor: (((html jQuery id: videoId) get: 0) call: 'play') with: 'Video weiterfahren'."
-					html logoKlaro.
-					(html clickButton: 'event.stopPropagation();introVideo.play();')
+					html logoKlaroNegative.
+					(html clickButton: 'event.stopPropagation(); introVideo.play();')
 						class: 'continueButton';
-						with: 'Video weiterfahren'.
+						with: [
+							html sT: 'introduction:continue' ].
 					(html clickButton: 'event.stopPropagation(); introVideo.currentTime = 0; introVideo.play();')
 						class: 'playButton';
-						with: 'Video starten'.
+						with: [
+							html span class: 'start'; sT: 'introduction:start'.
+							html span class: 'repeat'; sT: 'introduction:repeat'.
+						].
 
 					html anchorButton
 						class: 'exitButton';
 						onClick: 'event.stopPropagation();';
 						callback: [ self close ];
-						with: 'Weiter zur App ...'			]
-		].
+						sT: 'introduction:exit'.
 
+					html anchor
+						class: 'skipAnchor';
+						onClick: 'event.stopPropagation();';
+						callback: [ self close ];
+						sT: 'introduction:skip'
+				]
+		]

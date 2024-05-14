@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "VIAKlaNavigatorPage",
+	"category" : "ViaSiteKlaro-View",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "VIAKlaNavigatorDemoPage",
+	"type" : "normal"
+}

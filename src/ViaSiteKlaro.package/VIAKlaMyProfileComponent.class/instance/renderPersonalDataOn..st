@@ -1,9 +1,13 @@
 rendering
 renderPersonalDataOn: html
 "	html heading t: 'myProfile:title'."
-	html div pT: 'myProfile:supportInfo'.
-	html heading level3; t: 'myProfile:personalData'.
-	html paragraph with: [
-		html span: user fullName.
-		html break.
-		html span: user socialIdsString ]
+"	html heading level3; t: 'myProfile:personalData'."
+
+
+	"Will only be one in practice"
+	user socialIds do: [ :each |
+		html div class: 'topBuffer'; with: [
+			html sT: 'myProfile:coupon'.
+			html space.
+			html html: '&hellip;'.
+			html span: (each lastAtMost: 5) ] ]

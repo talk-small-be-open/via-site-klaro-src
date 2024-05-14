@@ -15,7 +15,9 @@ renderTopbarOn: html
 					self renderTopbarLeftOn: html ].
 			html div
 				class: 'topbarCenter';
-				with: [ ].
+				with: [
+					self renderTopbarCenterOn: html.
+				].
 			html div
 				class: 'topbarRight';
 				with: [
