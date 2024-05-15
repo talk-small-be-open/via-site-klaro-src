@@ -26,7 +26,8 @@ renderOffcanvasMenuOn: html
 					self ifBetatest: [ 
 						html div class: 'topBuffer'; with: [
 							html span: 'Betatest Infos:'; break.
-							html span: self session browserType
+							html div: self session browserType.
+							html div: (self session isStandalonePwa ifTrue: ['PWA standalone']).
 						]
 					].
 				].

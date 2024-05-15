@@ -1,15 +1,20 @@
 as yet unclassified
 loginWithCode
-	| success user |
+	| success user errorDetail |
 
 	success := true.
+	errorDetail := ''.
 	
-	antibot isOk ifFalse: [ success := false ].
+	antibot isOk ifFalse: [ success := false. errorDetail := 'Antibot' ].
 
-	success := success and: [ self isCouponCodeSyntaxValid ].
-	
-	success := success and: [VIAKlaHepUser checkCouponValid: self couponCode].
-	
+	success ifTrue: [
+		self isCouponCodeSyntaxValid ifFalse: [ success := false. errorDetail := 'Syntax' ].
+	].
+
+	success ifTrue: [
+		(VIAKlaHepUser checkCouponValid: self couponCode) ifFalse: [ success := false. errorDetail := 'hep' ].
+	].
+
 	success ifTrue: [
 		"Search user which is associated with that coupon code"
 		user := self findOrCreateUserByCoupon.
@@ -27,4 +32,4 @@ loginWithCode
 
 		"The parent component will then do the steps for reload the app and login, if this component answers"
 		self answer
-	] ifFalse: [ loginErrorMessage := 'publicHome:codeInvalid't ]
+	] ifFalse: [ loginErrorMessage := ('publicHome:codeInvalid't), ' (', errorDetail, ')' ]

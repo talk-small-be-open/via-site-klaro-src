@@ -15,6 +15,10 @@ renderContentOn: html
 				
 	html div class: 'info'; pT: 'publicHome:info'.
 
+"Feature noch nicht gutgeheissen	(self session isMobileDevice and: [ self session isStandalonePwa not ]) ifTrue: [
+		html div class: 'info'; pT: 'publicHome:pleaseInstallAsPwa'.
+	]. "
+
 	html div class: 'loginSection'; with: [
 		loginErrorMessage ifNotBlank: [ html div class: 'error'; with: loginErrorMessage ].
 		VIAKlaHepUser isCouponLoginEnabled ifTrue: [

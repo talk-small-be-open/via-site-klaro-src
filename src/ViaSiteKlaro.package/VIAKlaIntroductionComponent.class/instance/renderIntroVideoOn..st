@@ -10,13 +10,13 @@ renderIntroVideoOn: html
 		preload: 'metadata';
 "		poster: appLogo;"
 		noTab;
-		controls: true;
+		controls: false;
 		autoplay: false;
 		attributeAt: 'controlslist' put: 'nodownload';
 		attributeAt: 'disablepictureinpicture' put: true;
 		attributeAt: 'playsinline' put: true;
 		onPause: ((html jQuery id: containerId) removeClass: 'playing ended'; addClass: 'pausing');
-		onPlaying: ((html jQuery id: containerId) removeClass: 'pausing ended'; addClass: 'playing');
+		onPlaying: ((html jQuery id: containerId) removeClass: 'pausing ended readyToStart'; addClass: 'playing');
 		onEnded: ((html jQuery id: containerId) addClass: 'ended');
 		onClick: 'introVideo.paused ? introVideo.play() : introVideo.pause();';
 		with: [
