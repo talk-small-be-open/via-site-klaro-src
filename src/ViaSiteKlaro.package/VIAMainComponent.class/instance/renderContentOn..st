@@ -1,5 +1,7 @@
 rendering
 renderContentOn: html
+
+
 	self renderTopOn: html.
 	self renderFlashMessagesOn: html.
 	self renderSystemMessageOn: html.

@@ -12,7 +12,6 @@ renderContentOn: html
 
 			"	self renderIntroVideoWithMePlayerOn: html."
 			self renderIntroVideoOn: html.
-			
 			self renderVideoOverlayOn: html.
 			
 	]

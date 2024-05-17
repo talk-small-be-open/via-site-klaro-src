@@ -43,7 +43,7 @@ var station, kreis, svgPath;
 			"Build JS to get to station, either with animated witch or directly"
 			
 "			jsUnlockSoundApi := 'PIXI.sound.play(""button-click"");' asJsStream."
-			jsUnlockSoundApi := js pixiSoundPlay id: 'button-click'.
+			jsUnlockSoundApi := JSStream new. "js pixiSoundPlay id: 'button-click'."
 			jsGotoStation := (self jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: js).
 			
 			isNewExercise ifTrue: [

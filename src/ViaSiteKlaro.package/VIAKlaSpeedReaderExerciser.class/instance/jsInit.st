@@ -11,7 +11,7 @@ jsInit
 	].
 	
 	"Preload some funky sounds"
-	jsPreloader value: 'new-word' value: '/site/sounds/new-word.wav'.
+	jsPreloader value: 'new-word' value: '/site/sounds/585256_neues_Wort.mp3'.
 	
 	"Preload all audio for this exercise"
 	self allTexts do: [ :each |

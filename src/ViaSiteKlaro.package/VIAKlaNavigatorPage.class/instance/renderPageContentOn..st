@@ -43,6 +43,9 @@ renderPageContentOn: html
 
 
 	html scriptDefer: (html pixiSoundAdd id: 'button-click'; url: '/site/sounds/button-click.wav').
+	html scriptDefer: (html pixiSoundAdd id: 'background-melody'; url: '/site/sounds/Klaro-Musik_Loop3_lang.m4a').
+
+	
 "	html scriptDefer: 'PIXI.sound.add(""button-click"", ""/site/sounds/button-click.wav"");' asJsStream."
 
 "	html break; break; break."

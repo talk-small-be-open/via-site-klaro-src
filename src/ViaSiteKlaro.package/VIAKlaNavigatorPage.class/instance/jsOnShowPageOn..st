@@ -14,5 +14,7 @@ jsOnShowPageOn: js
 		script << (((js jQuery id: id) get: 0) call: 'scrollIntoView' with: { #block->'center' } aD).
 	].
 
+	"Start melody"
+	script << (js pixiSoundPlay id: 'background-melody'; volume: 0.2; loop: true).
 
 	^ script

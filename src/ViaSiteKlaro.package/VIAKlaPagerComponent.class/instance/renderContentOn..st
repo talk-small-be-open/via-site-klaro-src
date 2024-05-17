@@ -1,5 +1,8 @@
 rendering
 renderContentOn: html
+
+	html scriptDefer: (html pixiSoundAdd id: 'swipe'; url: '/site/sounds/516704_Uebergang.wav').
+
 	html div id: htmlId; with: [
 "		html render: currentPage.
 		self nonCurrentPages do: [ :each |

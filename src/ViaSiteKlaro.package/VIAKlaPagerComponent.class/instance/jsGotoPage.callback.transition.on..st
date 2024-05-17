@@ -15,7 +15,8 @@ jsGotoPage: aNameString callback: anActionBlock transition: aTransitionName on: 
 		)
 	)"
 	
-	^ html jQuery ajax
+	^ (html pixiSoundPlay id: 'swipe'; volume: 0.2),
+	(html jQuery ajax
 		script: [ :js |
 
 			anActionBlock ifNotNil: [
@@ -27,4 +28,4 @@ jsGotoPage: aNameString callback: anActionBlock transition: aTransitionName on: 
 "			js << ((self jsReloadPage: aNameString on: js)
 				onComplete: ((JSStream on: 'window') call: 'pager_gotoPage' with: ('#', htmlId) with: ('#', page htmlId)))"
 		];
-		onError: 'javascriptErrorStandardBehaviour();'
+		onError: 'javascriptErrorStandardBehaviour();')

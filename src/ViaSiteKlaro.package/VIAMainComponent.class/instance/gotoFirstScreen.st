@@ -10,7 +10,11 @@ gotoFirstScreen
 "		(self currentUser studentGroupsInWebsite: self website) ifBlank: [
 			self showRequestForInvitationCode ].
 		^ self"
-		^ self gotoKlaroIntroduction
+		self coreComponentThenGotoHome: ((VIAKlaIntroductionComponent new)
+			autoPlay: false;
+			yourself).
+			
+		^ self
 	].
 
 	"Modul von URL anpeilen?"

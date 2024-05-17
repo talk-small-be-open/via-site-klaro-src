@@ -8,7 +8,8 @@
 	"instvars" : [
 		"id",
 		"loop",
-		"onComplete"
+		"onComplete",
+		"volume"
 	],
 	"name" : "VIAKlaJsPixiSoundPlay",
 	"type" : "normal"

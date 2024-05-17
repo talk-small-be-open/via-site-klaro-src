@@ -1,3 +1,5 @@
 as yet unclassified
 gotoKlaroIntroduction
-	self coreComponentThenGotoHome: (VIAKlaIntroductionComponent new)
+	self coreComponentThenGotoHome: ((VIAKlaIntroductionComponent new)
+		autoPlay: false;
+		yourself)

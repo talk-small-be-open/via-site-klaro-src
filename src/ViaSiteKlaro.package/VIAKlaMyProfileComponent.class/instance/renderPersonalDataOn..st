@@ -5,9 +5,11 @@ renderPersonalDataOn: html
 
 
 	"Will only be one in practice"
-	user socialIds do: [ :each |
+	user properties at: 'hepCouponCode' ifPresent: [ :code |
 		html div class: 'topBuffer'; with: [
 			html sT: 'myProfile:coupon'.
 			html space.
-			html html: '&hellip;'.
-			html span: (each lastAtMost: 5) ] ]
+"			html html: '&hellip;'."
+"			html span: (code lastAtMost: 5)."
+			html span: code.
+		] ]

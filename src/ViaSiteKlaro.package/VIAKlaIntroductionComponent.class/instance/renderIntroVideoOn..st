@@ -11,14 +11,14 @@ renderIntroVideoOn: html
 "		poster: appLogo;"
 		noTab;
 		controls: false;
-		autoplay: false;
+		autoplay: autoPlay;
 		attributeAt: 'controlslist' put: 'nodownload';
 		attributeAt: 'disablepictureinpicture' put: true;
 		attributeAt: 'playsinline' put: true;
 		onPause: ((html jQuery id: containerId) removeClass: 'playing ended'; addClass: 'pausing');
-		onPlaying: ((html jQuery id: containerId) removeClass: 'pausing ended readyToStart'; addClass: 'playing');
+		onPlay: ((html jQuery id: containerId) removeClass: 'pausing ended readyToStart'; addClass: 'playing');
 		onEnded: ((html jQuery id: containerId) addClass: 'ended');
-		onClick: 'introVideo.paused ? introVideo.play() : introVideo.pause();';
+"		onClick: 'introVideo.paused ? introVideo.play() : introVideo.pause();';"
 		with: [
 			html source
 				type: 'video/mp4';

@@ -2,4 +2,5 @@ initialization
 initialize
 	super initialize.
 	
-	loop := false
+	loop := false.
+	volume := 1.

@@ -5,7 +5,8 @@ renderTask: aTask on: html
 	taskExercise := moduleExercise exerciseForTask: aTask.
 	isNextTask := (aTask = nextTask).
 
-	animation := taskExercise isFinished ifTrue: [ nil ] ifFalse: [ VIAKlaAnimation named: '01-HW-Uebergang-Schildkroete' ].
+"	animation := taskExercise isFinished ifTrue: [ nil ] ifFalse: [ VIAKlaAnimation named: '01-HW-Uebergang-Schildkroete' ]."
+	animation := VIAKlaAnimation named: '01-HW-Uebergang-Schildkroete'.
 	
 	(self canGotoTaskExercise: taskExercise) ifTrue: [
 		self pager

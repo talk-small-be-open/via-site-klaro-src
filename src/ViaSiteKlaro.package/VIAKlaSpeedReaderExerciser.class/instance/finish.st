@@ -2,9 +2,13 @@ initialization
 finish
 	gameMode := #finished.
 
-	self
-		show: (VIAKlaLottieAnimationViewer animation: (VIAKlaAnimation named: 'klara' css: 'finish'))
-		onAnswer: [ self close ]
-	
 	"Will close this exerciser, which in turn will end the task, etc."
-"	self close"
+
+	"If we are repeating the exercise we dont show the animation"
+"	self taskExerciser isFinished
+		ifFalse: ["
+			self
+				show: (VIAKlaLottieAnimationViewer animation: (VIAKlaAnimation named: '01-HW-Uebergang-Bravo' css: 'finish'))
+				onAnswer: [ self close ]
+		"]
+		ifTrue: [ self close ]"
