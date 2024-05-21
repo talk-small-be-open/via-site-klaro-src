@@ -1,6 +1,6 @@
 as yet unclassified
 jsOnShowPageOn: js
-	| script number |
+	| script number promiseScript |
 	script := JSScript new.
 	
 	script << (self jsUpdatePageOn: js).
@@ -15,6 +15,11 @@ jsOnShowPageOn: js
 	].
 
 	"Start melody"
-	script << (js pixiSoundPlay id: 'background-melody'; volume: 0.2; loop: true).
+	script << ((js pixiSoundPlay id: 'background-melody'; volume: 0.2; loop: true) setTimeout: 1000).
 
-	^ script
+	promiseScript := JSStream new.
+	promiseScript
+		<< 'navigatorStageLoader.then';
+		argument: script asFunction.
+
+	^ promiseScript

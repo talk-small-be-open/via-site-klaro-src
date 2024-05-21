@@ -1,6 +1,6 @@
 rendering
 renderContentOn: html
-	| isCurrent |
+	| isCurrent script |
 	
 	isCurrent := self isCurrent.
 	
@@ -18,4 +18,11 @@ renderContentOn: html
 			]
 		].
 	
-	html scriptDefer: (self jsPreparePageOn: html)
+	script := JSScript new.
+	script << (self jsPreparePageOn: html).
+
+	isCurrent ifTrue: [
+		script << (self jsOnShowPageOn: html) ].
+		
+	html scriptDefer: script.
+	

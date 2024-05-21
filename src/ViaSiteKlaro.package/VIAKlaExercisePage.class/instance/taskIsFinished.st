@@ -2,9 +2,15 @@ as yet unclassified
 taskIsFinished
 
 	"Check if we have just finished the whole module"
-	((moduleWasFinished = false) and: [moduleExercise isFinished]) ifTrue: [
+	| stationPage animation |
+	((moduleWasFinished = false) and: [ moduleExercise isFinished ]) ifTrue: [
 		self moduleIsFinishedForFirstTime.
 		^ self
 	].
 
-	self uiGotoPageNamed: 'station'.
+	stationPage := (self pager pageNamed: 'station').
+	animation := (VIAKlaAnimation named: '01-HW-Uebergang-Bravo' css: 'finish').
+	self pager uiGotoPage: stationPage showAnimation: animation in: 'appear' out: 'slide'.
+
+
+"	self uiGotoPageNamed: 'station'."

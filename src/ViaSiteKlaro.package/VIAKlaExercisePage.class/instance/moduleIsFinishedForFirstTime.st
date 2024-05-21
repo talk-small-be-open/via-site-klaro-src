@@ -1,3 +1,3 @@
 as yet unclassified
 moduleIsFinishedForFirstTime
-	self uiGotoPageNamed: 'reward'.
+	self pager uiGotoPageNamed: 'reward'.

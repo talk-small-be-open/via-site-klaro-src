@@ -24,7 +24,7 @@ renderOffcanvasMenuOn: html
 					html logoHepClaimInv.
 					
 					self ifBetatest: [ 
-						html div class: 'topBuffer'; with: [
+						html div class: 'betatestInfo'; with: [
 							html span: 'Betatest Infos:'; break.
 							html div: self session browserType.
 							html div: (self session isStandalonePwa ifTrue: ['PWA standalone']).

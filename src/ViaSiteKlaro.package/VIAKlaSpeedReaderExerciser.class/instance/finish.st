@@ -7,8 +7,10 @@ finish
 	"If we are repeating the exercise we dont show the animation"
 "	self taskExerciser isFinished
 		ifFalse: ["
-			self
+"			self
 				show: (VIAKlaLottieAnimationViewer animation: (VIAKlaAnimation named: '01-HW-Uebergang-Bravo' css: 'finish'))
-				onAnswer: [ self close ]
+				onAnswer: [ self close ]"
 		"]
 		ifTrue: [ self close ]"
+		
+	self close

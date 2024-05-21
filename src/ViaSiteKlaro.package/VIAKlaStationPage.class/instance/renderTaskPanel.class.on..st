@@ -29,7 +29,7 @@ renderTaskPanel: aTask class: aClassString on: html
 							html imgSignRepeatManual.
 
 							html
-								clickSpan: (self jsGotoPage: 'exercise' callback: [ :page | page gotoTaskExercise: taskExercise auto: true ] on: html)
+								clickSpan: (self pager jsGotoPage: 'exercise' callback: [ :page | page gotoTaskExercise: taskExercise auto: true ] on: html)
 								with: [
 									isNextTask ifTrue: [
 										html span

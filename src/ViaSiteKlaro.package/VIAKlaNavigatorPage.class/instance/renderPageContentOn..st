@@ -1,18 +1,23 @@
 rendering
 renderPageContentOn: html
-	| updateScript stage |
+	| stage |
 	
 "	html heading: 'NAVIGATOR/PFAD'."
 	
 	self renderTopbarOn: html.
 
-	updateScript := JSScript new
+"	updateScript := JSScript new
 		add: ((self jsPrepareStageOn: html) asInvokedFunction);
-		add: ((self jsUpdateStageOn: html) asInvokedFunction);
+""will be done in onShow		add: ((self jsUpdateStageOn: html) asInvokedFunction);""
 		add: (self jsPageIsReadyOn: html);
-		yourself.
+		yourself."
 
-	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce').
+	"We prepare the update script into a function, to run as callback, after the
+	big SVG has been imported"
+"	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce')."
+
+	"Declare as global. Hm, is this dirty?"
+	html script: 'var navigatorStageLoader;'.
 
 "	html image url: '/site/images/hexenweg.svg'."
 

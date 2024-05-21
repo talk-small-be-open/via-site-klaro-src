@@ -12,7 +12,7 @@ initializePageMenu
 	(pageMenu addEntry: 'menu:klaroIntroduction' action: [ self app gotoKlaroIntroduction ]).
 "		icon: 'menuIntroduction'."
 
-	pageMenu addDivider.
+"	pageMenu addDivider."
 
 "	self ifTeacher: [
 		(pageMenu addEntry: 'menu:myTeacherCockpit' send: #gotoMyTeacherCockpit to: self)
@@ -33,8 +33,8 @@ initializePageMenu
 	]."
 
 	"Externe URLs"
-	entry := VIAUrlMenuEntry label: 'menu:info:videos' url: 'https://www.hep-verlag.ch/klaro#storyvideo'.
-	pageMenu addEntry: entry.
+"	entry := VIAUrlMenuEntry label: 'menu:info:videos' url: 'https://www.hep-verlag.ch/klaro#storyvideo'.
+	pageMenu addEntry: entry."
 	entry := VIAUrlMenuEntry label: 'menu:info:contents' url: 'https://www.hep-verlag.ch/klaro/inhalt'.
 	pageMenu addEntry: entry.
 	entry := VIAUrlMenuEntry label: 'menu:info:parents' url: 'https://www.hep-verlag.ch/klaro/eltern'.
@@ -54,7 +54,7 @@ initializePageMenu
 "	(pageMenu addEntry: 'menu:messageToSupport' action: [ self app sendMessageToSupport ])."
 "		icon: 'menuSupport'."
 
-	pageMenu addDivider.
+"	pageMenu addDivider."
 
 "	userLabel := self currentUser accountName."
 	(pageMenu addEntry: 'menu:myProfile' action: [ self app gotoMyProfile ]).
@@ -72,7 +72,7 @@ initializePageMenu
 	entry css: 'small'.
 	pageMenu addEntry: entry.
 	
-	entry := pageMenu addEntry: 'menu:info:imprint' action: [ self app showTextWithBack: 'aurea:imprint:text' ]. "'https://www.hep-verlag.ch/impressum'."
+	entry := pageMenu addEntry: 'menu:info:imprint' action: [ self app showInfoPanel: 'aurea:imprint:text' title: 'menu:info:imprint' ]. "'https://www.hep-verlag.ch/impressum'."
 	entry css: 'small'.
 	
 	entry := VIAUrlMenuEntry label: 'menu:info:privacy' url: 'https://www.hep-verlag.ch/datenschutz'.
