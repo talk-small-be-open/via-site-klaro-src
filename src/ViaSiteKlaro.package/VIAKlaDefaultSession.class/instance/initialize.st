@@ -3,8 +3,8 @@ initialize
 	super initialize.
 	
 	jsUiInstructions := OrderedCollection new.
-	soundMusicEnabled := true.
-	soundEffectsEnabled := true.
+
+	self allSoundsOn.
 	
 "	self clearJsUiInstructions."
 	

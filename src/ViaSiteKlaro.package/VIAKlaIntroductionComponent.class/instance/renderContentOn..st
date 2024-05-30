@@ -7,6 +7,7 @@ renderContentOn: html
 	html div
 		class: 'videoContainer';
 		class: 'readyToStart';
+		class: 'playing' if: autoPlay;
 		id: containerId;
 		with: [
 
