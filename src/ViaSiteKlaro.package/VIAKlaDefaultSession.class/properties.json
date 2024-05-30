@@ -6,7 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"jsUiInstructions"
+		"jsUiInstructions",
+		"soundMusicEnabled",
+		"soundEffectsEnabled"
 	],
 	"name" : "VIAKlaDefaultSession",
 	"type" : "normal"

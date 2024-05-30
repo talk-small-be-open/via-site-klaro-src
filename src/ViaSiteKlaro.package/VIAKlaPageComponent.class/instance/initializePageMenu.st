@@ -1,68 +1,32 @@
 initialization
 initializePageMenu
-	| entry |
+	| entry infoPageAdder |
 
 	pageMenu := VIAMenu new.
 	
 	menuRenderer := VIAKlaOffcanvasMenuRenderer new.
 
 	(pageMenu addEntry: 'menu:klaroStart' action: [ self app gotoKlaroStart ]).
-"		icon: 'menuHome'."
 
 	(pageMenu addEntry: 'menu:klaroIntroduction' action: [ self app gotoKlaroIntroduction ]).
-"		icon: 'menuIntroduction'."
-
-"	pageMenu addDivider."
-
-"	self ifTeacher: [
-		(pageMenu addEntry: 'menu:myTeacherCockpit' send: #gotoMyTeacherCockpit to: self)
-			icon: 'menuTeacher'.
-		pageMenu addDivider.
-	]."
-
 	
-	"Info Menu"
-"	subMenu := pageMenu addSubMenu.
-	
-	subMenu mainEntry: ((VIATextMenuEntry label: 'menu:info') icon: 'menuInfo'; yourself).
 
-	{'teacher'->'lehrpersonen'. 'faq'->'faq'. 'press'->'info'. 'about'->'info'. 'support'->'support'} do: [ :each |
-		entry := VIAUrlMenuEntry label: ('menu:info:', each key) url: ('https://www.klaro-app.online/', each value).
-		entry icon: 'menuInfoPage'.
-		subMenu addEntry: entry.
-	]."
+	infoPageAdder := [ :key | 
+		| title |
+		title := ('menu:info:', key).
+		
+		entry := VIAActionMenuEntry label: title action: [ self app showInfoPanel: ('klaro:info:', key) title: title ].
+		pageMenu addEntry: entry.
+		entry
+	].
 
-	"Externe URLs"
-"	entry := VIAUrlMenuEntry label: 'menu:info:videos' url: 'https://www.hep-verlag.ch/klaro#storyvideo'.
-	pageMenu addEntry: entry."
-	entry := VIAUrlMenuEntry label: 'menu:info:contents' url: 'https://www.hep-verlag.ch/klaro/inhalt'.
-	pageMenu addEntry: entry.
-	entry := VIAUrlMenuEntry label: 'menu:info:parents' url: 'https://www.hep-verlag.ch/klaro/eltern'.
-	pageMenu addEntry: entry.
-	entry := VIAUrlMenuEntry label: 'menu:info:experts' url: 'https://www.hep-verlag.ch/klaro/fachpersonen'.
-	pageMenu addEntry: entry.
+	infoPageAdder value: 'contents'.
+	infoPageAdder value: 'parents'.
+	infoPageAdder value: 'experts'.
 
-
-"	(subMenu addEntry: 'menu:info:disclaimer' send: #openDisclaimer to: self)
-		icon: 'menuInfoPage'."
-
-"	subMenu beCollapsed."
-
-
-"	pageMenu addDivider."
-
-"	(pageMenu addEntry: 'menu:messageToSupport' action: [ self app sendMessageToSupport ])."
-"		icon: 'menuSupport'."
-
-"	pageMenu addDivider."
-
-"	userLabel := self currentUser accountName."
 	(pageMenu addEntry: 'menu:myProfile' action: [ self app gotoMyProfile ]).
-"		icon: 'user'."
-
 		
 	(pageMenu addEntry: 'menu:logout' action: [ self app logout ])
-"		icon: 'logout';"
 		css: 'logout'.
 
 	pageMenu addDivider.
@@ -72,7 +36,7 @@ initializePageMenu
 	entry css: 'small'.
 	pageMenu addEntry: entry.
 	
-	entry := pageMenu addEntry: 'menu:info:imprint' action: [ self app showInfoPanel: 'aurea:imprint:text' title: 'menu:info:imprint' ]. "'https://www.hep-verlag.ch/impressum'."
+	entry := infoPageAdder value: 'imprint'.
 	entry css: 'small'.
 	
 	entry := VIAUrlMenuEntry label: 'menu:info:privacy' url: 'https://www.hep-verlag.ch/datenschutz'.

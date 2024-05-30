@@ -1,3 +1,6 @@
 as yet unclassified
 showTextWithBack: aKey
-	self coreComponentWithBackButton: (VIAStaticTextDisplayerComponent textKey: aKey)
+	self coreComponentWithBackButton: (VIAKlaInfoPanelComponent new
+"		title: aTitle;"
+		body: aKey;
+		yourself)

@@ -21,7 +21,7 @@ renderOffcanvasMenuOn: html
 
 				"uk-position-bottom"
 				html div class: 'pageMenuFooter'; with: [
-					html logoHepClaimInv.
+					html logoHepClaim.
 					
 					self ifBetatest: [ 
 						html div class: 'betatestInfo'; with: [

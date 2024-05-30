@@ -10,5 +10,6 @@ renderContentOn: html
 						callback: [ self close ];
 						with: [
 							html iconClose; space; text: 'Schliessen' ] .
-					html heading level1; pT: title.
+					title ifNotBlank: [
+						html heading level1; pT: title ].
 					html div pT: body ] ]

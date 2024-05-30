@@ -14,8 +14,9 @@ jsOnShowPageOn: js
 		script << (((js jQuery id: id) get: 0) call: 'scrollIntoView' with: { #block->'center' } aD).
 	].
 
-	"Start melody"
-	script << ((js pixiSoundPlay id: 'background-melody'; volume: 0.2; loop: true) setTimeout: 1000).
+	"Start melody, if enabled"
+	self session soundMusicEnabled ifTrue: [
+		script << ((js pixiSoundPlay id: 'background-melody'; volume: 0.2; loop: true) setTimeout: 1000). ].
 
 	promiseScript := JSStream new.
 	promiseScript

@@ -6,4 +6,8 @@ gotoTaskExercise: aTaskExercise
 	we go to auto then. Hm, maybe to dirty."
 	autoMode := aTaskExercise isDone and: [ aTaskExercise isFinished not ].
 
+	"DIRTY Cheap solution. Switch off music, so it is not always there. After we choose
+	an exercise, we can switch it off."
+	self session soundMusicEnabled: false.
+
 	^ self gotoTaskExercise: aTaskExercise auto: autoMode
