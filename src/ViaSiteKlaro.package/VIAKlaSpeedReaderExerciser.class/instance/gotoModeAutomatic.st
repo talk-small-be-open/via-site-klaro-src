@@ -2,6 +2,6 @@ as yet unclassified
 gotoModeAutomatic
 	self beModeAutomatic.
 	self gotoFirstText.
-	self beSpeedNormal.
+"	self beSpeedNormal."
 	self beSequenceNormal.
 	self gotoFirstStep

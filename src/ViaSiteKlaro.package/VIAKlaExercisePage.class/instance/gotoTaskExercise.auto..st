@@ -27,6 +27,8 @@ gotoTaskExercise: aTaskExercise auto: aBoolean
 
 	moduleExerciser gotoTask: aTaskExercise task.
 
-	aBoolean ifTrue: [ moduleExerciser gotoModeAutomatic ].
+	aBoolean
+		ifTrue: [ moduleExerciser gotoModeAutomatic ]
+		ifFalse: [ moduleExerciser gotoModeManual ].
 	
 	moduleExerciser onAnswer: [ self taskIsFinished ].

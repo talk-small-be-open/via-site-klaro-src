@@ -16,37 +16,20 @@ renderAutomaticStepListenOn: html
 			html imgSignSound
 		].
 
-	"	self preloadTimerAnimeOn: html with: [ :animeJs |
-			animeJs
-				targets: 'div.speedTextArea svg.sign.sound';
-				easing: 'easeInExpo';
-				color: '#BB1264'
-		]."
-
-
 		self renderNavigationAreaOn: html with: [
 			self renderAutomaticNavButtonsOn: html
 		].
 
 		self renderSubNavigationAreaOn: html with: [
-	"		html pagerAction: [ self gotoFirstStep ] with: [ html span: 'back' ]."
 			self renderAutomaticPlayPauseButtonOn: html.
 		].
 		self renderAutomaticTimerOn: html.
 		self renderProgressOn: html.
 	].
 
-	"JS goto next action, but with run-once wrapper, since we call it from different timers"
-"	html script: (updateScript asFunction assignLocalTo: 'prepareNavigatorStageOnce').
-	jsAction := (html jsPagerAction: [ self gotoNext ]) asOnceFunction."
-
-"	jsAction := (html jsPagerAction: [ self gotoNext ])."
-
 	"Start audio, timer, next page"
 	html scriptDefer: (
-"		(self jsPlayCurrentTextThen: (jsAction setTimeout: 1 second ))" " setTimeout: 0.1 second"
-		self jsPlayCurrentTextThen: (JSStream on: 'speedReaderTimer.autostart();')
-
+		(self jsPlayCurrentTextThen: (JSStream on: 'speedReaderTimer.autostart();')) setTimeout: 500
 	).
 
 	"Fallback: In case of audio not working, we go to the next step after 8 seconds or so"

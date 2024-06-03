@@ -1,0 +1,3 @@
+testing
+isUsingDynamicWebmanifests
+	^ false

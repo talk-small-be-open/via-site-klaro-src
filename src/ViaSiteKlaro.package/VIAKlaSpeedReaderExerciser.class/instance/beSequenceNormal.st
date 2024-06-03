@@ -1,3 +1,5 @@
 as yet unclassified
 beSequenceNormal
-	gameSequence := #normal
+	gameSequence := #normal.
+	
+	self beSpeedNormal.

@@ -12,7 +12,8 @@
 		"step",
 		"speed",
 		"isRunning",
-		"gameSequence"
+		"gameSequence",
+		"hasPlayedIntroAudio"
 	],
 	"name" : "VIAKlaSpeedReaderExerciser",
 	"type" : "normal"
