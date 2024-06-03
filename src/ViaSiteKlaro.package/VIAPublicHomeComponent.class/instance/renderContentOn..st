@@ -36,19 +36,19 @@ renderContentOn: html
 						on: #code1 of: self;
 						class: 'part1';
 						script: (html jQuery this triggerFocus);
-						pattern: '[a-zA-Z]+';
+"						pattern: '[a-zA-Z]+';"
 						placeholder: 'abc'.
 					html span: [html html: '&mdash;'].
 					html textInput
 						on: #code2 of: self;
 						class: 'part2';
-						pattern: '[0-9]{2}';
+"						pattern: '[0-9]{2}';"
 						placeholder: '12'.
 					html span: [html html: '&mdash;'].
 					html textInput
 						class: 'part3';
 						on: #code3 of: self;
-						pattern: '[a-zA-Z]+';
+"						pattern: '[a-zA-Z]+';"
 						placeholder: 'def' ].
 				
 				html submitButton
