@@ -6,7 +6,7 @@ renderPageContentOn: html
 	moduleExercise ifNil: [ ^ self ].
 	
 	html div class: 'moduleTitle'; with: [
-		html iconStation: self module indexCodeString
+		html iconStation: self stationNumber asString.
 "		html div: self module indexCodeString" ].
 	
 	html div class: 'exercisePanels'; with: [

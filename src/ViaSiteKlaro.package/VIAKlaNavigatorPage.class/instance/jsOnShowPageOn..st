@@ -11,7 +11,8 @@ jsOnShowPageOn: js
 	number > 0 ifTrue: [
 		| id |
 		id := 'Station_', number asTwoCharacterString.
-		script << (((js jQuery id: id) get: 0) call: 'scrollIntoView' with: { #block->'center' } aD).
+"		script << (((js jQuery id: id) get: 0) call: 'scrollIntoView' with: { #block->'center' } aD)."
+		script addLiteral: 'loadScroll("klaroNavigatorPage")'.
 	].
 
 	"Start melody, if enabled"

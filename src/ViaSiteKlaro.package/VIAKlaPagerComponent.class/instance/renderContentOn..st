@@ -1,7 +1,13 @@
 rendering
 renderContentOn: html
 
-	html scriptDefer: (html pixiSoundAdd id: 'swipe'; url: '/site/sounds/516704_Uebergang.m4a').
+	"Add some sounds globally"
+	html script: (
+		(html pixiSoundAdd id: 'swipe'; url: '/site/sounds/516704_Uebergang.m4a'),
+		(html pixiSoundAdd id: 'button-click'; url: '/site/sounds/button-click.wav'),
+		(html pixiSoundAdd id: 'reward'; url: '/site/sounds/379993_Zauber.m4a')
+	).
+
 
 	html div id: htmlId; with: [
 "		html render: currentPage.

@@ -27,5 +27,13 @@ buildSkeletonModules
 			module addTask: task.
 		].
 	
+		module tasks do: [ :eachTask |
+			eachTask children ifEmpty: [ 
+				| speedReader |
+				speedReader := eachTask addChild: (VIAKlaSpeedReader new).
+				speedReader addTextsString: 'da' website: website.
+			]
+		].
+	
 		module releaseNow.
 	]

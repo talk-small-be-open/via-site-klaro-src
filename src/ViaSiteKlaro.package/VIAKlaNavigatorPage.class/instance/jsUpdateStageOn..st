@@ -36,19 +36,19 @@ var station, kreis, svgPath;
 		id := 'Station_', num.
 		pathId := 'Pfad_zu_', num.
 		(self canGotoModuleExercise: each) ifTrue: [
-			| jsGotoStation jsOnClick jsUnlockSoundApi isNewExercise jsStationUpdater |
+			| jsGotoStation jsOnClick jsUnlockSoundApi isNewExercise jsStationUpdater jsStoreScrollPosition |
 
 			isNewExercise := (each = currentExercise and: [ lastInWorkExercise ~= currentExercise ]).
 			
 			"Build JS to get to station, either with animated witch or directly"
 			
-"			jsUnlockSoundApi := 'PIXI.sound.play(""button-click"");' asJsStream."
 			jsUnlockSoundApi := JSStream new. "js pixiSoundPlay id: 'button-click'."
+			jsStoreScrollPosition := 'saveScroll("klaroNavigatorPage")' asJsStream.
 			jsGotoStation := (self pager jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: js).
 			
 			isNewExercise ifTrue: [
 				"The witch flying animation"
-				jsOnClick := jsUnlockSoundApi, (js animeJs
+				jsOnClick := jsUnlockSoundApi, jsStoreScrollPosition, (js animeJs
 					targets: '#Hexe_Klara';
 					motionPath: ('svg.navigatorStage #', pathId);
 					duration: ( JSStream on: ('SVG("#', pathId, '").length()*3' ) );
@@ -60,7 +60,7 @@ var station, kreis, svgPath;
 				)
 			] ifFalse: [ 
 				"Without witch animation"
-				jsOnClick := jsUnlockSoundApi, jsGotoStation
+				jsOnClick := jsUnlockSoundApi, jsStoreScrollPosition, jsGotoStation
 			].
 			
 			jsStationUpdater := (js jQuery id: id)

@@ -1,3 +1,8 @@
 as yet unclassified
 moduleIsFinishedForFirstTime
-	self pager uiGotoPageNamed: 'reward'.
+	| reward |
+	reward := self pager pageNamed: 'reward'.
+	
+	reward rewardNumber: self stationNumber. 
+	
+	self pager uiGotoPage: reward transition: 'appear'.

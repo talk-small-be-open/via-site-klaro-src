@@ -1,3 +1,3 @@
 hooks
 children
-	^ Array with: rewardComponent
+	^ Array with: lottieAnimation

@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"rewardComponent"
+		"lottieAnimation",
+		"rewardNumber"
 	],
 	"name" : "VIAKlaRewardPage",
 	"type" : "normal"

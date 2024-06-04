@@ -10,6 +10,7 @@ jsPrepareStageOn: js
 	updateScript addLiteral: '
 var station, kreis, kreisX;
 const kreisTemplate=SVG("#Kreis_klein_01");
+kreisTemplate.attr("style", null);
 '.
 	
 

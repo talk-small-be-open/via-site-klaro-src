@@ -1,6 +1,14 @@
 rendering
 renderPageContentOn: html
 
-	self renderTopbarOn: html.
+"	self renderTopbarOn: html."
 
-	html render: rewardComponent
+	html render: self lottieAnimation.
+	
+	html div class: 'goAhead'; with: [
+		self pager renderGotoPage: 'navigator' on: html with: [
+"			html iconBack."
+			html span class: 'standardButton'; sT: 'reward:goAhead' ] ].
+	
+	
+	html script: (html pixiSoundPlay id: 'reward'; volume: 1)
