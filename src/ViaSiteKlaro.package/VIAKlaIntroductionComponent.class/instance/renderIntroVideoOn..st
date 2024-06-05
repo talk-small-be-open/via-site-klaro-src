@@ -17,6 +17,7 @@ renderIntroVideoOn: html
 		attributeAt: 'playsinline' put: true;
 		onPause: ((html jQuery id: containerId) removeClass: 'playing ended'; addClass: 'pausing');
 		onPlay: ((html jQuery id: containerId) removeClass: 'pausing ended readyToStart'; addClass: 'playing');
+		onPlaying: ((html jQuery id: containerId) removeClass: 'pausing ended readyToStart'; addClass: 'playing');
 		onEnded: ((html jQuery id: containerId) addClass: 'ended');
 "		onClick: 'introVideo.paused ? introVideo.play() : introVideo.pause();';"
 		with: [

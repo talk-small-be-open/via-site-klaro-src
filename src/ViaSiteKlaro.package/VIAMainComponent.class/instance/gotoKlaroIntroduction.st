@@ -1,5 +1,5 @@
 as yet unclassified
 gotoKlaroIntroduction
 	self coreComponentThenGotoHome: ((VIAKlaIntroductionComponent new)
-		autoPlay: true;
+		autoPlay: false; "autoplay not reliable?"
 		yourself)
