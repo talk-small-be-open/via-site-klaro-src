@@ -16,7 +16,7 @@ renderContentOn: html
 
 		script << play.
 		
-		html script: script
+		html scriptDefer: script
 	].
 
 	html div class: 'lottieAnimation';

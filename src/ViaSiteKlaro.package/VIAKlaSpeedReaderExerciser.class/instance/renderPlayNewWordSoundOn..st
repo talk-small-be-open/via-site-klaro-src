@@ -10,4 +10,4 @@ renderPlayNewWordSoundOn: html
 		soundName := soundName, '-', style.
 	].
 
-	html script: (html pixiSoundPlay id: soundName; volume: 0.5)
+	html scriptDefer: (html pixiSoundPlay id: soundName; volume: 0.5)

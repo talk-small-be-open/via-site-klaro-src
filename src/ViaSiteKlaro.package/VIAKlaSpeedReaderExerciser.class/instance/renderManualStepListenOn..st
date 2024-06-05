@@ -35,4 +35,4 @@ renderManualStepListenOn: html
 	].
 
 "Delay war störend	html script: ((self jsPlayCurrentTextThen: jsSoundFinished) setTimeout: 0.2 second)."
-	html script: (self jsPlayCurrentTextThen: jsSoundFinished)
+	html scriptDefer: (self jsPlayCurrentTextThen: jsSoundFinished)

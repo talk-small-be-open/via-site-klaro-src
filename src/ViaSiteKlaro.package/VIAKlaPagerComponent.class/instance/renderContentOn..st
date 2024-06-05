@@ -21,5 +21,5 @@ renderContentOn: html
 
 	].
 
-	"current page ajax reloader"
+	"define current page ajax reloader JS function"
 	html script: (self jsCurrentPageReloaderOn: html)

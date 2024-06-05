@@ -11,4 +11,4 @@ renderPageContentOn: html
 			html span class: 'standardButton'; sT: 'reward:goAhead' ] ].
 	
 	
-	html script: (html pixiSoundPlay id: 'reward'; volume: 1)
+	html scriptDefer: (html pixiSoundPlay id: 'reward'; volume: 1)
