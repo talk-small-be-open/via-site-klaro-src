@@ -7,6 +7,8 @@ renderAutomaticStarterOverlayOn: html
 			class: 'automaticStarter';
 			with: [ 
 				html div: [
+					html iconAutomaticMode ].
+				html div: [
 					html div: 'START'.
 					html imgSignPlayGross.
 				] ]

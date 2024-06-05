@@ -13,7 +13,7 @@ jsPlayCurrentTextThen: aJsCallbackScript
 
 		js := JSScript new.
 		
-		playIt := (js pixiSoundPlay audioAsset: audio).
+		playIt := (js pixiSoundPlay audioAsset: audio; fullVolume).
 
 		aJsCallbackScript ifNotBlank: [ playIt onComplete: aJsCallbackScript ].
 		

@@ -42,7 +42,7 @@ var station, kreis, svgPath;
 			
 			"Build JS to get to station, either with animated witch or directly"
 			
-			jsUnlockSoundApi := JSStream new. "js pixiSoundPlay id: 'button-click'."
+			jsUnlockSoundApi := JSStream new. "Not needed. Audio unlock is in main JS: js pixiSoundPlay id: 'button-click'; volume: 0.3."
 			jsStoreScrollPosition := 'saveScroll("klaroNavigatorPage")' asJsStream.
 			jsGotoStation := (self pager jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: js).
 			

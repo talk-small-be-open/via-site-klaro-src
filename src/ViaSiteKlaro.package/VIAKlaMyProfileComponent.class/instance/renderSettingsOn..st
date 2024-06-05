@@ -14,10 +14,10 @@ renderSettingsOn: html
 		html div with: [
 			html submitButton
 				callback: [ self saveAndClose ];
-				t: 'form:save'.
+				t: 'general:save'.
 			html anchorButton
-				callback: [ self close ];
-				t: 'general:close'
+				callback: [ self cancel ];
+				t: 'general:cancel'
 	
 		]
 	]

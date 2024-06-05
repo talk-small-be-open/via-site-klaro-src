@@ -28,6 +28,7 @@ loginWithCode
 		
 		self session
 			loginUser: user remember: true;
+			loginMethod: 'hep-coupon';
 			externalUser: nil.
 
 		"The parent component will then do the steps for reload the app and login, if this component answers"
