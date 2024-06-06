@@ -2,6 +2,7 @@ rendering
 renderPageContentOn: html
 
 "	self renderTopbarOn: html."
+self trace: 'render!'.
 
 	html render: self lottieAnimation.
 	
@@ -11,4 +12,4 @@ renderPageContentOn: html
 			html span class: 'standardButton'; sT: 'reward:goAhead' ] ].
 	
 	
-	html scriptDefer: (html pixiSoundPlay id: 'reward'; volume: 1)
+"	html scriptDefer: (html pixiSoundPlay soundFile: 'zauber'; volume: 1)"

@@ -20,6 +20,12 @@ renderContentOn: html
 	
 	script := JSScript new.
 	script << (self jsPreparePageOn: html).
+	
+	"For a simple-rendering page, we suppress an update here again, since
+	the standard rendering above will be enough"
+	self isSimpleRendering ifFalse: [
+		script << (self jsUpdatePageOn: html).
+	].
 
 	isCurrent ifTrue: [
 		script << (self jsOnShowPageOn: html) ].

@@ -1,6 +1,7 @@
 rendering
 renderPageContentOn: html
 
+
 	self renderTopbarOn: html.
 
 	moduleExercise ifNil: [ ^ self ].

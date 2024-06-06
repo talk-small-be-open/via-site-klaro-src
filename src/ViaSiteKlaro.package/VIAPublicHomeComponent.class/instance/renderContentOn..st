@@ -1,8 +1,9 @@
 rendering
 renderContentOn: html
 	html div class: 'narrowContainer'; with: [
-		html div class: 'klaroLogo'; with: [
-			html logoKlaro ].
+		html div class: 'logos'; with: [
+			html logoKlaro.
+"too much			html logoHep" ].
 		
 		html div class: 'klaroBanner'; with: [
 	"		html lottiePlayer

@@ -19,6 +19,15 @@ renderContentOn: html
 		html scriptDefer: script
 	].
 
+	animation hasStartSoundFile ifTrue: [
+		| script |
+		script := JSScript new.
+		script << (html pixiSoundAdd soundFile: animation startSoundFile).
+		script << (html pixiSoundPlay soundFile: animation startSoundFile).
+		html scriptDefer: script
+	].
+
+
 	html div class: 'lottieAnimation';
 "		class: 'lottieAnimation';"
 		class: animation animationName;

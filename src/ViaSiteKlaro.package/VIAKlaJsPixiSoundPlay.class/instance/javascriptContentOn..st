@@ -3,7 +3,7 @@ javascriptContentOn: aStream
 	| args options |
 		
 	"See https://pixijs.io/sound/docs/PlayOptions.html"
-	options := { #loop->loop. #singleInstance->true. #volume->volume } aD.
+	options := { #loop->loop. "#singleInstance->true." #volume->volume } aD.
 		
 	onComplete ifNotBlank: [ options at: #complete put: onComplete asFunction ].
 	

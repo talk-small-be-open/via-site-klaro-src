@@ -2,10 +2,10 @@ rendering
 renderContentOn: html
 
 	"Add some sounds globally"
-	html script: (
-		(html pixiSoundAdd id: 'swipe'; url: '/site/sounds/516704_Uebergang.m4a'),
-		(html pixiSoundAdd id: 'button-click'; url: '/site/sounds/button-click.wav'),
-		(html pixiSoundAdd id: 'reward'; url: '/site/sounds/379993_Zauber.m4a')
+	html scriptDefer: (
+		(html pixiSoundAdd preload: true; soundFile: 'uebergang'),
+		(html pixiSoundAdd preload: true; soundFile: 'button-click')
+"		(html pixiSoundAdd soundFile: 'zauber')"
 	).
 
 

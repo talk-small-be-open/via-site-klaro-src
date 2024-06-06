@@ -26,7 +26,7 @@ renderPageContentOn: html
 		stage attributeAt: 'viewBox' put: '300 0 767.41 2823.44' ].
 
 
-	html scriptDefer: (html pixiSoundAdd id: 'background-melody'; url: '/site/sounds/Klaro-Musik_Loop3_lang.m4a').
+	html scriptDefer: (html pixiSoundAdd soundFile: 'klaro-musik').
 	
 	self renderBetatestOn: html with: [
 		"TODO, wegnehmen, nur DEV"

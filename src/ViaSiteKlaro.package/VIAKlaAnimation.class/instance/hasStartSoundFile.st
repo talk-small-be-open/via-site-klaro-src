@@ -1,0 +1,3 @@
+testing
+hasStartSoundFile
+	^ startSoundFile notBlank

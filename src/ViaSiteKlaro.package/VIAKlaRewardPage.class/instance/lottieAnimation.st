@@ -1,9 +1,10 @@
 accessing
 lottieAnimation
 	lottieAnimation ifNil: [
-		| animationName |
+		| animationName animationObject |
 		animationName := 'Hexenhaus_', self rewardNumber asTwoCharacterString.
-		lottieAnimation := VIAKlaLottieAnimationViewer animation: (VIAKlaAnimation named: animationName).
+		animationObject := (VIAKlaAnimation named: animationName) startSoundFile: 'zauber'; yourself.
+		lottieAnimation := VIAKlaLottieAnimationViewer animation: animationObject.
 		lottieAnimation autoClose: false.
 	].
 	

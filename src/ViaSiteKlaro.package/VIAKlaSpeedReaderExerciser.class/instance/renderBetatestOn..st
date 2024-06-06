@@ -7,4 +7,6 @@ renderBetatestOn: html
 		html anchor callback: [ self gotoModeAutomatic ]; with: 'Goto-Auto'.
 		html space.
 		html anchor callback: [ self betatestFakeAllDone ]; with: 'All-Done'.
+		html space.
+		html anchor callback: [ self betatestFake99Done ]; with: '99%-Done'.
 	].

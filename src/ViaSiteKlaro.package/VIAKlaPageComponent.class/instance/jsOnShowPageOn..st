@@ -1,3 +1,3 @@
 as yet unclassified
 jsOnShowPageOn: js
-	^ self jsUpdatePageOn: js
+	^ JSStream new "self jsUpdatePageOn: js"

@@ -9,6 +9,7 @@
 		"animationName",
 		"cssClass",
 		"backgroundAudioAsset",
+		"startSoundFile",
 		"loop",
 		"autoPlay"
 	],

@@ -18,7 +18,8 @@ uiGotoPage: aPage transition: aTransitionName
 		After that, change the page in the UI
 		"
 		js << (oldPage jsOnHidePageOn: js).
-		js << (js pixiSoundPlay id: 'swipe'; volume: 0.1).
+		js << (js pixiSoundPlay soundFile: 'uebergang'; volume: 0.1).
+		js << (aPage jsUpdatePageOn: js).
 		js << (aPage jsOnShowPageOn: js).
 		js << ((JSStream on: 'window') call: 'pager_gotoPage' withArguments: {'#', htmlId. '#', aPage htmlId. isUiBackwards. transition }).
 

@@ -2,8 +2,6 @@ as yet unclassified
 jsOnShowPageOn: js
 	| script number promiseScript |
 	script := JSScript new.
-	
-	script << (self jsUpdatePageOn: js).
 
 	"Scroll landscape smart, to the third last station.
 	OPTIMIZE: Does not really work stable. Maybe good enough?"
@@ -17,7 +15,7 @@ jsOnShowPageOn: js
 
 	"Start melody, if enabled"
 	self session soundMusicEnabled ifTrue: [
-		script << ((js pixiSoundPlay id: 'background-melody'; volume: 0.2; loop: true) setTimeout: 1000). ].
+		script << ((js pixiSoundPlay soundFile: 'klaro-musik'; volume: 0.2; loop: true) setTimeout: 1000). ].
 
 	promiseScript := JSStream new.
 	promiseScript
