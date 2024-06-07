@@ -1,4 +1,9 @@
 accessing
 updateCaches
 
-	plainText := textPillar pillarDocument text
+	| words |
+	plainText := textPillar pillarDocument text.
+	
+	words := (plainText findTokens: ' .!?').
+	longestWordSize := words ifEmpty: [ 0 ] ifNotEmpty: [
+		(words collect: [ :each | each size ]) max ]

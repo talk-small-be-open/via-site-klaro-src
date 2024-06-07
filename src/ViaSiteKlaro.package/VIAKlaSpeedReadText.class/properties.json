@@ -10,7 +10,8 @@
 		"speedReaderTaskBrick",
 		"styleName",
 		"textPillar",
-		"plainText"
+		"plainText",
+		"longestWordSize"
 	],
 	"name" : "VIAKlaSpeedReadText",
 	"type" : "normal"

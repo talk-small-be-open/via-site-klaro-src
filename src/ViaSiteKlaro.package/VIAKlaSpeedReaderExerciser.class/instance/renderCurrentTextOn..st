@@ -4,6 +4,7 @@ renderCurrentTextOn: html
 		html div
 			class: 'speedText';
 			class: 'long' if: self currentText characterCount > 20;
+			class: 'longWord' if: self currentText longestWordSize > 12;
 			with: [
 				html pillar: self currentText textPillar pillarDocument ].
 			
