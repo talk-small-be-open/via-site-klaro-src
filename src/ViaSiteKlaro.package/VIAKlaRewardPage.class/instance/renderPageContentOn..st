@@ -2,7 +2,6 @@ rendering
 renderPageContentOn: html
 
 "	self renderTopbarOn: html."
-self trace: 'render!'.
 
 	html render: self lottieAnimation.
 	
