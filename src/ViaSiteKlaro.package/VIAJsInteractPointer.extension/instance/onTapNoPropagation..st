@@ -1,3 +1,3 @@
 *ViaSiteKlaro
 onTapNoPropagation: aJavascript
-	self onTap: ('event.stopPropagation();' asJsStream, aJavascript)
+	self onTap: ('event.stopPropagation()' asJsStream, aJavascript)

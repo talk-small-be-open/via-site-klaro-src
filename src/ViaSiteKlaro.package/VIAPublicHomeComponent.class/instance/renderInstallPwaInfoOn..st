@@ -21,6 +21,6 @@ renderInstallPwaInfoOn: html
 					html logoKlaro.
 					html div class: 'info'; pT: 'publicHome:pleaseInstallAsPwa'.
 					html clickButton: ( 'localStorage.setItem("hidePwaInstallInfo", true);' asJsStream, (html jQuery id: id) hide )
-						with: [ html text: 'Hinweis nicht mehr anzeigen' ].
+						with: [ html sT: 'publicHome:hidePwaInstallInfo' ].
 
 	] ]

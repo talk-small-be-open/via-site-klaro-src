@@ -48,7 +48,7 @@ renderVideoOverlayOn: html
 				html div class: 'videoControls'; with: [
 					(html clickButton: 'event.stopPropagation(); introVideo.currentTime = introVideo.currentTime - 30;')
 						class: 'skipLeft';
-						with: [ html iconLeft; space; text: '30s' ].
+						with: [ html iconLeft; space; sT: 'introduction:skipLeft' ].
 
 	"				(html clickAnchor: 'event.stopPropagation(); introVideo.play();')
 						class: 'play';
@@ -59,7 +59,7 @@ renderVideoOverlayOn: html
 					(html clickButton: 'event.stopPropagation(); introVideo.currentTime = introVideo.currentTime + 30;')
 						class: 'skipRight';
 						with: [
-							html text: '30s'; space; iconRight ].
+							html sT: 'introduction:skipRight'; space; iconRight ].
 				].
 
 
