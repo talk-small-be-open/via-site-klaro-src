@@ -16,7 +16,7 @@ renderTask: aTask on: html
 			out: 'appear'
 			callback: [ :page | page gotoTaskExercise: taskExercise ]
 			on: html
-			with: [ self renderTaskPanel: aTask class: nil on: html ]
+			with: [ self renderTaskPanel: aTask class: 'enabled' on: html ]
 	] ifFalse: [
 		self renderTaskPanel: aTask class: 'disabled' on: html
 	]
