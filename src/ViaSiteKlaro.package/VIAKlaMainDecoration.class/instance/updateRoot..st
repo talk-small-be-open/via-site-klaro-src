@@ -53,3 +53,11 @@ updateRoot: anHtmlRoot
 	anHtmlRoot javascript url: '/site/js/pixi/pixi.min.js'.
 	anHtmlRoot javascript url: '/site/js/pixi/pixi-sound.js'.
 
+	"Preloading school font, avoid initial flicker"
+	anHtmlRoot link
+		relationship: 'preload';
+		attributeAt: 'as' put: 'font';
+		attributeAt: 'crossorigin' put: 'anonymous';
+		type: 'font/woff2' seasideMimeType;
+		url: '/site/css/fonts/DCH-Basisschrift.woff2'.
+		

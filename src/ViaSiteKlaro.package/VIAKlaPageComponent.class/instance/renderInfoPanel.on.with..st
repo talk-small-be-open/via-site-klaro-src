@@ -10,6 +10,7 @@ renderInfoPanel: aButtonRenderable on: html with: aRenderable
 		id: id;
 		class: 'infoPanel';
 		style: 'display:none';
+		script: (html jQuery this appendTo: (html jQuery id: htmlId)); "Move to top level in DOM inside the container"
 		with: [
 			html div
 				class: 'infoPanelContent';

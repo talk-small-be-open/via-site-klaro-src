@@ -9,8 +9,16 @@ jsPagerAction: aCallbackBlock
 		
 	^ self jQuery ajax
 		script: [ :js |
+			| promiseThen |
+			
 			aCallbackBlock value.
-			js << (JSStream on: 'pager_reloadCurrentPage()').
-			self session jsUiInstructionsOn: js.
+			
+			"Postpone all JS after the page has been reloaded (async ajax)"
+			promiseThen := JSFunction context: js renderContext.
+			self session jsUiInstructionsOn: promiseThen.
+			
+			js << (((JSStream on: 'pager_reloadCurrentPage()') call: 'then' with: promiseThen)
+				call: 'catch' with: 'javascriptErrorStandardBehaviour();' asFunction).
+"			self session jsUiInstructionsOn: js."
 		];
 		onError: 'javascriptErrorStandardBehaviour();'
