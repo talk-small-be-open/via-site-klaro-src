@@ -35,24 +35,24 @@ renderContentOn: html
 						html textInput
 							on: #code1 of: self;
 							class: 'part1';
-							script: (html jQuery this triggerFocus);
+"							script: (html jQuery this triggerFocus);"
 							noAuto;
 	"						pattern: '[a-zA-Z]+';"
-							placeholder: 'abc'.
+							placeholder: 'abc...'.
 						html span: [html html: '&mdash;'].
 						html textInput
 							on: #code2 of: self;
 							class: 'part2';
 							noAuto;
 	"						pattern: '[0-9]{2}';"
-							placeholder: '12'.
+							placeholder: '12...'.
 						html span: [html html: '&mdash;'].
 						html textInput
 							class: 'part3';
 							on: #code3 of: self;
 							noAuto;
 	"						pattern: '[a-zA-Z]+';"
-							placeholder: 'def' ].
+							placeholder: 'def...' ].
 					
 					html submitButton
 						class: 'submitCoupon';

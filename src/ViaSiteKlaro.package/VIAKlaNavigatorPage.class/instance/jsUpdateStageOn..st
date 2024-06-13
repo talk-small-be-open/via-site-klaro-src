@@ -1,6 +1,8 @@
 rendering
 jsUpdateStageOn: js
-	| updateScript number id |
+	| updateScript number id houseIsHidden |
+	
+	houseIsHidden := true.
 	
 	updateScript := JSScript new.
 
@@ -89,10 +91,14 @@ var station, kreis, svgPath;
 		].
 	
 		"Hide/show the house partials"
-		houseClass := each isFinished ifTrue: [ 'moduleFinished' ]. "ifFalse: [ 'moduleNotFinished' ]"
+		houseClass := each isFinished ifTrue: [ houseIsHidden := false. 'moduleFinished' ]. "ifFalse: [ 'moduleNotFinished' ]"
 		houseClass ifNotBlank: [
 			updateScript << ((js jQuery id: ('Haus_', num)) addClass: houseClass) ].
 	
+	].
+
+	houseIsHidden ifFalse: [
+			updateScript << ((js jQuery id: 'Schild') hide).
 	].
 
 	^ updateScript

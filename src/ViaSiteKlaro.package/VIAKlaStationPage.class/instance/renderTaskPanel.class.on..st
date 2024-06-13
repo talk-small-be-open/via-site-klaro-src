@@ -22,23 +22,33 @@ renderTaskPanel: aTask class: aClassString on: html
 								html pillar: aTask teacherNotesPillar ] ] ] ]
 				].
 				html div: [
-					"Am Arbeiten oder fertig gearbeitet"
-					taskExercise isDone ifTrue: [
-"									html span class: 'progress'; with: [ html iconProgressFromPercent: 100 ]."
-						html span class: 'actionSymbol'; with: [
-							html imgSignRepeatManual.
 
-							html
-								clickSpan: (self pager jsGotoPage: 'exercise' callback: [ :page | page gotoTaskExercise: taskExercise auto: true ] on: html)
-								with: [
-									isNextTask ifTrue: [
-										html span
-											class: 'actionSymbol';
-											class: 'nextTask' if: isNextTask;
-											with: [ html imgSignRightShort ]
-									] ifFalse: [
-										html imgSignRepeatAutomatic
-									].
+					| percent doneManual |
+					percent := taskExercise percentFinished.
+						
+					doneManual := percent >=50.
+"					doneAutomatic := percent >=100."
+					
+					"Am Arbeiten oder fertig gearbeitet"
+					doneManual ifTrue: [
+						html span class: 'actionSymbol'; with: [
+							isNextTask ifTrue: [
+								html
+									clickSpan: (self pager jsGotoPage: 'exercise' callback: [ :page | page gotoTaskExercise: taskExercise auto: false ] on: html)
+									with: [ html imgSignRepeatManual ]
+							] ifFalse: [ html imgSignRepeatManual ].
+
+							isNextTask ifTrue: [
+								html span
+									class: 'actionSymbol';
+									class: 'nextTask' if: isNextTask;
+									with: [ html imgSignRightShort ]
+							] ifFalse: [
+								html
+									clickSpan: (self pager jsGotoPage: 'exercise' callback: [ :page | page gotoTaskExercise: taskExercise auto: true ] on: html)
+									with: [
+											html imgSignRepeatAutomatic
+										].
 							].
 						].
 					] ifFalse: [
