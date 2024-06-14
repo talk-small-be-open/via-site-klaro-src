@@ -5,8 +5,8 @@ stepTimerMilliseconds
 	factor := 1.
 	limit := 1000.
 
-	"Timer is AFTER audio has played. So its more a pause-timer. 1 sec"
-	self isStepListen ifTrue: [ ^ 1000 ].
+	"Timer is AFTER audio has played. So its more a pause-timer. 0 = no timer, a bit DIRTY"
+	self isStepListen ifTrue: [ ^ 0 ].
 
 	self isStepRead ifTrue: [
 		

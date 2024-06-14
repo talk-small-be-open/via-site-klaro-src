@@ -5,10 +5,14 @@ betatestFake99Done
 		| answerOfText |
 
 		answerOfText := (self exercise answerOf: each) value.
-		answerOfText beDoneManual.
-		answerOfText beDoneAutomatic.
 		
+		self isModeManual ifTrue: [
+			answerOfText beDoneManual ].
+		self isModeAutomatic ifTrue: [
+			answerOfText beDoneAutomatic ].
 	].
+
+	self implicitCheckTask.
 
 	currentTextNumber := self maxTextNumber - 1.
 	self gotoStepListen.

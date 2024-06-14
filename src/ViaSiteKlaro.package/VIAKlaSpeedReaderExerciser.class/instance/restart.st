@@ -1,3 +1,5 @@
 actions
 restart
-	self gotoModeManual
+	self gotoModeManual.
+	
+	self maybeShowIntroAudio.
