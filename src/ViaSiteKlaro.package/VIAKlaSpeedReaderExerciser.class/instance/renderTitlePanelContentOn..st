@@ -8,11 +8,11 @@ renderTitlePanelContentOn: html
 				with: [ html iconManualModeSwitch ].
 			self isSequenceNormal ifTrue: [
 				html anchor
-					callback: [ self beSequenceBlitz ];
+					callback: [ self gotoSequenceBlitz ];
 					with: [ html iconBlitzSequenceSwitch ]
 			] ifFalse: [
 				html anchor
-					callback: [ self beSequenceNormal ];
+					callback: [ self gotoSequenceNormal ];
 					with: [ html iconAutomaticModeSwitch ]
 			].
 				

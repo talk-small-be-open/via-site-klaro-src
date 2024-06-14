@@ -3,7 +3,7 @@ renderPlayNewWordSoundOn: html
 	| soundName |
 	
 	"no sound on first text"
-	self isFirstText ifTrue: [ ^ self ].
+"	self isFirstText ifTrue: [ ^ self ]."
 	
 	soundName := 'new-word'.
 	self currentText styleName ifNotBlank: [ :style |

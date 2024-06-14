@@ -1,3 +1,0 @@
-actions
-continueAutomaticTimer
-	isRunning := true

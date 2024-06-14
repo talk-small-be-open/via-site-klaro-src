@@ -4,7 +4,7 @@ renderContentOn: html
 	containerId := html nextId.
 	videoId := html nextId.
 
-	html script: ('screenWake_on();' asJsStream).
+	html scriptDefer: ('screenWake_on();' asJsStream).
 
 	html div
 		class: 'videoContainer';

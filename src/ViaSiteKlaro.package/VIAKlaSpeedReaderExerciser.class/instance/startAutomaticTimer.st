@@ -1,3 +1,0 @@
-actions
-startAutomaticTimer
-	self continueAutomaticTimer

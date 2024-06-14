@@ -31,10 +31,10 @@ renderAutomaticSpeedChooserOn: html
 
 	html div class: 'speedChooser'; with: [
 		html div
-			class: 'speed';
+			class: 'speed labeled left';
 			with: [
 				html pagerAction: [ self beSpeedSlow ] with: [
-					html span: 'langsam'.
+					html span class: 'label'; with: 'langsam'.
 					self isSpeedSlow ifTrue: [ html iconRadioButtonChecked ] ifFalse: [ html iconRadioButton ]
 				].
 			].
@@ -50,11 +50,11 @@ renderAutomaticSpeedChooserOn: html
 		html div class: 'line'.
 
 		html div
-			class: 'speed';
+			class: 'speed labeled right';
 			with: [
 				html pagerAction: [ self beSpeedFast ] with: [
 					self isSpeedFast ifTrue: [ html iconRadioButtonChecked ] ifFalse: [ html iconRadioButton ].
-					html span: 'schnell'.
+					html span class: 'label'; with: 'schnell'.
 				].
 			].
 "		html div

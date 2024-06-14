@@ -29,7 +29,7 @@ renderVideoOverlayOn: html
 					class: 'continueButton';
 					with: [
 						html sT: 'introduction:continue' ]."
-				(html clickButton: 'event.stopPropagation(); introVideo.currentTime = 0; introVideo.play();')
+				(html clickSpanButton: 'introVideo.currentTime = 0; introVideo.play();' asJsStream)
 					class: 'playButton';
 					with: [
 						html span class: 'start'; sT: 'introduction:start'.
@@ -46,7 +46,7 @@ renderVideoOverlayOn: html
 						html iconRight ].
 
 				html div class: 'videoControls'; with: [
-					(html clickButton: 'event.stopPropagation(); introVideo.currentTime = introVideo.currentTime - 30;')
+					(html clickSpanButton: 'introVideo.currentTime = introVideo.currentTime - 30;' asJsStream)
 						class: 'skipLeft';
 						with: [ html iconLeft; space; sT: 'introduction:skipLeft' ].
 
@@ -56,7 +56,7 @@ renderVideoOverlayOn: html
 							html imgSignPlayGross ]."
 					html imgSignPlayGross.
 
-					(html clickButton: 'event.stopPropagation(); introVideo.currentTime = introVideo.currentTime + 30;')
+					(html clickSpanButton: 'introVideo.currentTime = introVideo.currentTime + 30;' asJsStream)
 						class: 'skipRight';
 						with: [
 							html sT: 'introduction:skipRight'; space; iconRight ].

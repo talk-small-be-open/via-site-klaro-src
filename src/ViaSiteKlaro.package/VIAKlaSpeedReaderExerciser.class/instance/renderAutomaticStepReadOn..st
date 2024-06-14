@@ -9,7 +9,7 @@ renderAutomaticStepReadOn: html
 	].
 
 	self renderMainPlayAreaOn: html with: [
-		self renderAutomaticStarterOverlayOn: html.
+"		self renderAutomaticStarterOverlayOn: html."
 
 		self renderCurrentTextOn: html.
 

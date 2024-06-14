@@ -3,6 +3,7 @@ initialize
 	super initialize.
 	gameBoardId := UUID new asString36.
 	hasPlayedIntroAudio := false.
+	isRunning := true.
 
 "	self beSpeedNormal.
 	self beSequenceNormal."
