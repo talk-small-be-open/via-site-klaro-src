@@ -11,7 +11,8 @@
 		"styleName",
 		"textPillar",
 		"plainText",
-		"longestWordSize"
+		"longestWordSize",
+		"wordsCount"
 	],
 	"name" : "VIAKlaSpeedReadText",
 	"type" : "normal"

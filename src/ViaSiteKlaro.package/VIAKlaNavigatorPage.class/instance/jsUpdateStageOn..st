@@ -13,14 +13,17 @@ var station, kreis, svgPath;
 	
 	"Place the witch to station number"
 	lastInWorkExercise ifNotNil: [
+		| pathId |
 		number := lastInWorkExercise module indexCode firstNumber asTwoCharacterString.
-		updateScript addLiteral: ('svgPath = SVG("#Pfad_zu_', number, '");').
+		pathId := 'Pfad_zu_', number.
+		updateScript addLiteral: ('svgPath = SVG("#', pathId, '");').
 		updateScript << ((js animeJs set: '#Hexe_Klara')
 			translateX: (JSStream on: 'svgPath.pointAt(svgPath.length()).x');
 			translateY: (JSStream on: 'svgPath.pointAt(svgPath.length()).y')
 		).
 "		updateScript << (((html jQuery id: 'Hexe_Klara') get: 0) call: 'scrollIntoView' with: {#block->'center'} aD )."
 "		updateScript << ((html jQuery id: htmlId) scrollTop: (((html jQuery id: 'Hexe_Klara') position access: 'top') + 20))."
+"		updateScript << (((js jQuery id: pathId) get: 0) call: 'scrollIntoView' with: {#block->'center'} aD )."
 	] ifNil: [
 		"Place the witch to start"
 		updateScript addLiteral: ('svgPath = SVG("#Pfad_zu_01");').
@@ -49,6 +52,10 @@ var station, kreis, svgPath;
 			jsGotoStation := (self pager jsGotoPage: 'station' callback: [ :page | page gotoModuleExercise: each ] on: js).
 			
 			isNewExercise ifTrue: [
+"				| jsScroll |
+				
+				jsScroll := (((js jQuery id: id) get: 0) call: 'scrollIntoView' with: { #block->'center' } aD)."
+
 				"The witch flying animation"
 				jsOnClick := jsUnlockSoundApi, jsStoreScrollPosition, (js animeJs
 					targets: '#Hexe_Klara';

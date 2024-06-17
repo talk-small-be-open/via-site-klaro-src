@@ -5,13 +5,13 @@ jsOnShowPageOn: js
 
 	"Scroll landscape smart, to the third last station.
 	OPTIMIZE: Does not really work stable. Maybe good enough?"
-	number := self currentExerciseNumber - 2.
-	number > 0 ifTrue: [
-		| id |
-		id := 'Station_', number asTwoCharacterString.
+"	number := self currentExerciseNumber - 2.
+	number > 0 ifTrue: ["
+"		| id |
+		id := 'Station_', number asTwoCharacterString."
 "		script << (((js jQuery id: id) get: 0) call: 'scrollIntoView' with: { #block->'center' } aD)."
-		script addLiteral: 'loadScroll("klaroNavigatorPage")'.
-	].
+"	]."
+	script addLiteral: 'loadScroll("klaroNavigatorPage");'.
 
 	"Start melody, if enabled"
 	self session soundMusicEnabled ifTrue: [

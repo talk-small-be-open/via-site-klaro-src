@@ -1,6 +1,6 @@
 rendering
 jsPrepareStageOn: js
-	| updateScript |
+	| updateScript stationId |
 
 	"Does some initial preparations of the base stage"
 	
@@ -26,8 +26,15 @@ kreisTemplate.attr("style", null);
 			updateScript addLiteral: ('station=SVG("#Kreis_gross_', num, '");').
 			updateScript addLiteral: ('kreisX=station.x() + station.width() + 4 + (', (index-1) asString,' * (kreisTemplate.width()+4));').
 			updateScript addLiteral: ('kreis=station.parent().put(kreisTemplate.clone()).x(kreisX).cy(station.cy());').
-			updateScript addLiteral: ('kreis.attr("id", "', kreisId, '")').
+			updateScript addLiteral: ('kreis.attr("id", "', kreisId, '");').
 		].
-	].	
+	].
+
+	"Scroll to about right position"
+	self isCurrent ifTrue: [
+		stationId := 'Station_', self currentExerciseNumber asTwoCharacterString.
+"		stationId := 'Station_10'."
+		updateScript addLiteral: ('presetScroll("klaroNavigatorPage", Math.trunc(SVG("#', stationId, '").y())-100);').
+	].
 
 	^ updateScript

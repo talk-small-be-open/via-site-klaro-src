@@ -1,7 +1,7 @@
 as yet unclassified
 jsOnHidePageOn: js
 	^ (self jsStopAllAnimationsOn: js),
-	('speedReaderTimer.stop();screenWake_off();' asJsStream),
+	('speedReaderTimer.forceAbort();screenWake_off();' asJsStream),
 	(self jsEmptyPageOn: js)
 	
 "	(((js jQuery id: htmlId) find: 'div.lottieAnimation') cssAt: 'visibility' put: 'hidden'),

@@ -12,7 +12,7 @@ loginWithCode
 	].
 
 	success ifTrue: [
-		(VIAKlaHepUser checkCouponValid: self couponCode) ifFalse: [ success := false. errorDetail := 'hep' ].
+		(VIAKlaHepUser checkCouponValid: self couponCode) ifFalse: [ success := false. errorDetail := nil. "'hep'" ].
 	].
 
 	success ifTrue: [
@@ -33,4 +33,13 @@ loginWithCode
 
 		"The parent component will then do the steps for reload the app and login, if this component answers"
 		self answer
-	] ifFalse: [ loginErrorMessage := ('publicHome:codeInvalid't), ' (', errorDetail, ')' ]
+	] ifFalse: [
+		loginErrorMessage := String streamContents: [ :s |
+			s << ('publicHome:codeInvalid't).
+			errorDetail ifNotBlank: [ :d |
+				s << ' ('.
+				s << d.
+				s << ')'.
+			]
+		]
+	]

@@ -14,16 +14,16 @@ renderPageContentOn: html
 		attributeAt: 'preserveAspectRatio' put: 'xMidYMin slice'; "cut off the invisible stuff in x-Axis"
 		attributeAt: 'data-svgloader-src' put: '/site/images/hexenweg.svg';
 		attributeAt: 'width' put: 'auto'; "auto is not allowed says Firefox, but without it will not scroll vertically?!"
-		attributeAt: 'height' put: '2823px';  "auto"
-		attributeAt: 'viewBox' put: '0 0 1367.41 2823.44';
+		attributeAt: 'height' put: 'auto';  "2783px | auto"
+		attributeAt: 'viewBox' put: '0 0 1367.41 2783';
 		yourself.
 
 	"768 breit = Zeichnungsgrund, ab x=300 "
 	"Pseudo-Responsive. Crop the image to the middle column"
 	self session isViewportSmall ifTrue: [
-		stage attributeAt: 'viewBox' put: '500 0 367.41 2823.44' ].
+		stage attributeAt: 'viewBox' put: '500 0 367.41 2783' ].
 	self session isViewportMedium ifTrue: [
-		stage attributeAt: 'viewBox' put: '300 0 767.41 2823.44' ].
+		stage attributeAt: 'viewBox' put: '300 0 767.41 2783' ].
 
 
 	html scriptDefer: (html pixiSoundAdd soundFile: 'klaro-musik').

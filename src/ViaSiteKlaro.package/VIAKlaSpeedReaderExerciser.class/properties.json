@@ -14,7 +14,9 @@
 		"isRunning",
 		"gameSequence",
 		"hasPlayedIntroAudio",
-		"automaticStarterActive"
+		"automaticStarterActive",
+		"isAnyLongWord",
+		"isAnySentence"
 	],
 	"name" : "VIAKlaSpeedReaderExerciser",
 	"type" : "normal"

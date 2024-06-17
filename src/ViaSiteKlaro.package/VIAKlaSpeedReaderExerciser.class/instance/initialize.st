@@ -5,6 +5,9 @@ initialize
 	hasPlayedIntroAudio := false.
 	isRunning := true.
 
+	isAnyLongWord := self allRegularTexts anySatisfy: [ :each | each longestWordSize >= 10 ]. "see also renderCurrentText"
+	isAnySentence := self allRegularTexts anySatisfy: [ :each | each wordsCount >= 2 ].
+			
 "	self beSpeedNormal.
 	self beSequenceNormal."
 
