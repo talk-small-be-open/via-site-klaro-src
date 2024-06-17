@@ -2,8 +2,8 @@ rendering
 renderPlayNewWordSoundOn: html
 	| soundName |
 	
-	"no sound on first text"
-"	self isFirstText ifTrue: [ ^ self ]."
+	"no sound on first text, if Manual"
+	(self isModeManual and: [ self isFirstText ]) ifTrue: [ ^ self ].
 	
 	soundName := 'new-word'.
 	self currentText styleName ifNotBlank: [ :style |
