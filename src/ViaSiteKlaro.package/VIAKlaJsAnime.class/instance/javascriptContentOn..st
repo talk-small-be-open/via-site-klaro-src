@@ -18,7 +18,9 @@ javascriptContentOn: aStream
 	].
 
 	"Per default we always use a timeline"
-	aStream nextPutAll: ('const ', timeline, '=anime.timeline();').
+	aStream nextPutAll: ('const ', timeline, '=anime.timeline(').
+	aStream javascript: timelineOptions.
+	aStream nextPutAll: (');').
 
 	aStream nextPutAll: timeline.
 

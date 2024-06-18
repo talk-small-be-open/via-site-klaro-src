@@ -5,8 +5,10 @@ stepTimerMilliseconds
 	factor := 1.
 	limit := 1000.
 
-	"Timer is AFTER audio has played. So its more a pause-timer. 0 = no timer, a bit DIRTY"
-	self isStepListen ifTrue: [ ^ 0 ].
+	"Timer is AFTER audio has played. So its more a pause-timer. 0 = no timer, a bit DIRTY.
+	But we need some tiny amount of ms, see JS timer method 'enabled'.
+	Will also be limited by the timers step which is minimum 250ms currently"
+	self isStepListen ifTrue: [ ^ 100 ].
 
 	self isStepRead ifTrue: [
 		

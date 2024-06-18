@@ -8,7 +8,8 @@
 	"instvars" : [
 		"options",
 		"paths",
-		"optionsCollection"
+		"optionsCollection",
+		"timelineOptions"
 	],
 	"name" : "VIAKlaJsAnime",
 	"type" : "normal"

@@ -1,3 +1,3 @@
 changing suspended state
 autoplay: aValue
-	self optionAt: 'autoplay' put: aValue
+	timelineOptions at: 'autoplay' put: aValue

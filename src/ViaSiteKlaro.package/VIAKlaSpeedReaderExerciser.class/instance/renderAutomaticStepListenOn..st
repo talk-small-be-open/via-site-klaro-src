@@ -29,7 +29,10 @@ renderAutomaticStepListenOn: html
 
 	"Start audio, timer, next page"
 	html scriptDefer: (
-		(self jsPlayCurrentTextThen: (JSStream on: 'speedReaderTimer.forceFinished();')) setTimeout: 1000
+"		(self jsPlayCurrentTextThen: (JSStream on: 'speedReaderTimer.forceFinished();')) setTimeout: 1000"
+		
+		"We need a tiny timer here, to allow for user pause"
+		(self jsPlayCurrentTextThen: (JSStream on: 'speedReaderTimer.autostart();')) setTimeout: 500
 	).
 
 	"Fallback: In case of audio not working, we go to the next step after 8 seconds or so"

@@ -1,6 +1,6 @@
 rendering
 jsPrepareStageOn: js
-	| updateScript stationId |
+	| updateScript stationId stationNumber |
 
 	"Does some initial preparations of the base stage"
 	
@@ -31,10 +31,12 @@ kreisTemplate.attr("style", null);
 	].
 
 	"Scroll to about right position"
-	self isCurrent ifTrue: [
-		stationId := 'Station_', self currentExerciseNumber asTwoCharacterString.
-"		stationId := 'Station_10'."
-		updateScript addLiteral: ('presetScroll("klaroNavigatorPage", Math.trunc(SVG("#', stationId, '").y())-100);').
+	stationNumber := self currentExerciseNumber.
+	stationNumber >= 3 ifTrue: [
+		self isCurrent ifTrue: [
+			stationId := 'Station_', stationNumber asTwoCharacterString.
+			updateScript addLiteral: ('presetScroll("klaroNavigatorPage", Math.trunc(SVG("#', stationId, '").y())-100);').
+		].
 	].
 
 	^ updateScript

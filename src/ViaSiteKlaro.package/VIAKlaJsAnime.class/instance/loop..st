@@ -1,3 +1,3 @@
 accessing
 loop: aBoolean
-	self optionAt: 'loop' put: aBoolean
+	timelineOptions at: 'loop' put: aBoolean
